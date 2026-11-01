@@ -56,7 +56,7 @@ body {
   object-fit: flexible;
   border-radius: 25px;
   
-  box-shadow: 0 0 20px rgba(62, 230, 166, 0.4);
+  box-shadow: 0 0 20px rgba(62, 219, 230, 0.4);
   transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
   animation: slideUp 0.8s ease backwards;
   position: relative;
@@ -65,7 +65,7 @@ body {
 
 .photos img:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 30px rgba(11, 13, 13, 0.7);
+  box-shadow: 0 0 30px rgba(86, 78, 241, 0.7);
   z-index: 10;
 }
 .card {

@@ -1,4 +1,4 @@
-﻿<!----website_generator.cpp
+<!----website_generator.cpp
 // A C++ program that creates a website (index.html) about C++ coding.
 // Browsers only understand HTML/CSS/JS, so this program WRITES that code to a file.
 //
@@ -147,13 +147,32 @@ nav a:hover::after { width: 100%; }
                          
                    
 
-                    footer {
-                        text-align: center;
-                        padding: 24px;
-                        background:  rgb(4, 74, 121);
-                        font-size: 0.9rem;
-                        color: rgb(212, 108, 33);
-                    }
+                  .back-wrap {
+  text-align: center;
+  margin: 28px 0;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 12px 28px;
+  background: rgba(4, 70, 98, 0.88);
+  color: var(--green);
+  text-decoration: none;
+  border: 1px solid var(--green);
+  border-radius: 28px;
+  font-family: Consolas, "Courier New", monospace;
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-link:hover {
+  background: rgb(160, 224, 138);
+  color: #0b0c0d;
+}
+
+.back-link:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
     
                 </style>
             </head>
@@ -319,7 +338,9 @@ int main (){
                     
                 </main>
                 <footer>END OF THE PAGE</footer>
-                <a href="index.html">return to first page;
+                <div class="back-wrap">
+  <a class="back-link" href="index.html">return to first page</a>
+</div>
                         <script>
         const canvas = document.getElementById('code-bg');
         const ctx = canvas.getContext('2d');

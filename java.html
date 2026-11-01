@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript structure and basic code</title>
+  <link rel="stylesheet" href="java.css">
+ 
+</head>
+<body>
+    <canvas id="code-bg"></canvas>
+  <header class="top">
+    <h1>JavaScript: structure and basic code</h1>
+    <p>Each topic shows the structure first, then a simple example.</p>
+  </header>
+
+  <div class="layout">
+    <nav class="menu" aria-label="Topics">
+      <a href="#setup">Add JS to a page</a>
+      <a href="#variables">Variables</a>
+      <a href="#types">Data types</a>
+      <a href="#operators">Operators</a>
+      <a href="#if">If / else</a>
+      <a href="#loops">Loops</a>
+      <a href="#functions">Functions</a>
+      <a href="#arrays">Arrays</a>
+      <a href="#objects">Objects</a>
+      <a href="#dom">DOM and events</a>
+    </nav>
+
+    <main>
+      <section id="setup">
+        <h2>Add JavaScript to a page</h2>
+        <p>JavaScript lives in its own file. Link it at the end of the body.</p>
+        <h3>Structure</h3>
+        <pre><code>&lt;script src="file-name.js"&gt;&lt;/script&gt;</code></pre>
+        <h3>Example</h3>
+        <pre><code>&lt;body&gt;
+  &lt;h1&gt;My page&lt;/h1&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+// script.js
+console.log("Hello, world!");</code></pre>
+      </section>
+
+      <section id="variables">
+        <h2>Variables</h2>
+        <p>A variable stores a value. Use <code>const</code> if it will not change, <code>let</code> if it will.</p>
+        <h3>Structure</h3>
+        <pre><code>const name = value;
+let name = value;</code></pre>
+        <h3>Example</h3>
+        <pre><code>const city = "Tashkent";
+let age = 20;
+age = 21;
+
+console.log(city, age);</code></pre>
+      </section>
+
+      <section id="types">
+        <h2>Data types</h2>
+        <p>The main types are text, numbers, true/false, and empty values.</p>
+        <h3>Structure</h3>
+        <pre><code>"text"        // string
+123           // number
+true / false  // boolean
+undefined     // no value yet
+null          // empty on purpose</code></pre>
+        <h3>Example</h3>
+        <pre><code>console.log(typeof "hello"); // string
+console.log(typeof 42);      // number
+console.log("JS".length);    // 2</code></pre>
+      </section>
+
+      <section id="operators">
+        <h2>Operators</h2>
+        <p>Operators do math and compare values. Use <code>===</code> to compare.</p>
+        <h3>Structure</h3>
+        <pre><code>+  -  *  /  %      // math
+===  !==  &gt;  &lt;  &gt;=  &lt;=   // compare
+&amp;&amp;  ||  !              // and, or, not</code></pre>
+        <h3>Example</h3>
+        <pre><code>console.log(10 + 5);    // 15
+console.log(10 % 3);    // 1
+console.log(5 === "5"); // false
+console.log(true &amp;&amp; false); // false</code></pre>
+      </section>
+
+      <section id="if">
+        <h2>If / else</h2>
+        <p>Run code only when a condition is true.</p>
+        <h3>Structure</h3>
+        <pre><code>if (condition) {
+  // runs if true
+} else if (otherCondition) {
+  // runs if the second is true
+} else {
+  // runs if nothing above is true
+}</code></pre>
+        <h3>Example</h3>
+        <pre><code>const score = 72;
+
+if (score &gt;= 90) {
+  console.log("Excellent");
+} else if (score &gt;= 60) {
+  console.log("Good");
+} else {
+  console.log("Keep practicing");
+}</code></pre>
+      </section>
+
+      <section id="loops">
+        <h2>Loops</h2>
+        <p>A loop repeats code.</p>
+        <h3>Structure</h3>
+        <pre><code>for (start; condition; step) {
+  // repeated code
+}
+
+while (condition) {
+  // repeated code
+}</code></pre>
+        <h3>Example</h3>
+        <pre><code>for (let i = 1; i &lt;= 3; i++) {
+  console.log("Round", i);
+}
+
+let count = 3;
+while (count &gt; 0) {
+  console.log(count);
+  count--;
+}</code></pre>
+      </section>
+
+      <section id="functions">
+        <h2>Functions</h2>
+        <p>A function is a reusable block of code. It can take inputs and return a result.</p>
+        <h3>Structure</h3>
+        <pre><code>function name(parameter1, parameter2) {
+  return result;
+}
+
+const name = (parameter) =&gt; result; // arrow function</code></pre>
+        <h3>Example</h3>
+        <pre><code>function add(a, b) {
+  return a + b;
+}
+
+const double = (n) =&gt; n * 2;
+
+console.log(add(2, 3));  // 5
+console.log(double(4));  // 8</code></pre>
+      </section>
+
+      <section id="arrays">
+        <h2>Arrays</h2>
+        <p>An array is an ordered list. The first position is 0.</p>
+        <h3>Structure</h3>
+        <pre><code>const list = [item1, item2, item3];
+
+list[0]            // read an item
+list.push(item)    // add to the end
+list.length        // how many items
+list.map(fn)       // change every item
+list.filter(fn)    // keep some items</code></pre>
+        <h3>Example</h3>
+        <pre><code>const fruits = ["apple", "banana", "cherry"];
+
+console.log(fruits[0]);
+fruits.push("mango");
+
+const big = fruits.filter(f =&gt; f.length &gt; 5);
+console.log(big);</code></pre>
+      </section>
+
+      <section id="objects">
+        <h2>Objects</h2>
+        <p>An object groups related data as key: value pairs.</p>
+        <h3>Structure</h3>
+        <pre><code>const object = {
+  key: value,
+  key: value,
+  method() {
+    // code
+  }
+};
+
+object.key</code></pre>
+        <h3>Example</h3>
+        <pre><code>const student = {
+  name: "Aziz",
+  course: "IT",
+  greet() {
+    return "Hi, I am " + this.name;
+  }
+};
+
+console.log(student.name);
+console.log(student.greet());</code></pre>
+      </section>
+
+      <section id="dom">
+        <h2>DOM and events</h2>
+        <p>JavaScript can find elements on the page, change them, and react to clicks.</p>
+        <h3>Structure</h3>
+        <pre><code>const element = document.getElementById("id");
+
+element.textContent = "new text";
+element.style.color = "red";
+
+element.addEventListener("click", function () {
+  // runs when clicked
+});</code></pre>
+        <h3>Example</h3>
+        <pre><code>&lt;button id="btn"&gt;Click me&lt;/button&gt;
+&lt;p id="msg"&gt;&lt;/p&gt;
+
+// script.js
+const btn = document.getElementById("btn");
+const msg = document.getElementById("msg");
+
+btn.addEventListener("click", () =&gt; {
+  msg.textContent = "Button clicked!";
+});</code></pre>
+      </section>
+    </main>
+  </div>
+  <script>
+  const canvas = document.getElementById('code-bg');
+  const ctx = canvas.getContext('2d');
+  const symbols = '{}[]()<>/\\;:=+-*&|!?#$%01'.split('');
+  const size = 16;
+  let drops = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const columns = Math.floor(canvas.width / size);
+    drops = Array.from({ length: columns }, () => Math.random() * canvas.height / size);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    // Semi-transparent background creates the fading trail
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.1)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#00ff9c';
+    ctx.font = size + 'px monospace';
+
+    drops.forEach((y, i) => {
+      const char = symbols[Math.floor(Math.random() * symbols.length)];
+      ctx.fillText(char, i * size, y * size);
+
+      if (y * size > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    });
+  }
+
+  setInterval(draw, 50);
+</script>
+                <footer>END OF THE PAGE</footer>
+                <div class="back-wrap">
+  <a class="back-link" href="index.html">return to first page</a>
+</div>
+</body>
+</html>

@@ -131,3 +131,37 @@ pre code {
   padding: 0;
   font-family: Consolas, monospace;
 }
+.back-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 28px 0;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #0b4a6b;
+  color: #7df2b6;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #7df2b6;
+  border-radius: 28px;
+  font-family: Consolas, "Courier New", monospace;
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-link:hover {
+  background: #7df2b6;
+  color: #0d1117;
+}
+
+.back-link:focus-visible {
+  outline: 2px solid #7df2b6;
+  outline-offset: 3px;
+}
+
+footer p {
+  text-align: center;
+  margin: 0;
+}

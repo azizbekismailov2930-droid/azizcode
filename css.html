@@ -43,10 +43,31 @@ section {
   border-radius: 8px;
 }
 
-footer {
+.back-wrap {
   text-align: center;
-  padding: 15px;
-  color: #aaa;
+  margin: 28px 0;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 12px 28px;
+  background: rgba(93, 186, 226, 0.88);
+  color: var(--green);
+  text-decoration: none;
+  border: 1px solid var(--green);
+  border-radius: 28px;
+  font-family: Consolas, "Courier New", monospace;
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-link:hover {
+  background: rgb(118, 238, 182);
+  color: #05070a;
+}
+
+.back-link:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
 }
 
   header {
@@ -291,6 +312,8 @@ footer {
 
     setInterval(draw, 50);
   </script>
-  <a href="index.html">RETURN FIRST PAGE</a>
+  <div class="back-wrap">
+  <a class="back-link" href="index.html">return to first page</a>
+</div>
 </body>
 </html>

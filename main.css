@@ -292,3 +292,20 @@ body {
   box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
   
 }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+div {
+  max-width: 100%;
+}

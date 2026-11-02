@@ -1,36 +1,168 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AZIZBEK | IT DEVELOPER</title>
+  <title>Main Page</title>
   <meta name="author" content="azizbek ismailov kaxramanovich">
-  <link rel="stylesheet"  href="main.css">
-  <!-- NEW: modern styles (put these two files in the css folder) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/modern-additions.css">
   <link rel="stylesheet" href="css/modern-elements.css">
-  <div class="photos">
-  <img src="azizbek.png" alt="its me">
-  <link href="script.js">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="java.html">
-  </div>
-  
-    <style>
-        #google_language_change {
-            position: fixed;
-            top: 30px;
-            right: 10px;
-            z-index: 9999;
-            background: rgb(23, 175, 236);
-            padding: 5px 8px;
-            border-radius: 16px;
-            box-shadow: 0 2px 6px rgba(232, 9, 9, 0.2);
-        }
-    </style>
+
+  <style>
+    #google_language_change {
+      position: fixed;
+      top: 30px;
+      right: 10px;
+      z-index: 9999;
+      background: rgb(23, 175, 236);
+      padding: 5px 8px;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(232, 9, 9, 0.2);
+    }
+
+    /* STACKING CARD ANIMATION */
+    .stack-wrapper {
+      position: relative;
+      width: min(90%, 900px);
+      margin: 100px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      padding-bottom: 20vh;
+    }
+
+    .stack-card {
+      position: sticky;
+      top: 100px;
+      min-height: 430px;
+      padding: 45px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #17152e, #25204a);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      color: white;
+      transform: translateY(0);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .stack-card:nth-child(1) {
+      top: 100px;
+      z-index: 1;
+    }
+
+    .stack-card:nth-child(2) {
+      top: 120px;
+      z-index: 2;
+    }
+
+    .stack-card:nth-child(3) {
+      top: 140px;
+      z-index: 3;
+    }
+
+    .stack-card h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin: 20px 0;
+    }
+
+    .stack-card p {
+      line-height: 1.7;
+    }
+
+    .stack-number {
+      color: #5ddcff;
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .stack-card .skill {
+      margin-top: 22px;
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      height: 9px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      width: var(--value);
+      background: linear-gradient(90deg, #00c6ff, #8b5cf6);
+      border-radius: 20px;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 0;
+      margin-top: 25px;
+    }
+
+    .timeline li {
+      border-left: 2px solid #5ddcff;
+      padding: 0 0 20px 22px;
+      margin-left: 5px;
+    }
+
+    .timeline time {
+      color: #5ddcff;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .timeline h3 {
+      margin: 8px 0;
+    }
+
+    .stack-card ul {
+      line-height: 2;
+    }
+
+    @media (max-width: 600px) {
+      .stack-wrapper {
+        width: 92%;
+        gap: 20px;
+      }
+
+      .stack-card {
+        top: 80px;
+        min-height: 450px;
+        padding: 25px;
+      }
+
+      .stack-card:nth-child(1) {
+        top: 80px;
+      }
+
+      .stack-card:nth-child(2) {
+        top: 100px;
+      }
+
+      .stack-card:nth-child(3) {
+        top: 120px;
+      }
+    }
+  </style>
+</head>
+
 <body>
 
-  <!-- NEW: navigation bar -->
+  <div class="photos">
+    <img src="azizbek.png" alt="its me">
+  </div>
+
   <nav class="nav">
     <a class="logo" href="#top">AZIZBEK</a>
     <ul>
@@ -41,168 +173,293 @@
     </ul>
   </nav>
 
-  <!-- NEW: hero headline -->
   <header class="hero" id="top">
     <h1>I build websites and programs.</h1>
     <p>IT student learning HTML, CSS, JavaScript and C++ one project at a time.</p>
   </header>
-  
+
   <div class="card">
-    
     <h2><i>IT digital college student</i></h2>
     <h2><i>learning C++/HTML/CSS/JavaScript</i></h2>
-    <h2> <i> Lets practise and learn with me</i></h2>
+    <h2><i>Lets practise and learn with me</i></h2>
   </div>
-     <div class="sticker html a1">HTML</div>
-  </div>
- <div class="sticker html a1">HTML</div>
-  <div class="sticker css  a2">CSS</div>
-  <div class="sticker cpp  a3">C++</div>
-  <div class="sticker html a4">HTML</div>
-  <div class="sticker css  a5">CSS</div>
-  <div class="sticker cpp  a6">C++</div>
-  <div class="sticker html a7">HTML</div>
-  <div class="sticker css  a8">CSS</div>
-  <div class="sticker cpp  a9">C++</div>  
-  <div class="sticker cpp  a10">CSS</div>
-  <div class="sticker html a11">HTML</div>  
 
-  <!-- NEW: title above the skill cards -->
+  <!-- FLOATING STICKERS -->
+  <div class="sticker html a1">HTML</div>
+  <div class="sticker css a2">CSS</div>
+  <div class="sticker cpp a3">C++</div>
+  <div class="sticker html a4">HTML</div>
+  <div class="sticker css a5">CSS</div>
+  <div class="sticker cpp a6">C++</div>
+  <div class="sticker html a7">HTML</div>
+  <div class="sticker css a8">CSS</div>
+  <div class="sticker cpp a9">C++</div>
+  <div class="sticker cpp a10">CSS</div>
+  <div class="sticker html a11">HTML</div>
+
+  <!-- SKILLS -->
   <h2 class="section-title" id="skills">What I'm learning</h2>
 
   <div class="cards">
 
- <div class="cards">
+    <div class="mini-card">
+      <div class="badge cpp-b">C++</div>
+      <span class="tag">LANGUAGE</span>
+      <h4>C++</h4>
+      <p>Basics and practice</p>
+      <a href="HTMLPage1.html" class="open-btn">OPEN SECTION</a>
+    </div>
 
-  <div class="mini-card">
-    <div class="badge cpp-b">C++</div>
-    <span class="tag">LANGUAGE</span>
-    <h4>C++</h4>
-    <p>Basics and practice</p>
-    <a href="HTMLPage1.html" class="open-btn">OPEN SECTION</a>
+    <div class="mini-card">
+      <div class="badge html-b">HTML</div>
+      <span class="tag">STRUCTURE</span>
+      <h4>HTML</h4>
+      <p>Pages and elements</p>
+      <a href="html.html" class="open-btn">OPEN SECTION</a>
+    </div>
+
+    <div class="mini-card">
+      <div class="badge css-b">CSS</div>
+      <span class="tag">STYLE</span>
+      <h4>CSS</h4>
+      <p>Colors and layout</p>
+      <a href="css.html" class="open-btn">OPEN SECTION</a>
+    </div>
+
+    <div class="mini-card">
+      <div class="badge js-b">JS</div>
+      <span class="tag">LOGIC</span>
+      <h4>JavaScript</h4>
+      <p>Structure and basic code</p>
+      <a href="java.html" class="open-btn">OPEN SECTION</a>
+    </div>
+
   </div>
 
-  <div class="mini-card">
-    <div class="badge html-b">HTML</div>
-    <span class="tag">STRUCTURE</span>
-    <h4>HTML</h4>
-    <p>Pages and elements</p>
-    <a href="html.html" class="open-btn">OPEN SECTION</a>
-  </div>
+  <!-- WEBSITE DEVELOPMENT INFORMATION -->
+  <section class="website-section" id="projects">
 
-  <div class="mini-card">
-    <div class="badge css-b">CSS</div>
-    <span class="tag">STYLE</span>
-    <h4>CSS</h4>
-    <p>Colors and layout</p>
-    <a href="css.html" class="open-btn">OPEN SECTION</a>
-  </div>
+    <h2 class="section-title">How Websites Are Created</h2>
 
-  <div class="mini-card">
-    <div class="badge js-b">JS</div>
-    <span class="tag">LOGIC</span>
-    <h4>JavaScript</h4>
-    <p>Structure and basic code</p>
-    <a href="java.html" class="open-btn">OPEN SECTION</a>
-  </div>
+    <p class="website-intro">
+      Creating a website is a process that combines creativity,
+      design and programming. Here are the main steps.
+    </p>
 
-</div>
+    <div class="website-grid">
 
-  <!-- NEW: closes the extra <div class="cards"> opened twice above,
-       so the new sections below are not placed inside it -->
-  </div>
-
-  <!-- NEW: skill levels (change --value to set each level) -->
-  <section class="section reveal">
-    <h2 class="section-title">Skill levels</h2>
-    <div style="margin-top: 30px;">
-      <div class="skill">
-        <div class="skill-top"><span>HTML</span><span>70%</span></div>
-        <div class="bar"><i style="--value: 70%"></i></div>
+      <div class="website-block">
+        <span class="website-number">01</span>
+        <div class="website-icon">💡</div>
+        <h3>Planning and Ideas</h3>
+        <p>
+          Every website starts with an idea. First, we decide
+          the website's purpose, target audience and content.
+          Planning helps us create a clear structure.
+        </p>
+        <span class="website-tag">CREATIVE THINKING</span>
       </div>
-      <div class="skill">
-        <div class="skill-top"><span>CSS</span><span>55%</span></div>
-        <div class="bar"><i style="--value: 55%"></i></div>
+
+      <div class="website-block">
+        <span class="website-number">02</span>
+        <div class="website-icon">🏗️</div>
+        <h3>HTML – Website Structure</h3>
+        <p>
+          HTML creates the structure of a website. It adds
+          headings, paragraphs, images, links, buttons,
+          forms and other important elements.
+        </p>
+        <span class="website-tag">HTML5</span>
       </div>
-      <div class="skill">
-        <div class="skill-top"><span>JavaScript</span><span>35%</span></div>
-        <div class="bar"><i style="--value: 35%"></i></div>
+
+      <div class="website-block">
+        <span class="website-number">03</span>
+        <div class="website-icon">🎨</div>
+        <h3>CSS – Website Design</h3>
+        <p>
+          CSS makes websites attractive. We use colors,
+          fonts, backgrounds, animations, layouts and
+          responsive design to improve the appearance.
+        </p>
+        <span class="website-tag">CSS3</span>
       </div>
-      <div class="skill">
-        <div class="skill-top"><span>C++</span><span>40%</span></div>
-        <div class="bar"><i style="--value: 40%"></i></div>
+
+      <div class="website-block">
+        <span class="website-number">04</span>
+        <div class="website-icon">⚡</div>
+        <h3>JavaScript – Interactivity</h3>
+        <p>
+          JavaScript makes websites interactive. It allows
+          buttons, menus, sliders, animations and forms
+          to respond to user actions.
+        </p>
+        <span class="website-tag">JAVASCRIPT</span>
       </div>
+
+      <div class="website-block">
+        <span class="website-number">05</span>
+        <div class="website-icon">🚀</div>
+        <h3>Testing and Publishing</h3>
+        <p>
+          Finally, we test the website on different devices,
+          fix errors, improve performance and publish it
+          online so people can visit it.
+        </p>
+        <span class="website-tag">WEB DEVELOPMENT</span>
+      </div>
+
     </div>
   </section>
 
-  
-  <!-- NEW: timeline -->
-  <section class="section reveal" id="path">
-    <h2 class="section-title">My path</h2>
-    <ul class="timeline" style="margin-top: 30px;">
-      <li>
-        <time>Step 1</time>
-        <h3>Started IT digital college</h3>
-        <p>Learning how to build and service IT systems.</p>
-      </li>
-      <li>
-        <time>Step 2</time>
-        <h3>First web pages</h3>
-        <p>Built pages with HTML and began styling with CSS.</p>
-      </li>
-      <li>
-        <time>Step 3</time>
-        <h3>Adding JavaScript</h3>
-        <p>Making pages interactive.</p>
-      </li>
-    </ul>
+  <!-- STACKING CARDS -->
+  <section class="stack-wrapper" id="path">
+
+    <article class="stack-card" style="--stack-index: 1">
+      <span class="stack-number">01 / MY SKILLS</span>
+      <h2>My Skill Levels</h2>
+      <p>
+        I am developing my programming skills and learning
+        how to create modern websites and applications.
+      </p>
+
+      <div class="skill">
+        <div class="skill-top">
+          <span>HTML</span><span>70%</span>
+        </div>
+        <div class="bar"><i style="--value: 70%"></i></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <span>CSS</span><span>55%</span>
+        </div>
+        <div class="bar"><i style="--value: 55%"></i></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <span>JavaScript</span><span>35%</span>
+        </div>
+        <div class="bar"><i style="--value: 35%"></i></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <span>C++</span><span>40%</span>
+        </div>
+        <div class="bar"><i style="--value: 40%"></i></div>
+      </div>
+    </article>
+
+    <article class="stack-card" style="--stack-index: 2">
+      <span class="stack-number">02 / MY JOURNEY</span>
+      <h2>My Learning Journey</h2>
+      <p>
+        Every project is another step towards becoming
+        a professional developer.
+      </p>
+
+      <ul class="timeline">
+        <li>
+          <time>STEP 01</time>
+          <h3>Started IT Digital College</h3>
+          <p>
+            Learning the fundamentals of information
+            technology and computer systems.
+          </p>
+        </li>
+
+        <li>
+          <time>STEP 02</time>
+          <h3>First Web Pages</h3>
+          <p>
+            Learning HTML and CSS to build
+            attractive and responsive websites.
+          </p>
+        </li>
+
+        <li>
+          <time>STEP 03</time>
+          <h3>Learning JavaScript</h3>
+          <p>
+            Developing interactive websites
+            and improving programming logic.
+          </p>
+        </li>
+      </ul>
+    </article>
+
+    <article class="stack-card" style="--stack-index: 3">
+      <span class="stack-number">03 / MY FUTURE</span>
+      <h2>My Future Goals</h2>
+      <p>
+        My goal is to become a skilled full-stack
+        developer and create useful digital products.
+      </p>
+
+      <h3>What I want to achieve:</h3>
+      <ul>
+        <li>Master HTML, CSS and JavaScript.</li>
+        <li>Become confident in C++ programming.</li>
+        <li>Build professional websites.</li>
+        <li>Develop real-world applications.</li>
+        <li>Work on creative IT projects.</li>
+      </ul>
+
+      <h3>Keep learning. Keep building. Keep improving.</h3>
+    </article>
+
   </section>
 
- 
-
-  <!-- NEW: footer and back-to-top button -->
+  <!-- FOOTER -->
   <footer class="footer">
     <p>© 2026 Azizbek Ismailov</p>
   </footer>
+
   <a class="to-top" href="#top" aria-label="Back to top">↑</a>
 
+  <!-- 3D HOVER JAVASCRIPT -->
   <script>
-  document.querySelectorAll('.mini-card').forEach((card) => {
+    document.querySelectorAll('.mini-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
 
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width  - 0.5;   /* -0.5 to 0.5 */
-      const y = (e.clientY - r.top)  / r.height - 0.5;
-
-      card.style.setProperty('--ry', (x * 20) + 'deg');
-      card.style.setProperty('--rx', (-y * 20) + 'deg');
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.setProperty('--rx', '0deg');
-      card.style.setProperty('--ry', '0deg');
-    });
-
-  });
-</script>
-
-<!-- NEW: fade-in when sections scroll into view -->
-<script>
-  var items = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
+        card.style.setProperty('--ry', (x * 20) + 'deg');
+        card.style.setProperty('--rx', (-y * 20) + 'deg');
       });
-    }, { threshold: 0.15 });
-    items.forEach(function (el) { io.observe(el); });
-  } else {
-    items.forEach(function (el) { el.classList.add('visible'); });
-  }
-</script>
- 
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  </script>
+
+  <!-- FADE-IN ANIMATION -->
+  <script>
+    var items = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      items.forEach(function (el) {
+        io.observe(el);
+      });
+    } else {
+      items.forEach(function (el) {
+        el.classList.add('visible');
+      });
+    }
+  </script>
+
 </body>
 </html>

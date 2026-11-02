@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AZIZBEK | IT DEVELOPER</title>
+  <title>Main Page</title>
   <meta name="author" content="azizbek ismailov kaxramanovich">
   <link rel="stylesheet"  href="main.css">
+  <!-- NEW: modern styles (put these two files in the css folder) -->
+  <link rel="stylesheet" href="css/modern-additions.css">
+  <link rel="stylesheet" href="css/modern-elements.css">
   <div class="photos">
   <img src="azizbek.png" alt="its me">
   <link href="script.js">
@@ -12,6 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="java.html">
   </div>
+  
     <style>
         #google_language_change {
             position: fixed;
@@ -25,6 +29,23 @@
         }
     </style>
 <body>
+
+  <!-- NEW: navigation bar -->
+  <nav class="nav">
+    <a class="logo" href="#top">AZIZBEK</a>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#path">Path</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- NEW: hero headline -->
+  <header class="hero" id="top">
+    <h1>I build websites and programs.</h1>
+    <p>IT student learning HTML, CSS, JavaScript and C++ one project at a time.</p>
+  </header>
   
   <div class="card">
     
@@ -45,6 +66,10 @@
   <div class="sticker cpp  a9">C++</div>  
   <div class="sticker cpp  a10">CSS</div>
   <div class="sticker html a11">HTML</div>  
+
+  <!-- NEW: title above the skill cards -->
+  <h2 class="section-title" id="skills">What I'm learning</h2>
+
   <div class="cards">
 
  <div class="cards">
@@ -82,6 +107,65 @@
   </div>
 
 </div>
+
+  <!-- NEW: closes the extra <div class="cards"> opened twice above,
+       so the new sections below are not placed inside it -->
+  </div>
+
+  <!-- NEW: skill levels (change --value to set each level) -->
+  <section class="section reveal">
+    <h2 class="section-title">Skill levels</h2>
+    <div style="margin-top: 30px;">
+      <div class="skill">
+        <div class="skill-top"><span>HTML</span><span>70%</span></div>
+        <div class="bar"><i style="--value: 70%"></i></div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>CSS</span><span>55%</span></div>
+        <div class="bar"><i style="--value: 55%"></i></div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>JavaScript</span><span>35%</span></div>
+        <div class="bar"><i style="--value: 35%"></i></div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>C++</span><span>40%</span></div>
+        <div class="bar"><i style="--value: 40%"></i></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- NEW: timeline -->
+  <section class="section reveal" id="path">
+    <h2 class="section-title">My path</h2>
+    <ul class="timeline" style="margin-top: 30px;">
+      <li>
+        <time>Step 1</time>
+        <h3>Started IT digital college</h3>
+        <p>Learning how to build and service IT systems.</p>
+      </li>
+      <li>
+        <time>Step 2</time>
+        <h3>First web pages</h3>
+        <p>Built pages with HTML and began styling with CSS.</p>
+      </li>
+      <li>
+        <time>Step 3</time>
+        <h3>Adding JavaScript</h3>
+        <p>Making pages interactive.</p>
+      </li>
+    </ul>
+  </section>
+
+ 
+
+  <!-- NEW: footer and back-to-top button -->
+  <footer class="footer">
+    <p>© 2026 Azizbek Ismailov</p>
+  </footer>
+  <a class="to-top" href="#top" aria-label="Back to top">↑</a>
+
   <script>
   document.querySelectorAll('.mini-card').forEach((card) => {
 
@@ -101,16 +185,24 @@
 
   });
 </script>
-<div id="google_language_change"></div>
 
-<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-
-<script type="text/javascript">
-    function loadGoogleTranslate() {
-        new google.translate.TranslateElement(
-            "google_language_change");
-    }
-    
-</script> 
+<!-- NEW: fade-in when sections scroll into view -->
+<script>
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('visible'); });
+  }
+</script>
+ 
 </body>
 </html>

@@ -1,411 +1,504 @@
+/* ==========================================================
+   AZIZBEK portfolio - modern dark theme
+   Same class names as before, so your HTML keeps working.
+   ========================================================== */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+ 
+/* ---------- 1. Design tokens (change colors in ONE place) ---------- */
+:root {
+  --bg:        #0b1020;
+  --bg-soft:   #121933;
+  --surface:   rgba(255, 255, 255, 0.05);
+  --border:    rgba(255, 255, 255, 0.10);
+  --text:      #e8ecff;
+  --muted:     #9aa4c7;
+  --green:     #3df5b0;
+  --purple:    #8b7cff;
+ 
+  --font-main: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+}
+ 
+/* ---------- 2. Reset / base ---------- */
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  margin: 0;
+  padding: 24px 16px 60px;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  background:
+    radial-gradient(ellipse at 15% 0%,  rgba(139, 124, 255, 0.22), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(61, 245, 176, 0.14), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+}
+ 
+img {
+  max-width: 100%;
+  height: auto;
+}
+ 
+/* Soft lightning flash across the whole page (rare, subtle) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--purple);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  animation: lightning 9s infinite;
+}
+ 
+@keyframes lightning {
+  0%, 92%, 100% { opacity: 0; }
+  93%           { opacity: 0.10; }
+  94%           { opacity: 0; }
+  95%           { opacity: 0.16; }
+  97%           { opacity: 0; }
+}
+ 
+/* ---------- 3. Banner image ---------- */
+.photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+}
+ 
+.photos img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(61, 245, 176, 0.12),
+              0 0 0 1px rgba(139, 124, 255, 0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+}
+ 
+.photos img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 24px 70px rgba(139, 124, 255, 0.30),
+              0 0 0 1px rgba(61, 245, 176, 0.35);
+  z-index: 10;
+}
+ 
+/* ---------- 4. Intro box (was the big orange box) ---------- */
+.card {
+  width: 100%;
+  max-width: 640px;
+  margin: 40px auto 0;
+  padding: 24px 28px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green);
+  border-radius: 20px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 15px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+ 
+.card * {
+  font-family: inherit;
+  font-style: normal;
+  margin: 6px 0;
+}
+ 
+.card:hover {
+  transform: translateY(-4px);
+  border-left-color: var(--purple);
+}
+ 
+/* ---------- 5. Skill cards (C++, HTML, CSS, JavaScript) ---------- */
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;          /* all cards get equal height */
+  flex-wrap: wrap;
+  gap: 56px 20px;
+  max-width: 1100px;
+  margin: 70px auto 20px;
+}
+ 
+.mini-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 56px 18px 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  font-family: var(--font-main);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+ 
+/* Keeps your 3D tilt (the --rx / --ry values come from your JavaScript) */
+.mini-card:hover {
+  transform: perspective(600px) translateY(-8px)
+             rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  border-color: rgba(61, 245, 176, 0.45);
+  box-shadow: 0 18px 40px rgba(61, 245, 176, 0.15);
+}
+ 
+.mini-card h4 {
+  margin: 12px 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+ 
+.mini-card p {
+  flex-grow: 1;                  /* pushes the button to the bottom of every card */
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+ 
+/* Round logo on top of each card */
+.badge {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--border), 0 8px 20px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 17px;
+}
+ 
+.html-b { background: #e44d26; }
+.css-b  { background: #1572b6; }
+.cpp-b  { background: #00599c; }
+.js-b   { background: #f7df1e; color: #222; }
+ 
+/* Small label (LANGUAGE, STYLE, ...) */
+.tag {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  background: rgba(139, 124, 255, 0.18);
+  border: 1px solid rgba(139, 124, 255, 0.5);
+  color: #cfc9ff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+}
+ 
+/* "Open section" button: filled, with a clear hover and keyboard focus */
+.open-btn {
+  display: inline-block;
+  padding: 9px 20px;
+  border: none;
+  border-radius: 30px;
+  background: var(--green);
+  color: #06281c;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+.open-btn:hover {
+  background: var(--purple);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 124, 255, 0.45);
+}
+ 
+.open-btn:focus-visible,
+.button:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+}
+ 
+/* ---------- 6. Link buttons ---------- */
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+ 
+.button {
+  display: block;
+  width: 260px;
+  padding: 12px 24px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+ 
+.button:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 124, 255, 0.35);
+}
+ 
+/* ---------- 7. Background decoration (stickers, bolt, storm) ---------- */
+ 
+/* Floating language stickers: smaller, softer, behind the content */
+.sticker {
+  position: fixed;
+  z-index: -1;
+  padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  opacity: 0.45;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  --r: 0deg;                       /* default tilt, so the dance always works */
+  animation: danceSway 4.5s ease-in-out infinite;
+}
+ 
+/* Each sticker type has its own slight dance (no a1-a10 class needed) */
+.sticker.html { animation-name: danceSway;   animation-duration: 4.5s; }
+.sticker.css  { animation-name: danceWiggle; animation-duration: 3.8s; }
+.sticker.cpp  { animation-name: danceBounce; animation-duration: 3.2s; }
+ 
+/* Sway: drifts a little side to side while tilting */
+@keyframes danceSway {
+  0%, 100% { transform: translate(0, 0)     rotate(calc(var(--r) - 3deg)); }
+  25%      { transform: translate(5px, -5px) rotate(calc(var(--r) + 1deg)); }
+  50%      { transform: translate(0, -9px)   rotate(calc(var(--r) + 3deg)); }
+  75%      { transform: translate(-5px, -4px) rotate(calc(var(--r) + 1deg)); }
+}
+ 
+/* Bounce: small hop with a tiny squash and stretch */
+@keyframes danceBounce {
+  0%, 100% { transform: translateY(0)     scale(1)    rotate(var(--r)); }
+  35%      { transform: translateY(-10px) scale(1.05) rotate(calc(var(--r) - 4deg)); }
+  65%      { transform: translateY(-3px)  scale(0.98) rotate(calc(var(--r) + 4deg)); }
+}
+ 
+/* Wiggle: quick little shimmy */
+@keyframes danceWiggle {
+  0%, 100% { transform: translate(0, 0)     rotate(var(--r)); }
+  25%      { transform: translate(4px, -3px) rotate(calc(var(--r) + 5deg)); }
+  50%      { transform: translate(-4px, -6px) rotate(calc(var(--r) - 5deg)); }
+  75%      { transform: translate(3px, -2px) rotate(calc(var(--r) + 3deg)); }
+}
+ 
+.html { background: #e44d26; }
+.css  { background: #1572b6; }
+.cpp  { background: #00599c; border-radius: 50%; padding: 16px; }
+ 
+/* Positions: keep them away from the middle of the page */
+.sticker.a1  { top: 3%;     left: 3%;    --r: -10deg; animation-delay: 0s;   }
+.sticker.a2  { top: 45%;    left: 4%;    --r: 6deg;   animation-delay: 0.5s; }
+.sticker.a3  { top: 4%;     right: 4%;   --r: -8deg;  animation-delay: 1s;   }
+.sticker.a4  { top: 25%;    left: 12%;   --r: 8deg;   animation-delay: 1.5s; }
+.sticker.a5  { top: 45%;    right: 2%;   --r: -6deg;  animation-delay: 2s;   }
+.sticker.a6  { bottom: 25%; left: 14%;   --r: -7deg;  animation-delay: 2.5s; }
+.sticker.a7  { bottom: 8%;  left: 80%;   --r: 10deg;  animation-delay: 3s;   }
+.sticker.a8  { bottom: 31%; right: 10%;  --r: -12deg; animation-delay: 0.8s; }
+.sticker.a9  { top: 22%;    right: 12%;  --r: 5deg;   animation-delay: 1.8s; }
+.sticker.a10 { top: 82%;    left: 8px;   --r: 5deg;   animation-delay: 2.2s; }
+ 
+/* Lightning bolt emoji */
+.bolt {
+  animation: boltFloat 4s ease-in-out infinite,
+             boltGlow 2s ease-in-out infinite alternate;
+}
+ 
+@keyframes boltFloat {
+  0%, 100% { transform: translateY(0)     rotate(-5deg); }
+  50%      { transform: translateY(-25px) rotate(5deg);  }
+}
+ 
+@keyframes boltGlow {
+  from { filter: drop-shadow(0 0 4px var(--purple)); }
+  to   { filter: drop-shadow(0 0 16px var(--green)); }
+}
+ 
+/* Floating emojis */
+.storm {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+ 
+.storm span {
+  position: absolute;
+  font-size: 40px;
+  opacity: 0.2;
+  animation: stormFloat 5s ease-in-out infinite;
+}
+ 
+@keyframes stormFloat {
+  0%, 100% { opacity: 0.10; transform: translateY(0); }
+  50%      { opacity: 0.35; transform: translateY(-15px); }
+}
+ 
+/* ---------- 8a. Tablet (601px to 900px wide) ---------- */
+@media (min-width: 601px) and (max-width: 900px) {
   body {
-    background: rgb(236, 189, 119);
-    background-size: 400% 400%;
-    animation: gradientMove 12s ease infinite;
-    
+    padding: 20px 20px 50px;
   }
-
-  @keyframes gradientMove {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: white;
-    opacity: 0;
-    pointer-events: none;
-    z-index: -1;
-    animation: flash 7s infinite;
-  }
-
-  @keyframes flash {
-    0%, 92%, 100% { opacity: 0; }
-    93% { opacity: 0.25; }
-    94% { opacity: 0; }
-    95% { opacity: 0.4; }
-    97% { opacity: 0; }
-  }.bolt {
-    animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50%      { transform: translateY(-25px) rotate(5deg); }
-  }
-
-  @keyframes glow {
-    from { filter: drop-shadow(0 0 4px #ff6b6b); }
-    to   { filter: drop-shadow(0 0 16px #ffd54a); }
-    
-  }
-
-  .photos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    width: 100%;
-  }
-
+ 
   .photos img {
-    width: 750px;
-    height: auto;
-    object-fit: flexible;
-    border-radius: 25px;
-    
-    box-shadow: 0 0 20px rgba(62, 219, 230, 0.4);
-    transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
-    animation: slideUp 0.8s ease backwards;
-    position: relative;
-    animation: pulse 2.5s ease-in-out infinite alternate;
+    max-width: 100%;
   }
-
-  .photos img:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 30px rgba(86, 78, 241, 0.7);
-    z-index: 10;
-  }
+ 
   .card {
-    background-color: #ea8604;
-    color:  #f4f8f9;
-    width: 100%;
-    max-width: 600px;
-    margin: 35px auto 0;       /* auto = centered left and right */
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 35px;
-    text-align: center;        /* all text inside is centered */
-    box-shadow: 0 4px 20px rgba(240, 7, 7, 0.4);
-    transition: transform 0.6s ease-out;
-    
+    max-width: 560px;
   }
-
-
-  .card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 30px rgba(4, 149, 239, 0.7);
-    z-index: 100;
-  }
+ 
+  /* two cards per row, so they never wrap into a lonely single card */
   .cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px 20px;
-    margin-top: 50px;        /* space for the round stickers */
+    max-width: 560px;
+    gap: 60px 20px;
   }
-
+ 
   .mini-card {
-    position: relative;
-    width: 170px;
-    padding: 50px 15px 20px;
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: 18px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    font-family: Arial, sans-serif;
+    width: calc(50% - 10px);
+    max-width: 260px;
   }
-
-  /* the round sticker on top of each card */
-  .badge {
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .html-b { background: #e44d26; }
-  .css-b  { background: #1572b6; }
-  .cpp-b  { background: #00599c; }
-
-  .tag {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: #3f10c7;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-  }
-
-  .mini-card h4 {
-    margin: 10px 0 4px;
-    font-size: 22px;
-    color: #1d3d47;
-  }
-
-  .mini-card p {
-    margin: 0 0 14px;
-    font-size: 14px;
-    color: #355;
-  }
-
-  .open-btn {
-    display: inline-block;
-    padding: 7px 16px;
-    border: 2px solid #3f10c7;
-    border-radius: 30px;
-    background: white;
-    color: #3f10c7;
-    font-size: 13px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  .open-btn:hover {
-    background: #3f10c7;
-    color: white;
-  }
-  .storm {
-    position: fixed;          /* stays in place while scrolling */
-    inset: 0;                 /* covers the whole screen */
-    z-index: -1;              /* behind the pictures and the card */
-    pointer-events: none;     /* the mouse ignores the emojis */
-    overflow: hidden;
-  }
-
-  .storm span {
-    position: absolute;
-    font-size: 48px;
-    opacity: 0.25;            /* soft, so the content stays readable */
-    animation: flash 4s ease-in-out infinite;
-  }
-
-  @keyframes flash {
-    0%, 100% { opacity: 0.15; transform: translateY(0); }
-    50%      { opacity: 0.5;  transform: translateY(-15px); }
-  }
-  /* PHONE: screens 600px wide or smaller */
-  @media (max-width: 600px) {
-    body {
-      padding: 20px 12px;
-    }
-
-    .photos {
-      gap: 30px;
-    }
-
-    .photos img {
-      width: 300%;          /* fills the phone width instead of a fixed 375px */
-      max-width: 300px;     /* but never bigger than on computer */
-      height: auto;
-      aspect-ratio: 1 / 1;  /* keeps the picture square */
-      object-fit: contain;
-    }
-
-    .card {
-      margin-top: 24px;
-      padding: 20px;
-      border-radius: 18px;
-    }
-
-    .storm span {
-      font-size: 32px;      /* smaller emojis on phone */
-    }
-  }
-  .links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px;
-    border-radius: 50px;
-  }
-
-  .button {
-    display: block;
-    width: 260px;
-    padding: 12px 24px;
-    background-color: #3d0fc5;
-    color: white;
-    text-decoration: none;
-    font-style: normal;
-    text-align: center;
-    border-radius: 50px;
-    transition: 0.2s;
-    
-  }
-
-  .button:hover {
-    background-color: hsl(60, 14%, 1%);
-    transform: translateY(-2px);
-    box-shadow: #0e0f0f;
-  }
+ 
+  /* smaller stickers, and four fewer so they stay off the content */
   .sticker {
-    position: fixed;
-    z-index: -1;
-    padding: 12px 20px;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    border: 4px solid white;
-    border-radius: 18px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    
-    animation: float 4s ease-in-out infinite;
-
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0)     rotate(var(--r)); }
-    50%      { transform: translateY(-12px) rotate(var(--r)); }
-  }
-  }
-
-  /* colors */
-  .html { background: #e44d26; }
-  .css  { background: #1572b6; }
-  .cpp  { background: #00599c; border-radius: 50%; padding: 26px; }
-
-  .sticker.a1  { top: 3%;      left: 3%;    --r: -10deg; animation-delay: 0s; }
-  .sticker.a2  { top: 45%;     left: 6%;    --r: 6deg;   animation-delay: 0.5s; }
-  .sticker.a3  { top: 4%;      right: 4%;   --r: -8deg;  animation-delay: 1s; }
-
-  .sticker.a4  { top: 25%;     left: 18%;   --r: 8deg;   animation-delay: 1.5s; }
-  .sticker.a5  { top: 45%;     right: 1%;   --r: -6deg;  animation-delay: 2s; }
-
-  .sticker.a6  { bottom: 25%;  left: 20%;   --r: -7deg;  animation-delay: 2.5s; }
-  .sticker.a7  { bottom: 8%;   left: 80%;   --r: 10deg;  animation-delay: 3s; }
-  .sticker.a8  { bottom: 31%;  right: 15%;  --r: -12deg; animation-delay: 0.8s; }
-  .sticker.a9  { top: 22%;     right: 18%;  --r: 5deg;   animation-delay: 1.8s; }
-  .sticker.a10 { top: 82%;     left: 8px;   --r: 5deg;   animation-delay: 2.2s; }
-  .mini-card {
-    transition: transform 0.15s ease-out, box-shadow 0.2s;
-  }
-
-  .mini-card:hover {
-    transform: perspective(600px) translateY(-10px)
-              rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.05);
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
-    
-  }
-    transition: transform 0.15s ease-out, box-shadow 0.2s;
-  }
-
-  .mini-card:hover {
-    transform: perspective(600px) translateY(-10px)
-              rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.05);
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
-    
-  }
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    padding: 10px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  div {
-    max-width: 100%;
-  }
-  .cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px 20px;
-    margin: 60px 0 20px;
-    margin-top: 40px;
-  }
-
-  .mini-card {
-    position: relative;
-    width: 170px;
-    padding: 50px 15px 20px;
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: 18px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    font-family: Arial, sans-serif;
-    transition: transform 0.15s ease-out, box-shadow 0.2s;
-  }
-
-  .mini-card:hover {
-    transform: perspective(600px) translateY(-10px)
-              rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.05);
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
-  }
-
-  .badge {
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .html-b { background: #e44d26; }
-  .css-b  { background: #1572b6; }
-  .cpp-b  { background: #00599c; }
-  .js-b   { background: #f7df1e; color: #222; }
-
-  .tag {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: #3f10c7;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-  }
-
-  .mini-card h4 {
-    margin: 10px 0 4px;
-    font-size: 22px;
-    color: #1d3d47;
-  }
-
-  .mini-card p {
-    margin: 0 0 14px;
     font-size: 14px;
-    color: #355;
-    text-align: center;
+    padding: 6px 12px;
   }
-
+ 
+  .sticker.cpp {
+    padding: 12px;
+  }
+ 
+  .sticker.a4,
+  .sticker.a6,
+  .sticker.a8,
+  .sticker.a9 {
+    display: none;
+  }
+}
+ 
+/* ---------- 8b. Phone (600px wide or smaller) ---------- */
+@media (max-width: 600px) {
+  body {
+    padding: 16px 12px 40px;
+  }
+ 
+  .card {
+    margin-top: 28px;
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 14px;
+  }
+ 
+  /* two cards per row, scaled down so they always fit the screen */
+  .cards {
+    margin-top: 60px;
+    gap: 55px 12px;
+    max-width: 100%;
+  }
+ 
+  .mini-card {
+    width: calc(50% - 6px);
+    max-width: none;
+    padding: 46px 10px 16px;
+    border-radius: 16px;
+  }
+ 
+  .badge {
+    width: 58px;
+    height: 58px;
+    top: -29px;
+    font-size: 14px;
+  }
+ 
+  .tag {
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+ 
+  .mini-card h4 {
+    margin: 8px 0 4px;
+    font-size: 18px;
+  }
+ 
+  .mini-card p {
+    margin-bottom: 12px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+ 
   .open-btn {
-    display: inline-block;
-    padding: 7px 16px;
-    border: 2px solid #3f10c7;
-    border-radius: 30px;
-    background: white;
-    color: #3f10c7;
-    font-size: 13px;
-    font-weight: bold;
-    text-decoration: none;
+    padding: 7px 12px;
+    font-size: 11px;
   }
-
-  .open-btn:hover {
-    background: #3f10c7;
-    color: white;
+ 
+  .storm span {
+    font-size: 28px;
   }
+ 
+  /* fewer stickers on small screens so nothing covers the content */
+  .sticker.a4,
+  .sticker.a5,
+  .sticker.a6,
+  .sticker.a8,
+  .sticker.a9,
+  .sticker.a10 {
+    display: none;
+  }
+}
+ 
+/* ---------- 9. Respect people who turn animations off ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .bolt,
+  .storm span {
+    animation: none;
+  }
+  .photos img,
+  .card,
+  .mini-card,
+  .open-btn,
+  .button {
+    transition: none;
+  }
+  /* .sticker is not listed on purpose: it keeps its slight dance */
+}
+ 

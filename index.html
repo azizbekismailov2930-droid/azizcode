@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
     <meta name="author" content="azizbek ismailov kaxramanovich">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/modern-additions.css">
     <link rel="stylesheet" href="css/modern-elements.css">
 
@@ -272,6 +271,158 @@
             background: linear-gradient(90deg, #00c6ff, #8b5cf6);
         }
 
+        /* REGISTRATION SCREEN */
+        .registration-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 55px 6%;
+            color: #fff;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(0,198,255,.18), transparent 32%),
+                radial-gradient(circle at 85% 80%, rgba(139,92,246,.2), transparent 32%),
+                #09091d;
+            box-sizing: border-box;
+        }
+
+        .registration-container {
+            width: min(1100px, 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .registration-tag,
+        .form-small-title {
+            color: #00eaff;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .registration-info h1 {
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.08;
+            margin: 18px 0;
+        }
+
+        .registration-info h1 span {
+            color: #00d9ff;
+        }
+
+        .registration-info > p,
+        .registration-form-box > p {
+            color: #b8bdd0;
+            line-height: 1.7;
+        }
+
+        .registration-feature {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            margin-top: 28px;
+        }
+
+        .registration-feature > span {
+            color: #00eaff;
+            font-weight: 800;
+            border: 1px solid rgba(0,234,255,.35);
+            border-radius: 12px;
+            padding: 10px 12px;
+        }
+
+        .registration-feature h3 {
+            margin: 0 0 6px;
+        }
+
+        .registration-feature p {
+            margin: 0;
+            color: #aeb5c9;
+        }
+
+        .registration-form-box {
+            padding: 35px;
+            border: 1px solid rgba(0,234,255,.25);
+            border-radius: 24px;
+            background: rgba(255,255,255,.06);
+            box-shadow: 0 25px 70px rgba(0,0,0,.3);
+            backdrop-filter: blur(14px);
+        }
+
+        .registration-form-box h2 {
+            font-size: 32px;
+            margin: 12px 0 5px;
+        }
+
+        #registrationForm {
+            display: grid;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        #registrationForm label {
+            color: #e5e9f5;
+            font-size: 14px;
+            margin-top: 7px;
+        }
+
+        #registrationForm input,
+        #registrationForm select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: #17172f;
+            color: #fff;
+            outline: none;
+        }
+
+        #registrationForm input:focus,
+        #registrationForm select:focus {
+            border-color: #00eaff;
+            box-shadow: 0 0 0 3px rgba(0,234,255,.1);
+        }
+
+        .register-btn {
+            margin-top: 15px;
+            border: 0;
+            border-radius: 10px;
+            padding: 15px;
+            color: #07101d;
+            font-weight: 800;
+            cursor: pointer;
+            background: linear-gradient(90deg, #00c6ff, #8b5cf6);
+        }
+
+        #registrationMessage {
+            min-height: 20px;
+            margin: 5px 0 0;
+            color: #00eaff;
+        }
+
+        #mainWebsite[hidden],
+        #registrationSection[hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 760px) {
+            .registration-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .registration-section {
+                padding: 35px 5%;
+            }
+
+            .registration-form-box {
+                padding: 25px;
+            }
+        }
+
         @media (max-width: 600px) {
             .stack-wrapper {
                 width: 92%;
@@ -313,475 +464,697 @@
                 flex-direction: column;
             }
         }
+
+        /* COMMUNITY: show only the shared total, never member details */
+        .community-stats {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+
+        .community-stat:nth-child(2),
+        .community-table-box {
+            display: none !important;
+        }
     </style>
+
+    <!-- FIREBASE SDK: used for the shared registration counter -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 </head>
 
 <body>
 
-    <div class="photos">
-        <img src="azizbek.png" alt="Azizbek">
-    </div>
+    <!-- FIRST SCREEN: REGISTRATION -->
+    <section class="registration-section" id="registrationSection">
 
-    <!-- NAVIGATION -->
-    <nav class="nav">
-        <a class="logo" href="#top">AZIZBEK</a>
+        <div class="registration-container">
 
-        <ul>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#path">Path</a></li>
-            <li><a href="#community">Community</a></li>
-            <li><a href="register.html">Register</a></li>
-        </ul>
-    </nav>
+            <div class="registration-info">
 
-    <!-- HERO -->
-    <header class="hero" id="top">
-        <h1>I build websites and programs.</h1>
-        <p>IT student learning HTML, CSS, JavaScript and C++ one project at a time.</p>
-    </header>
+                <span class="registration-tag">WELCOME TO AZIZBEK</span>
 
-    <div class="card">
-        <h2><i>IT digital college student</i></h2>
-        <h2><i>learning C++/HTML/CSS/JavaScript</i></h2>
-        <h2><i>Lets practise and learn with me</i></h2>
-    </div>
+                <h1>Start Your <span>IT Journey</span></h1>
 
-    <!-- FLOATING STICKERS -->
-    <div class="sticker html a1">HTML</div>
-    <div class="sticker css a2">CSS</div>
-    <div class="sticker cpp a3">C++</div>
-    <div class="sticker html a4">HTML</div>
-    <div class="sticker css a5">CSS</div>
-    <div class="sticker cpp a6">C++</div>
-    <div class="sticker html a7">HTML</div>
-    <div class="sticker css a8">CSS</div>
-    <div class="sticker cpp a9">C++</div>
-    <div class="sticker cpp a10">CSS</div>
-    <div class="sticker html a11">HTML</div>
-
-    <!-- SKILLS -->
-    <h2 class="section-title" id="skills">What I'm learning</h2>
-
-    <div class="cards">
-
-        <div class="mini-card">
-            <div class="badge cpp-b">C++</div>
-            <span class="tag">LANGUAGE</span>
-            <h4>C++</h4>
-            <p>Basics and practice</p>
-            <a href="HTMLPage1.html" class="open-btn">OPEN SECTION</a>
-        </div>
-
-        <div class="mini-card">
-            <div class="badge html-b">HTML</div>
-            <span class="tag">STRUCTURE</span>
-            <h4>HTML</h4>
-            <p>Pages and elements</p>
-            <a href="html.html" class="open-btn">OPEN SECTION</a>
-        </div>
-
-        <div class="mini-card">
-            <div class="badge css-b">CSS</div>
-            <span class="tag">STYLE</span>
-            <h4>CSS</h4>
-            <p>Colors and layout</p>
-            <a href="css.html" class="open-btn">OPEN SECTION</a>
-        </div>
-
-        <div class="mini-card">
-            <div class="badge js-b">JS</div>
-            <span class="tag">LOGIC</span>
-            <h4>JavaScript</h4>
-            <p>Structure and basic code</p>
-            <a href="java.html" class="open-btn">OPEN SECTION</a>
-        </div>
-
-    </div>
-
-    <!-- WEBSITE DEVELOPMENT INFORMATION -->
-    <section class="website-section" id="projects">
-
-        <h2 class="section-title">How Websites Are Created</h2>
-
-        <p class="website-intro">
-            Creating a website is a process that combines creativity,
-            design and programming. Here are the main steps.
-        </p>
-
-        <div class="website-grid">
-
-            <div class="website-block">
-                <span class="website-number">01</span>
-                <div class="website-icon">💡</div>
-                <h3>Planning and Ideas</h3>
                 <p>
-                    Every website starts with an idea. First, we decide
-                    the website's purpose, target audience and content.
-                    Planning helps us create a clear structure.
+                    Register to enter the website and become part
+                    of our programming and web development community.
                 </p>
-                <span class="website-tag">CREATIVE THINKING</span>
+
+                <div class="registration-feature">
+                    <span>01</span>
+                    <div>
+                        <h3>Learn Programming</h3>
+                        <p>Explore HTML, CSS, JavaScript and C++.</p>
+                    </div>
+                </div>
+
+                <div class="registration-feature">
+                    <span>02</span>
+                    <div>
+                        <h3>Build Projects</h3>
+                        <p>Improve your skills through practical projects.</p>
+                    </div>
+                </div>
+
+                <div class="registration-feature">
+                    <span>03</span>
+                    <div>
+                        <h3>Grow Together</h3>
+                        <p>Take your first step towards your IT future.</p>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="website-block">
-                <span class="website-number">02</span>
-                <div class="website-icon">🏗️</div>
-                <h3>HTML – Website Structure</h3>
-                <p>
-                    HTML creates the structure of a website. It adds
-                    headings, paragraphs, images, links, buttons,
-                    forms and other important elements.
-                </p>
-                <span class="website-tag">HTML5</span>
-            </div>
+            <div class="registration-form-box">
 
-            <div class="website-block">
-                <span class="website-number">03</span>
-                <div class="website-icon">🎨</div>
-                <h3>CSS – Website Design</h3>
-                <p>
-                    CSS makes websites attractive. We use colors,
-                    fonts, backgrounds, animations, layouts and
-                    responsive design to improve the appearance.
-                </p>
-                <span class="website-tag">CSS3</span>
-            </div>
+                <span class="form-small-title">CREATE YOUR PROFILE</span>
 
-            <div class="website-block">
-                <span class="website-number">04</span>
-                <div class="website-icon">⚡</div>
-                <h3>JavaScript – Interactivity</h3>
-                <p>
-                    JavaScript makes websites interactive. It allows
-                    buttons, menus, sliders, animations and forms
-                    to respond to user actions.
-                </p>
-                <span class="website-tag">JAVASCRIPT</span>
-            </div>
+                <h2>Registration</h2>
 
-            <div class="website-block">
-                <span class="website-number">05</span>
-                <div class="website-icon">🚀</div>
-                <h3>Testing and Publishing</h3>
-                <p>
-                    Finally, we test the website on different devices,
-                    fix errors, improve performance and publish it
-                    online so people can visit it.
-                </p>
-                <span class="website-tag">WEB DEVELOPMENT</span>
+                <p>Complete the form to continue to the main website.</p>
+
+                <form id="registrationForm">
+
+                    <label for="fullName">Full Name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@gmail.com"
+                        required
+                    >
+
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="">Select your gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+
+                    <label for="course">Choose Your Course</label>
+                    <select id="course" required>
+                        <option value="">Select a course</option>
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="C++">C++</option>
+                        <option value="Full-Stack Development">
+                            Full-Stack Development
+                        </option>
+                    </select>
+
+                    <button type="submit" class="register-btn">
+                        REGISTER & ENTER WEBSITE →
+                    </button>
+
+                    <p id="registrationMessage"></p>
+
+                </form>
+
             </div>
 
         </div>
     </section>
 
-    <!-- STACKING CARDS -->
-    <section class="stack-wrapper" id="path">
 
-        <article class="stack-card">
-            <span class="stack-number">01 / MY SKILLS</span>
-            <h2>My Skill Levels</h2>
-            <p>
-                I am developing my programming skills and learning
-                how to create modern websites and applications.
-            </p>
+    <!-- MAIN WEBSITE: HIDDEN UNTIL REGISTRATION -->
+    <div id="mainWebsite" hidden>
 
-            <div class="skill">
-                <div class="skill-top">
-                    <span>HTML</span><span>70%</span>
-                </div>
-                <div class="bar"><i style="--value: 70%"></i></div>
-            </div>
+        <div class="photos">
+            <img src="azizbek.png" alt="Azizbek">
+        </div>
 
-            <div class="skill">
-                <div class="skill-top">
-                    <span>CSS</span><span>55%</span>
-                </div>
-                <div class="bar"><i style="--value: 55%"></i></div>
-            </div>
+        <!-- NAVIGATION -->
+        <nav class="nav">
+            <a class="logo" href="#top">AZIZBEK</a>
 
-            <div class="skill">
-                <div class="skill-top">
-                    <span>JavaScript</span><span>35%</span>
-                </div>
-                <div class="bar"><i style="--value: 35%"></i></div>
-            </div>
-
-            <div class="skill">
-                <div class="skill-top">
-                    <span>C++</span><span>40%</span>
-                </div>
-                <div class="bar"><i style="--value: 40%"></i></div>
-            </div>
-        </article>
-
-        <article class="stack-card">
-            <span class="stack-number">02 / MY JOURNEY</span>
-            <h2>My Learning Journey</h2>
-            <p>
-                Every project is another step towards becoming
-                a professional developer.
-            </p>
-
-            <ul class="timeline">
-                <li>
-                    <time>STEP 01</time>
-                    <h3>Started IT Digital College</h3>
-                    <p>
-                        Learning the fundamentals of information
-                        technology and computer systems.
-                    </p>
-                </li>
-
-                <li>
-                    <time>STEP 02</time>
-                    <h3>First Web Pages</h3>
-                    <p>
-                        Learning HTML and CSS to build
-                        attractive and responsive websites.
-                    </p>
-                </li>
-
-                <li>
-                    <time>STEP 03</time>
-                    <h3>Learning JavaScript</h3>
-                    <p>
-                        Developing interactive websites
-                        and improving programming logic.
-                    </p>
-                </li>
-            </ul>
-        </article>
-
-        <article class="stack-card">
-            <span class="stack-number">03 / MY FUTURE</span>
-            <h2>My Future Goals</h2>
-            <p>
-                My goal is to become a skilled full-stack
-                developer and create useful digital products.
-            </p>
-
-            <h3>What I want to achieve:</h3>
             <ul>
-                <li>Master HTML, CSS and JavaScript.</li>
-                <li>Become confident in C++ programming.</li>
-                <li>Build professional websites.</li>
-                <li>Develop real-world applications.</li>
-                <li>Work on creative IT projects.</li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#path">Path</a></li>
+                <li><a href="#community">Community</a></li>
             </ul>
+        </nav>
 
-            <h3>Keep learning. Keep building. Keep improving.</h3>
-        </article>
-
-    </section>
-
-    <!-- COMMUNITY SECTION -->
-    <section class="community-section" id="community">
-
-        <div class="community-heading">
-            <span>AZIZBEK IT COMMUNITY</span>
-            <h2>Our Learning Community</h2>
+        <!-- HERO -->
+        <header class="hero" id="top">
+            <h1>I build websites and programs.</h1>
             <p>
-                Welcome to our community! Learn programming,
-                develop your skills and connect with other students.
+                IT student learning HTML, CSS, JavaScript and C++
+                one project at a time.
+            </p>
+        </header>
+
+        <div class="card">
+            <h2><i>IT digital college student</i></h2>
+            <h2><i>learning C++/HTML/CSS/JavaScript</i></h2>
+            <h2><i>Lets practise and learn with me</i></h2>
+        </div>
+
+        <!-- FLOATING STICKERS -->
+        <div class="sticker html a1">HTML</div>
+        <div class="sticker css a2">CSS</div>
+        <div class="sticker cpp a3">C++</div>
+        <div class="sticker html a4">HTML</div>
+        <div class="sticker css a5">CSS</div>
+        <div class="sticker cpp a6">C++</div>
+        <div class="sticker html a7">HTML</div>
+        <div class="sticker css a8">CSS</div>
+        <div class="sticker cpp a9">C++</div>
+        <div class="sticker cpp a10">CSS</div>
+        <div class="sticker html a11">HTML</div>
+
+        <!-- SKILLS -->
+        <h2 class="section-title" id="skills">What I'm learning</h2>
+
+        <div class="cards">
+
+            <div class="mini-card">
+                <div class="badge cpp-b">C++</div>
+                <span class="tag">LANGUAGE</span>
+                <h4>C++</h4>
+                <p>Basics and practice</p>
+                <a href="HTMLPage1.html" class="open-btn">OPEN SECTION</a>
+            </div>
+
+            <div class="mini-card">
+                <div class="badge html-b">HTML</div>
+                <span class="tag">STRUCTURE</span>
+                <h4>HTML</h4>
+                <p>Pages and elements</p>
+                <a href="html.html" class="open-btn">OPEN SECTION</a>
+            </div>
+
+            <div class="mini-card">
+                <div class="badge css-b">CSS</div>
+                <span class="tag">STYLE</span>
+                <h4>CSS</h4>
+                <p>Colors and layout</p>
+                <a href="css.html" class="open-btn">OPEN SECTION</a>
+            </div>
+
+            <div class="mini-card">
+                <div class="badge js-b">JS</div>
+                <span class="tag">LOGIC</span>
+                <h4>JavaScript</h4>
+                <p>Structure and basic code</p>
+                <a href="java.html" class="open-btn">OPEN SECTION</a>
+            </div>
+
+        </div>
+
+        <!-- WEBSITE DEVELOPMENT INFORMATION -->
+        <section class="website-section" id="projects">
+
+            <h2 class="section-title">How Websites Are Created</h2>
+
+            <p class="website-intro">
+                Creating a website is a process that combines creativity,
+                design and programming. Here are the main steps.
             </p>
 
-            <a href="register.html" class="community-register-link">
-                Join Our Community →
-            </a>
-        </div>
+            <div class="website-grid">
 
-        <div class="community-stats">
-
-            <div class="community-stat">
-                <span>👥</span>
-                <h2 id="totalRegistered">0</h2>
-                <p>Registered People</p>
-            </div>
-
-            <div class="community-stat">
-                <span>💻</span>
-                <h2 id="differentCourses">0</h2>
-                <p>Different Courses</p>
-            </div>
-
-        </div>
-
-        <div class="community-table-box">
-
-            <div class="table-heading">
-                <div>
-                    <span>OUR MEMBERS</span>
-                    <h2>Registered Students</h2>
+                <div class="website-block">
+                    <span class="website-number">01</span>
+                    <div class="website-icon">💡</div>
+                    <h3>Planning and Ideas</h3>
+                    <p>
+                        Every website starts with an idea. First, we decide
+                        the website's purpose, target audience and content.
+                        Planning helps us create a clear structure.
+                    </p>
+                    <span class="website-tag">CREATIVE THINKING</span>
                 </div>
 
-                <span class="online-label">● COMMUNITY</span>
+                <div class="website-block">
+                    <span class="website-number">02</span>
+                    <div class="website-icon">🏗️</div>
+                    <h3>HTML – Website Structure</h3>
+                    <p>
+                        HTML creates the structure of a website. It adds
+                        headings, paragraphs, images, links, buttons,
+                        forms and other important elements.
+                    </p>
+                    <span class="website-tag">HTML5</span>
+                </div>
+
+                <div class="website-block">
+                    <span class="website-number">03</span>
+                    <div class="website-icon">🎨</div>
+                    <h3>CSS – Website Design</h3>
+                    <p>
+                        CSS makes websites attractive. We use colors,
+                        fonts, backgrounds, animations, layouts and
+                        responsive design to improve the appearance.
+                    </p>
+                    <span class="website-tag">CSS3</span>
+                </div>
+
+                <div class="website-block">
+                    <span class="website-number">04</span>
+                    <div class="website-icon">⚡</div>
+                    <h3>JavaScript – Interactivity</h3>
+                    <p>
+                        JavaScript makes websites interactive. It allows
+                        buttons, menus, sliders, animations and forms
+                        to respond to user actions.
+                    </p>
+                    <span class="website-tag">JAVASCRIPT</span>
+                </div>
+
+                <div class="website-block">
+                    <span class="website-number">05</span>
+                    <div class="website-icon">🚀</div>
+                    <h3>Testing and Publishing</h3>
+                    <p>
+                        Finally, we test the website on different devices,
+                        fix errors, improve performance and publish it
+                        online so people can visit it.
+                    </p>
+                    <span class="website-tag">WEB DEVELOPMENT</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- STACKING CARDS -->
+        <section class="stack-wrapper" id="path">
+
+            <article class="stack-card">
+                <span class="stack-number">01 / MY SKILLS</span>
+                <h2>My Skill Levels</h2>
+
+                <p>
+                    I am developing my programming skills and learning
+                    how to create modern websites and applications.
+                </p>
+
+                <div class="skill">
+                    <div class="skill-top">
+                        <span>HTML</span><span>70%</span>
+                    </div>
+                    <div class="bar">
+                        <i style="--value: 70%"></i>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-top">
+                        <span>CSS</span><span>55%</span>
+                    </div>
+                    <div class="bar">
+                        <i style="--value: 55%"></i>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-top">
+                        <span>JavaScript</span><span>35%</span>
+                    </div>
+                    <div class="bar">
+                        <i style="--value: 35%"></i>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-top">
+                        <span>C++</span><span>40%</span>
+                    </div>
+                    <div class="bar">
+                        <i style="--value: 40%"></i>
+                    </div>
+                </div>
+            </article>
+
+            <article class="stack-card">
+                <span class="stack-number">02 / MY JOURNEY</span>
+                <h2>My Learning Journey</h2>
+
+                <p>
+                    Every project is another step towards becoming
+                    a professional developer.
+                </p>
+
+                <ul class="timeline">
+
+                    <li>
+                        <time>STEP 01</time>
+                        <h3>Started IT Digital College</h3>
+                        <p>
+                            Learning the fundamentals of information
+                            technology and computer systems.
+                        </p>
+                    </li>
+
+                    <li>
+                        <time>STEP 02</time>
+                        <h3>First Web Pages</h3>
+                        <p>
+                            Learning HTML and CSS to build
+                            attractive and responsive websites.
+                        </p>
+                    </li>
+
+                    <li>
+                        <time>STEP 03</time>
+                        <h3>Learning JavaScript</h3>
+                        <p>
+                            Developing interactive websites
+                            and improving programming logic.
+                        </p>
+                    </li>
+
+                </ul>
+            </article>
+
+            <article class="stack-card">
+                <span class="stack-number">03 / MY FUTURE</span>
+                <h2>My Future Goals</h2>
+
+                <p>
+                    My goal is to become a skilled full-stack
+                    developer and create useful digital products.
+                </p>
+
+                <h3>What I want to achieve:</h3>
+
+                <ul>
+                    <li>Master HTML, CSS and JavaScript.</li>
+                    <li>Become confident in C++ programming.</li>
+                    <li>Build professional websites.</li>
+                    <li>Develop real-world applications.</li>
+                    <li>Work on creative IT projects.</li>
+                </ul>
+
+                <h3>Keep learning. Keep building. Keep improving.</h3>
+            </article>
+
+        </section>
+
+        <!-- COMMUNITY SECTION -->
+        <section class="community-section" id="community">
+
+            <div class="community-heading">
+                <span>AZIZBEK IT COMMUNITY</span>
+
+                <h2>Our Learning Community</h2>
+
+                <p>
+                    Welcome to our community! Learn programming,
+                    develop your skills and connect with other students.
+                </p>
+
+                <a href="#top" class="community-register-link">
+                    Explore Our Website →
+                </a>
             </div>
 
-            <div class="table-scroll">
-                <table class="community-table">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Student Name</th>
-                            <th>Course</th>
-                            <th>Registration Date</th>
-                        </tr>
-                    </thead>
+            <div class="community-stats">
 
-                    <tbody id="registeredPeople"></tbody>
-                </table>
+                <div class="community-stat">
+                    <span>👥</span>
+                    <h2 id="totalRegistered">0</h2>
+                    <p>Registered People</p>
+                </div>
+
+                <div class="community-stat">
+                    <span>💻</span>
+                    <h2 id="differentCourses">0</h2>
+                    <p>Different Courses</p>
+                </div>
+
             </div>
 
-            <p id="emptyCommunity">
-                No students have registered yet. Be the first!
-            </p>
+            <div class="community-table-box">
 
-        </div>
-    </section>
+                <div class="table-heading">
+                    <div>
+                        <span>OUR MEMBERS</span>
+                        <h2>Registered Students</h2>
+                    </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2026 Azizbek Ismailov</p>
-    </footer>
+                    <span class="online-label">● COMMUNITY</span>
+                </div>
 
-    <a class="to-top" href="#top" aria-label="Back to top">↑</a>
+                <div class="table-scroll">
+
+                    <table class="community-table">
+
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Student Name</th>
+                                <th>Course</th>
+                                <th>Registration Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="registeredPeople"></tbody>
+
+                    </table>
+
+                </div>
+
+                <p id="emptyCommunity">
+                    No students have registered yet. Be the first!
+                </p>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2026 Azizbek Ismailov</p>
+        </footer>
+
+        <a class="to-top" href="#top" aria-label="Back to top">↑</a>
+
+    </div>
+    <!-- END MAIN WEBSITE -->
+
 
     <!-- 3D HOVER JAVASCRIPT -->
     <script>
         document.querySelectorAll('.mini-card').forEach((card) => {
+
             card.addEventListener('mousemove', (e) => {
+
                 const r = card.getBoundingClientRect();
                 const x = (e.clientX - r.left) / r.width - 0.5;
                 const y = (e.clientY - r.top) / r.height - 0.5;
 
                 card.style.setProperty('--ry', (x * 20) + 'deg');
                 card.style.setProperty('--rx', (-y * 20) + 'deg');
+
             });
 
             card.addEventListener('mouseleave', () => {
+
                 card.style.setProperty('--rx', '0deg');
                 card.style.setProperty('--ry', '0deg');
+
             });
+
         });
     </script>
+
 
     <!-- FADE-IN ANIMATION -->
     <script>
         const items = document.querySelectorAll('.reveal');
 
         if ('IntersectionObserver' in window) {
+
             const io = new IntersectionObserver(function(entries) {
+
                 entries.forEach(function(entry) {
+
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         io.unobserve(entry.target);
                     }
+
                 });
+
             }, { threshold: 0.15 });
 
             items.forEach(function(item) {
                 io.observe(item);
             });
+
         } else {
+
             items.forEach(function(item) {
                 item.classList.add('visible');
             });
+
         }
     </script>
 
-    <!-- LOAD REGISTERED STUDENTS -->
-    <script>
-        function loadCommunity() {
-            const people = JSON.parse(
-                localStorage.getItem("registrations") || "[]"
-            );
 
-            document.getElementById("totalRegistered").textContent =
-                people.length;
+    <!-- FIREBASE SHARED REGISTRATION COUNTER -->
+    <!-- FIREBASE SHARED REGISTRATION COUNTER -->
+<script>
+    // YOUR REAL FIREBASE CONFIGURATION
+    const firebaseConfig = {
+        apiKey: "AIzaSyBCKvEEIQrAUQir6Rk0Y8t3vZKY0bOeYJo",
+        authDomain: "azizbek-b0b5c.firebaseapp.com",
+        databaseURL: "https://azizbek-b0b5c-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "azizbek-b0b5c",
+        storageBucket: "azizbek-b0b5c.firebasestorage.app",
+        messagingSenderId: "8197604788",
+        appId: "1:8197604788:web:69fcdea8e8b55b5fa8dee1",
+        measurementId: "G-SMT96LWQGE"
+    };
 
-            const courses = new Set(
-                people.map(person => person.course)
-            );
+    // INITIALIZE FIREBASE
+    firebase.initializeApp(firebaseConfig);
 
-            document.getElementById("differentCourses").textContent =
-                courses.size;
+    const database = firebase.database();
+    const counterRef = database.ref("community/totalRegistered");
 
-            const table = document.getElementById("registeredPeople");
-            const emptyMessage = document.getElementById("emptyCommunity");
+    // LOAD SHARED REGISTRATION COUNT
+    function loadCommunity() {
+        const totalElement = document.getElementById("totalRegistered");
 
-            table.innerHTML = "";
+        counterRef.on("value", function(snapshot) {
+            totalElement.textContent = snapshot.val() || 0;
+        }, function(error) {
+            console.error("Firebase count error:", error);
+            totalElement.textContent = "—";
+        });
+    }
 
-            if (people.length === 0) {
-                emptyMessage.style.display = "block";
+    // REGISTRATION WORKFLOW
+    document.addEventListener("DOMContentLoaded", function() {
+
+        const registrationSection =
+            document.getElementById("registrationSection");
+
+        const mainWebsite =
+            document.getElementById("mainWebsite");
+
+        const form =
+            document.getElementById("registrationForm");
+
+        const message =
+            document.getElementById("registrationMessage");
+
+        const button =
+            form.querySelector(".register-btn");
+
+        // SHOW MAIN WEBSITE FOR RETURNING VISITORS
+        if (localStorage.getItem("firebaseRegistered") === "true") {
+
+            registrationSection.hidden = true;
+            mainWebsite.hidden = false;
+
+            loadCommunity();
+        }
+
+        // FORM SUBMISSION
+        form.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("fullName").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const gender =
+                document.getElementById("gender").value;
+
+            const course =
+                document.getElementById("course").value;
+
+            if (!name || !email || !gender || !course) {
+
+                message.textContent =
+                    "Please complete every field.";
+
                 return;
             }
 
-            emptyMessage.style.display = "none";
+            // PREVENT DUPLICATE REGISTRATION ON THIS BROWSER
+            if (localStorage.getItem("firebaseRegistered") === "true") {
 
-            people.forEach((person, index) => {
-                const row = document.createElement("tr");
+                registrationSection.hidden = true;
+                mainWebsite.hidden = false;
 
-                const values = [
-                    index + 1,
-                    person.name,
-                    person.course,
-                    person.date
-                ];
+                loadCommunity();
 
-                values.forEach(value => {
-                    const cell = document.createElement("td");
-                    cell.textContent = value || "-";
-                    row.appendChild(cell);
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = "REGISTERING...";
+
+            message.textContent = "Connecting to database...";
+            message.style.color = "#00eaff";
+
+            try {
+
+                // UPDATE SHARED COUNTER ATOMICALLY
+                const result = await counterRef.transaction(
+                    function(currentCount) {
+
+                        return (Number(currentCount) || 0) + 1;
+
+                    }
+                );
+
+                if (!result.committed) {
+                    throw new Error("Registration was not committed.");
+                }
+
+                // SAVE ONLY A LOCAL REGISTRATION MARKER
+                localStorage.setItem("firebaseRegistered", "true");
+
+                message.textContent =
+                    "Registration successful! Opening website...";
+
+                // OPEN MAIN WEBSITE
+                registrationSection.hidden = true;
+                mainWebsite.hidden = false;
+
+                loadCommunity();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
                 });
 
-                table.appendChild(row);
-            });
-        }
+            } catch (error) {
 
-        document.addEventListener("DOMContentLoaded", loadCommunity);
-    </script>
-<script>
-document.getElementById("registrationForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+                console.error("Registration error:", error);
 
-    const name = document.getElementById("fullName").value.trim();
-    const email = document.getElementById("email").value.trim().toLowerCase();
-    const gender = document.getElementById("gender").value;
-    const course = document.getElementById("course").value;
-    const message = document.getElementById("registrationMessage");
+                message.textContent =
+                    "Registration failed. Check your Firebase database rules and internet connection.";
 
-    let registrations = JSON.parse(
-        localStorage.getItem("registrations") || "[]"
-    );
+                message.style.color = "#ff8585";
 
-    if (registrations.some(person => person.email.toLowerCase() === email)) {
-        message.textContent = "This email is already registered!";
-        message.style.color = "#ff6b6b";
-        return;
-    }
+                button.disabled = false;
 
-    const newUser = {
-        name,
-        email,
-        gender,
-        course,
-        date: new Date().toLocaleDateString()
-    };
+                button.textContent =
+                    "REGISTER & ENTER WEBSITE →";
 
-    registrations.push(newUser);
+            }
 
-    localStorage.setItem("registrations", JSON.stringify(registrations));
-    localStorage.setItem("currentUser", JSON.stringify(newUser));
-
-    message.textContent = "Registration successful! Welcome!";
-    message.style.color = "#00eaff";
-
-    setTimeout(() => {
-        document.getElementById("top").scrollIntoView({
-            behavior: "smooth"
         });
-    }, 1000);
-});
+
+    });
 </script>
 </body>
 </html>

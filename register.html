@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZIZBEK | Registration</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #08091c, #171039, #071b2c);
+            color: white;
+            padding: 20px;
+        }
+
+        .register-box {
+            width: 100%;
+            max-width: 480px;
+            padding: 40px;
+            border: 1px solid rgba(0, 220, 255, 0.3);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 40px rgba(0, 200, 255, 0.12);
+        }
+
+        .register-box h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00eaff, #a855f7);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .register-box > p {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 8px;
+            color: #ddd;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #39365e;
+            border-radius: 10px;
+            background: #111229;
+            color: white;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #00eaff;
+            box-shadow: 0 0 10px rgba(0, 234, 255, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #00c6ff, #8b5cf6);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #00eaff;
+            text-decoration: none;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 500px) {
+            .register-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-box">
+
+        <h1>Join AZIZBEK</h1>
+
+        <p>
+            Create your account and join our learning community.
+        </p>
+
+        <form id="registerForm">
+
+            <label for="name">Full Name</label>
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="email">Email Address</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+                <option value="">Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+
+            <label for="course">Choose Your Course</label>
+            <select id="course" required>
+                <option value="">Select a course</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C++">C++</option>
+                <option value="Full-Stack Development">Full-Stack Development</option>
+            </select>
+
+            <button type="submit">REGISTER NOW →</button>
+
+            <div id="message"></div>
+
+        </form>
+
+        <a href="index.html" class="back-link">
+            Back to Main Website
+        </a>
+
+    </div>
+
+    <script>
+        const registerForm = document.getElementById("registerForm");
+
+        registerForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim().toLowerCase();
+            const gender = document.getElementById("gender").value;
+            const course = document.getElementById("course").value;
+            const message = document.getElementById("message");
+
+            let registrations = JSON.parse(
+                localStorage.getItem("registrations") || "[]"
+            );
+
+            const emailExists = registrations.some(
+                person => person.email.toLowerCase() === email
+            );
+
+            if (emailExists) {
+                message.textContent = "This email is already registered.";
+                message.style.color = "#ff6b6b";
+                return;
+            }
+
+            const newUser = {
+                name: name,
+                email: email,
+                gender: gender,
+                course: course,
+                date: new Date().toLocaleDateString()
+            };
+
+            registrations.push(newUser);
+
+            localStorage.setItem(
+                "registrations",
+                JSON.stringify(registrations)
+            );
+
+            localStorage.setItem(
+                "currentUser",
+                JSON.stringify(newUser)
+            );
+
+            message.textContent =
+                "Registration successful! Opening the main website...";
+
+            message.style.color = "#00eaff";
+
+            registerForm.reset();
+
+            setTimeout(function() {
+                window.location.href = "index.html#community";
+            }, 1000);
+        });
+    </script>
+
+</body>
+</html>

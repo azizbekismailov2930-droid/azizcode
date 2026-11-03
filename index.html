@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <meta name="author" content="azizbek ismailov kaxramanovich">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/modern-additions.css">
     <link rel="stylesheet" href="css/modern-elements.css">
 
@@ -465,7 +466,7 @@
             }
         }
 
-        /* COMMUNITY: show only the shared total, never member details */
+        /* COMMUNITY: show only shared total */
         .community-stats {
             grid-template-columns: 1fr;
             max-width: 500px;
@@ -475,11 +476,371 @@
         .community-table-box {
             display: none !important;
         }
+
+        /* =====================================
+           ACCOUNT DASHBOARD
+        ===================================== */
+
+        .account-page[hidden],
+        .ai-window[hidden] {
+            display: none !important;
+        }
+
+        .account-page {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 40px 20px;
+            box-sizing: border-box;
+
+            background:
+                radial-gradient(circle at 15% 15%, rgba(0,198,255,.15), transparent 35%),
+                radial-gradient(circle at 85% 85%, rgba(139,92,246,.2), transparent 35%),
+                #09091d;
+
+            color: white;
+        }
+
+        .account-container {
+            position: relative;
+            width: min(850px, 100%);
+            margin: 30px auto;
+        }
+
+        .account-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 12px;
+            background: rgba(255,255,255,.08);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .account-header {
+            margin-bottom: 30px;
+        }
+
+        .account-label {
+            color: #00eaff;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .account-header h1 {
+            font-size: clamp(35px, 5vw, 50px);
+            margin: 15px 0;
+        }
+
+        .account-header p {
+            color: #aeb5c9;
+        }
+
+        .profile-card {
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: 22px;
+            border: 1px solid rgba(0,234,255,.25);
+            background: rgba(255,255,255,.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,.25);
+        }
+
+        .profile-avatar {
+            width: 95px;
+            height: 95px;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00c6ff, #8b5cf6);
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            box-shadow: 0 0 35px rgba(0,198,255,.25);
+        }
+
+        .profile-card h2 {
+            margin: 18px 0 5px;
+            font-size: 27px;
+        }
+
+        .profile-card > p {
+            color: #aaa;
+        }
+
+        .profile-status {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 9px 15px;
+            border-radius: 30px;
+            background: rgba(0,234,255,.1);
+            color: #00eaff;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .account-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .account-detail {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 23px;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 16px;
+            background: rgba(255,255,255,.045);
+            min-width: 0;
+        }
+
+        .account-detail > span {
+            font-size: 27px;
+        }
+
+        .account-detail small {
+            color: #00eaff;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .account-detail h3 {
+            margin: 8px 0 0;
+            font-size: 15px;
+            overflow-wrap: anywhere;
+        }
+
+        .account-actions {
+            margin-top: 25px;
+        }
+
+        .logout-btn {
+            padding: 14px 25px;
+            border: 1px solid rgba(255,100,130,.4);
+            border-radius: 10px;
+            background: rgba(255,70,100,.1);
+            color: #ff8299;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .logout-btn:hover {
+            background: #ff466c;
+            color: white;
+        }
+
+        /* =====================================
+           AI ASSISTANT BUTTON
+        ===================================== */
+
+        .ai-assistant {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            z-index: 9998;
+        }
+
+        .ai-toggle {
+            width: 68px;
+            height: 68px;
+            border: 2px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(135deg, #00c6ff, #8b5cf6);
+            box-shadow: 0 0 30px rgba(0,198,255,.35);
+            transition: .3s;
+        }
+
+        .ai-toggle:hover {
+            transform: scale(1.1) rotate(8deg);
+        }
+
+        .ai-toggle span {
+            display: block;
+            font-size: 27px;
+        }
+
+        .ai-toggle small {
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        /* =====================================
+           AI CHAT WINDOW
+        ===================================== */
+
+        .ai-window {
+            position: absolute;
+            right: 0;
+            bottom: 85px;
+            width: min(370px, calc(100vw - 35px));
+            height: 510px;
+            max-height: calc(100vh - 130px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(0,234,255,.3);
+            border-radius: 20px;
+            background: #111128;
+            color: white;
+            box-shadow: 0 20px 70px rgba(0,0,0,.5);
+        }
+
+        .ai-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 17px;
+            background: linear-gradient(100deg, #171b42, #25204a);
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .ai-avatar {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00c6ff, #8b5cf6);
+            font-size: 23px;
+        }
+
+        .ai-header h3 {
+            margin: 0 0 5px;
+            font-size: 15px;
+        }
+
+        .ai-header span {
+            color: #00eaff;
+            font-size: 10px;
+        }
+
+        .ai-header #aiClose {
+            margin-left: auto;
+            background: transparent;
+            color: white;
+            border: 0;
+            cursor: pointer;
+            font-size: 19px;
+        }
+
+        .ai-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .ai-message {
+            max-width: 85%;
+            padding: 13px 15px;
+            border-radius: 14px;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+            white-space: pre-wrap;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background: #252545;
+            border: 1px solid rgba(0,234,255,.15);
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #087da9, #7046bb);
+        }
+
+        .ai-suggestions {
+            display: flex;
+            gap: 7px;
+            padding: 10px 15px;
+            overflow-x: auto;
+        }
+
+        .ai-suggestions button {
+            flex-shrink: 0;
+            padding: 7px 12px;
+            border: 1px solid rgba(0,234,255,.3);
+            border-radius: 20px;
+            background: transparent;
+            color: #00eaff;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .ai-input-area {
+            display: flex;
+            gap: 9px;
+            padding: 13px;
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+
+        .ai-input-area input {
+            flex: 1;
+            min-width: 0;
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 10px;
+            outline: none;
+            background: #20203a;
+            color: white;
+        }
+
+        .ai-input-area input:focus {
+            border-color: #00eaff;
+        }
+
+        .ai-input-area button {
+            width: 43px;
+            border: 0;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #00c6ff, #8b5cf6);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        @media(max-width: 600px) {
+            .account-details {
+                grid-template-columns: 1fr;
+            }
+
+            .account-container {
+                margin: 15px auto;
+            }
+
+            .ai-assistant {
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .ai-window {
+                right: -5px;
+                width: calc(100vw - 30px);
+            }
+        }
+
     </style>
 
-    <!-- FIREBASE SDK: used for the shared registration counter -->
+    <!-- FIREBASE SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
 </head>
 
 <body>
@@ -586,7 +947,7 @@
     </section>
 
 
-    <!-- MAIN WEBSITE: HIDDEN UNTIL REGISTRATION -->
+    <!-- MAIN WEBSITE -->
     <div id="mainWebsite" hidden>
 
         <div class="photos">
@@ -602,6 +963,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#path">Path</a></li>
                 <li><a href="#community">Community</a></li>
+                <li><a href="#" id="accountButton">My Account</a></li>
             </ul>
         </nav>
 
@@ -939,11 +1301,180 @@
 
         <a class="to-top" href="#top" aria-label="Back to top">↑</a>
 
+
+        <!-- =====================================
+             ACCOUNT DASHBOARD
+        ====================================== -->
+
+        <section id="accountPage" class="account-page" hidden>
+
+            <div class="account-container">
+
+                <button id="closeAccount" class="account-close"
+                        aria-label="Close account">
+                    ✕
+                </button>
+
+                <div class="account-header">
+                    <span class="account-label">PERSONAL DASHBOARD</span>
+                    <h1>My Account</h1>
+                    <p>Manage and view your registration information.</p>
+                </div>
+
+                <div class="profile-card">
+
+                    <div class="profile-avatar" id="profileAvatar">
+                        A
+                    </div>
+
+                    <h2 id="accountName">Your Name</h2>
+                    <p id="accountEmail">your@email.com</p>
+
+                    <span class="profile-status">
+                        ● REGISTERED MEMBER
+                    </span>
+
+                </div>
+
+                <div class="account-details">
+
+                    <div class="account-detail">
+                        <span>👤</span>
+                        <div>
+                            <small>FULL NAME</small>
+                            <h3 id="detailName">Not available</h3>
+                        </div>
+                    </div>
+
+                    <div class="account-detail">
+                        <span>✉️</span>
+                        <div>
+                            <small>EMAIL ADDRESS</small>
+                            <h3 id="detailEmail">Not available</h3>
+                        </div>
+                    </div>
+
+                    <div class="account-detail">
+                        <span>⚧</span>
+                        <div>
+                            <small>GENDER</small>
+                            <h3 id="detailGender">Not available</h3>
+                        </div>
+                    </div>
+
+                    <div class="account-detail">
+                        <span>💻</span>
+                        <div>
+                            <small>SELECTED COURSE</small>
+                            <h3 id="detailCourse">Not available</h3>
+                        </div>
+                    </div>
+
+                    <div class="account-detail">
+                        <span>📅</span>
+                        <div>
+                            <small>REGISTRATION DATE</small>
+                            <h3 id="detailDate">Not available</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="account-actions">
+
+                    <button id="logoutButton" class="logout-btn">
+                        LOG OUT →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             AI ASSISTANT
+        ====================================== -->
+
+        <div class="ai-assistant">
+
+            <button id="aiToggle" class="ai-toggle"
+                    aria-label="Open AI assistant">
+                <span>✦</span>
+                <small>AI</small>
+            </button>
+
+            <div class="ai-window" id="aiWindow" hidden>
+
+                <div class="ai-header">
+
+                    <div class="ai-avatar">✦</div>
+
+                    <div>
+                        <h3>AZIZBEK AI</h3>
+                        <span>● Your learning assistant</span>
+                    </div>
+
+                    <button id="aiClose" aria-label="Close chat">
+                        ✕
+                    </button>
+
+                </div>
+
+                <div class="ai-messages" id="aiMessages">
+
+                    <div class="ai-message bot-message">
+                        Hello! 👋 Welcome to AZIZBEK website.
+
+                        I'm your learning assistant. Ask me about HTML,
+                        CSS, JavaScript, C++, or website development!
+                    </div>
+
+                </div>
+
+                <div class="ai-suggestions">
+                    <button type="button"
+                            data-question="What is HTML?">HTML</button>
+
+                    <button type="button"
+                            data-question="What is CSS?">CSS</button>
+
+                    <button type="button"
+                            data-question="What is JavaScript?">JavaScript</button>
+
+                    <button type="button"
+                            data-question="What is C++?">C++</button>
+                </div>
+
+                <form id="aiForm" class="ai-input-area">
+
+                    <input
+                        type="text"
+                        id="aiInput"
+                        placeholder="Ask me anything..."
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit" aria-label="Send message">
+                        ➤
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
     </div>
     <!-- END MAIN WEBSITE -->
 
 
-    <!-- 3D HOVER JAVASCRIPT -->
+    <!-- =====================================
+         3D HOVER JAVASCRIPT
+    ====================================== -->
+
     <script>
         document.querySelectorAll('.mini-card').forEach((card) => {
 
@@ -969,7 +1500,10 @@
     </script>
 
 
-    <!-- FADE-IN ANIMATION -->
+    <!-- =====================================
+         FADE-IN ANIMATION
+    ====================================== -->
+
     <script>
         const items = document.querySelectorAll('.reveal');
 
@@ -1002,159 +1536,657 @@
     </script>
 
 
-    <!-- FIREBASE SHARED REGISTRATION COUNTER -->
-    <!-- FIREBASE SHARED REGISTRATION COUNTER -->
-<script>
-    // YOUR REAL FIREBASE CONFIGURATION
-    const firebaseConfig = {
-        apiKey: "AIzaSyBCKvEEIQrAUQir6Rk0Y8t3vZKY0bOeYJo",
-        authDomain: "azizbek-b0b5c.firebaseapp.com",
-        databaseURL: "https://azizbek-b0b5c-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "azizbek-b0b5c",
-        storageBucket: "azizbek-b0b5c.firebasestorage.app",
-        messagingSenderId: "8197604788",
-        appId: "1:8197604788:web:69fcdea8e8b55b5fa8dee1",
-        measurementId: "G-SMT96LWQGE"
-    };
+    <!-- =====================================
+         FIREBASE + REGISTRATION SYSTEM
+    ====================================== -->
 
-    // INITIALIZE FIREBASE
-    firebase.initializeApp(firebaseConfig);
+    <script>
 
-    const database = firebase.database();
-    const counterRef = database.ref("community/totalRegistered");
+        // FIREBASE CONFIGURATION
 
-    // LOAD SHARED REGISTRATION COUNT
-    function loadCommunity() {
-        const totalElement = document.getElementById("totalRegistered");
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCKvEEIQrAUQir6Rk0Y8t3vZKY0bOeYJo",
+            authDomain: "azizbek-b0b5c.firebaseapp.com",
+            databaseURL: "https://azizbek-b0b5c-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "azizbek-b0b5c",
+            storageBucket: "azizbek-b0b5c.firebasestorage.app",
+            messagingSenderId: "8197604788",
+            appId: "1:8197604788:web:69fcdea8e8b55b5fa8dee1",
+            measurementId: "G-SMT96LWQGE"
+        };
 
-        counterRef.on("value", function(snapshot) {
-            totalElement.textContent = snapshot.val() || 0;
-        }, function(error) {
-            console.error("Firebase count error:", error);
-            totalElement.textContent = "—";
-        });
-    }
 
-    // REGISTRATION WORKFLOW
-    document.addEventListener("DOMContentLoaded", function() {
+        // INITIALIZE FIREBASE
 
-        const registrationSection =
-            document.getElementById("registrationSection");
-
-        const mainWebsite =
-            document.getElementById("mainWebsite");
-
-        const form =
-            document.getElementById("registrationForm");
-
-        const message =
-            document.getElementById("registrationMessage");
-
-        const button =
-            form.querySelector(".register-btn");
-
-        // SHOW MAIN WEBSITE FOR RETURNING VISITORS
-        if (localStorage.getItem("firebaseRegistered") === "true") {
-
-            registrationSection.hidden = true;
-            mainWebsite.hidden = false;
-
-            loadCommunity();
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
         }
 
-        // FORM SUBMISSION
-        form.addEventListener("submit", async function(event) {
+        const database = firebase.database();
 
-            event.preventDefault();
+        const counterRef =
+            database.ref("community/totalRegistered");
 
-            const name =
-                document.getElementById("fullName").value.trim();
 
-            const email =
-                document.getElementById("email").value.trim();
+        // LOAD SHARED COMMUNITY COUNTER
 
-            const gender =
-                document.getElementById("gender").value;
+        function loadCommunity() {
 
-            const course =
-                document.getElementById("course").value;
+            const totalElement =
+                document.getElementById("totalRegistered");
 
-            if (!name || !email || !gender || !course) {
+            counterRef.on("value", function(snapshot) {
 
-                message.textContent =
-                    "Please complete every field.";
+                totalElement.textContent = snapshot.val() || 0;
 
-                return;
-            }
+            }, function(error) {
 
-            // PREVENT DUPLICATE REGISTRATION ON THIS BROWSER
-            if (localStorage.getItem("firebaseRegistered") === "true") {
+                console.error("Firebase count error:", error);
+
+                totalElement.textContent = "—";
+
+            });
+
+        }
+
+
+        // REGISTRATION WORKFLOW
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const registrationSection =
+                document.getElementById("registrationSection");
+
+            const mainWebsite =
+                document.getElementById("mainWebsite");
+
+            const form =
+                document.getElementById("registrationForm");
+
+            const message =
+                document.getElementById("registrationMessage");
+
+            const button =
+                form.querySelector(".register-btn");
+
+
+            // CHECK RETURNING VISITOR
+
+            if (
+                localStorage.getItem("firebaseRegistered") === "true"
+            ) {
 
                 registrationSection.hidden = true;
                 mainWebsite.hidden = false;
 
                 loadCommunity();
 
-                return;
             }
 
-            button.disabled = true;
-            button.textContent = "REGISTERING...";
 
-            message.textContent = "Connecting to database...";
-            message.style.color = "#00eaff";
+            // REGISTRATION FORM SUBMISSION
 
-            try {
+            form.addEventListener("submit", async function(event) {
 
-                // UPDATE SHARED COUNTER ATOMICALLY
-                const result = await counterRef.transaction(
-                    function(currentCount) {
+                event.preventDefault();
 
-                        return (Number(currentCount) || 0) + 1;
+                const name =
+                    document.getElementById("fullName").value.trim();
 
-                    }
-                );
+                const email =
+                    document.getElementById("email").value.trim();
 
-                if (!result.committed) {
-                    throw new Error("Registration was not committed.");
+                const gender =
+                    document.getElementById("gender").value;
+
+                const course =
+                    document.getElementById("course").value;
+
+
+                if (!name || !email || !gender || !course) {
+
+                    message.textContent =
+                        "Please complete every field.";
+
+                    return;
+
                 }
 
-                // SAVE ONLY A LOCAL REGISTRATION MARKER
-                localStorage.setItem("firebaseRegistered", "true");
+
+                // PREVENT DUPLICATE REGISTRATION
+
+                if (
+                    localStorage.getItem("firebaseRegistered") === "true"
+                ) {
+
+                    registrationSection.hidden = true;
+                    mainWebsite.hidden = false;
+
+                    loadCommunity();
+
+                    return;
+
+                }
+
+
+                button.disabled = true;
+                button.textContent = "REGISTERING...";
 
                 message.textContent =
-                    "Registration successful! Opening website...";
+                    "Connecting to database...";
 
-                // OPEN MAIN WEBSITE
-                registrationSection.hidden = true;
-                mainWebsite.hidden = false;
+                message.style.color = "#00eaff";
 
-                loadCommunity();
+
+                try {
+
+                    // UPDATE SHARED COUNTER
+
+                    const result = await counterRef.transaction(
+                        function(currentCount) {
+
+                            return (Number(currentCount) || 0) + 1;
+
+                        }
+                    );
+
+
+                    if (!result.committed) {
+
+                        throw new Error(
+                            "Registration was not committed."
+                        );
+
+                    }
+
+
+                    // SAVE USER INFORMATION LOCALLY
+
+                    const userProfile = {
+
+                        name: name,
+                        email: email,
+                        gender: gender,
+                        course: course,
+                        registrationDate:
+                            new Date().toLocaleDateString()
+
+                    };
+
+
+                    localStorage.setItem(
+                        "azizbekUser",
+                        JSON.stringify(userProfile)
+                    );
+
+
+                    // SAVE REGISTRATION STATUS
+
+                    localStorage.setItem(
+                        "firebaseRegistered",
+                        "true"
+                    );
+
+
+                    message.textContent =
+                        "Registration successful! Opening website...";
+
+
+                    // OPEN MAIN WEBSITE
+
+                    registrationSection.hidden = true;
+                    mainWebsite.hidden = false;
+
+                    loadCommunity();
+
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+
+                } catch (error) {
+
+                    console.error("Registration error:", error);
+
+                    message.textContent =
+                        "Registration failed. Check your Firebase database rules and internet connection.";
+
+                    message.style.color = "#ff8585";
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "REGISTER & ENTER WEBSITE →";
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+    <!-- =====================================
+         ACCOUNT DASHBOARD JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const accountPage =
+                document.getElementById("accountPage");
+
+            const accountButton =
+                document.getElementById("accountButton");
+
+            const closeAccount =
+                document.getElementById("closeAccount");
+
+            const logoutButton =
+                document.getElementById("logoutButton");
+
+
+            // DISPLAY USER INFORMATION
+
+            function displayAccount() {
+
+                const savedUser =
+                    localStorage.getItem("azizbekUser");
+
+
+                if (!savedUser) {
+
+                    alert(
+                        "Your profile information is unavailable. Please register again."
+                    );
+
+                    return;
+
+                }
+
+
+                let user;
+
+                try {
+
+                    user = JSON.parse(savedUser);
+
+                } catch (error) {
+
+                    console.error("Profile loading error:", error);
+
+                    alert("Could not load your profile.");
+
+                    return;
+
+                }
+
+
+                document.getElementById("accountName").textContent =
+                    user.name || "Not available";
+
+                document.getElementById("accountEmail").textContent =
+                    user.email || "Not available";
+
+
+                document.getElementById("profileAvatar").textContent =
+                    (user.name || "A").charAt(0).toUpperCase();
+
+
+                document.getElementById("detailName").textContent =
+                    user.name || "Not available";
+
+                document.getElementById("detailEmail").textContent =
+                    user.email || "Not available";
+
+                document.getElementById("detailGender").textContent =
+                    user.gender || "Not available";
+
+                document.getElementById("detailCourse").textContent =
+                    user.course || "Not available";
+
+                document.getElementById("detailDate").textContent =
+                    user.registrationDate || "Not available";
+
+            }
+
+
+            // OPEN ACCOUNT PAGE
+
+            accountButton.addEventListener("click", function(event) {
+
+                event.preventDefault();
+
+                displayAccount();
+
+                accountPage.hidden = false;
 
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
                 });
 
-            } catch (error) {
+            });
 
-                console.error("Registration error:", error);
 
-                message.textContent =
-                    "Registration failed. Check your Firebase database rules and internet connection.";
+            // CLOSE ACCOUNT PAGE
 
-                message.style.color = "#ff8585";
+            closeAccount.addEventListener("click", function() {
 
-                button.disabled = false;
+                accountPage.hidden = true;
 
-                button.textContent =
-                    "REGISTER & ENTER WEBSITE →";
+            });
 
-            }
+
+            // LOG OUT
+
+            logoutButton.addEventListener("click", function() {
+
+                const confirmLogout = confirm(
+                    "Are you sure you want to log out?"
+                );
+
+
+                if (confirmLogout) {
+
+                    // Remove login status.
+                    // Keep profile information on this browser.
+
+                    localStorage.removeItem(
+                        "firebaseRegistered"
+                    );
+
+                    // Close account page.
+
+                    accountPage.hidden = true;
+
+                    // Show registration page.
+
+                    document.getElementById(
+                        "mainWebsite"
+                    ).hidden = true;
+
+                    document.getElementById(
+                        "registrationSection"
+                    ).hidden = false;
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }
+
+            });
 
         });
 
-    });
-</script>
+    </script>
+
+
+    <!-- =====================================
+         AZIZBEK AI ASSISTANT JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const aiToggle =
+                document.getElementById("aiToggle");
+
+            const aiWindow =
+                document.getElementById("aiWindow");
+
+            const aiClose =
+                document.getElementById("aiClose");
+
+            const aiForm =
+                document.getElementById("aiForm");
+
+            const aiInput =
+                document.getElementById("aiInput");
+
+            const aiMessages =
+                document.getElementById("aiMessages");
+
+
+            // OPEN AND CLOSE AI CHAT
+
+            aiToggle.addEventListener("click", function() {
+
+                aiWindow.hidden = !aiWindow.hidden;
+
+                if (!aiWindow.hidden) {
+                    aiInput.focus();
+                }
+
+            });
+
+
+            aiClose.addEventListener("click", function() {
+
+                aiWindow.hidden = true;
+
+            });
+
+
+            // ADD CHAT MESSAGE
+
+            function addMessage(text, type) {
+
+                const message =
+                    document.createElement("div");
+
+                message.className =
+                    "ai-message " + type;
+
+                // Safe text output: user messages cannot insert HTML.
+
+                message.textContent = text;
+
+                aiMessages.appendChild(message);
+
+                aiMessages.scrollTop =
+                    aiMessages.scrollHeight;
+
+            }
+
+
+            // AI ANSWER DATABASE
+
+            function getAIResponse(question) {
+
+                const q = question.toLowerCase().trim();
+
+
+                // GREETINGS
+
+                if (
+                    q.includes("hello") ||
+                    q.includes("hi") ||
+                    q.includes("hey")
+                ) {
+
+                    return "Hello! 👋 Welcome to AZIZBEK IT Community. How can I help you today?";
+
+                }
+
+
+                // HTML
+
+                if (q.includes("html")) {
+
+                    return "HTML stands for HyperText Markup Language.\n\nIt creates the structure of websites using headings, paragraphs, images, links, buttons and forms.\n\nExample:\n\n<h1>Hello World</h1>\n<p>My first website</p>";
+
+                }
+
+
+                // CSS
+
+                if (q.includes("css")) {
+
+                    return "CSS stands for Cascading Style Sheets.\n\nIt controls the appearance of websites, including colors, layouts, fonts, backgrounds, animations and responsive design.\n\nExample:\n\nh1 {\n  color: cyan;\n  font-size: 30px;\n}";
+
+                }
+
+
+                // JAVASCRIPT
+
+                if (
+                    q.includes("javascript") ||
+                    q.includes("java script")
+                ) {
+
+                    return "JavaScript makes websites interactive.\n\nIt is used for buttons, forms, menus, animations and dynamic content.\n\nExample:\n\nalert('Hello World!');";
+
+                }
+
+
+                // C++
+
+                if (
+                    q.includes("c++") ||
+                    q.includes("cpp")
+                ) {
+
+                    return "C++ is a powerful programming language used for software development, games, algorithms and system programming.\n\nExample:\n\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello World!\";\n    return 0;\n}";
+
+                }
+
+
+                // COURSES
+
+                if (q.includes("course")) {
+
+                    return "Our website offers these learning courses:\n\n1. HTML\n2. CSS\n3. JavaScript\n4. C++\n5. Full-Stack Development\n\nVisit the Skills section to explore them.";
+
+                }
+
+
+                // WEBSITE DEVELOPMENT
+
+                if (
+                    q.includes("website") ||
+                    q.includes("web development")
+                ) {
+
+                    return "To create a website, follow these steps:\n\n1. Plan your website.\n2. Use HTML for structure.\n3. Use CSS for design.\n4. Use JavaScript for functionality.\n5. Test your website.\n6. Publish it online.";
+
+                }
+
+
+                // ACCOUNT
+
+                if (
+                    q.includes("account") ||
+                    q.includes("profile")
+                ) {
+
+                    return "Click My Account in the navigation bar to view your registration information, email, gender and selected course.";
+
+                }
+
+
+                // PROJECTS
+
+                if (q.includes("project")) {
+
+                    return "Here are some beginner programming projects:\n\n1. Personal portfolio website.\n2. Calculator.\n3. Registration form.\n4. To-do list.\n5. Weather application.\n6. Responsive landing page.\n\nPractice makes you a better developer!";
+
+                }
+
+
+                // HELP
+
+                if (q.includes("help")) {
+
+                    return "I can help you with:\n\n• HTML structure\n• CSS styling\n• JavaScript programming\n• C++ basics\n• Website development\n• Programming projects\n• Website navigation\n\nAsk me a question!";
+
+                }
+
+
+                // WHO ARE YOU
+
+                if (
+                    q.includes("who are you") ||
+                    q.includes("your name")
+                ) {
+
+                    return "I am AZIZBEK AI, your website learning assistant! ✦ I help visitors understand programming and web development.";
+
+                }
+
+
+                // DEFAULT RESPONSE
+
+                return "That's an interesting question! 😊\n\nI can currently answer questions about HTML, CSS, JavaScript, C++, courses, projects and website development.\n\nTry asking me about one of these topics!";
+
+            }
+
+
+            // SEND MESSAGE
+
+            function sendAIMessage(question) {
+
+                if (!question.trim()) return;
+
+
+                addMessage(
+                    question,
+                    "user-message"
+                );
+
+
+                aiInput.value = "";
+
+
+                const response =
+                    getAIResponse(question);
+
+
+                addMessage(
+                    response,
+                    "bot-message"
+                );
+
+            }
+
+
+            // SUBMIT CHAT FORM
+
+            aiForm.addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                sendAIMessage(aiInput.value);
+
+            });
+
+
+            // QUICK QUESTIONS
+
+            document.querySelectorAll(
+                ".ai-suggestions button"
+            ).forEach(function(button) {
+
+                button.addEventListener("click", function() {
+
+                    sendAIMessage(
+                        button.dataset.question
+                    );
+
+                });
+
+            });
+
+        });
+
+    </script>
+
 </body>
 </html>

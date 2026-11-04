@@ -4,38 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>JavaScript structure and basic code</title>
+  <!-- Shared variables and layout first, then this page's own styles -->
   <link rel="stylesheet" href="java.css">
- 
+  
 </head>
 <body>
   <!-- MODERN LANGUAGE SELECTOR -->
-<div id="google_language_change">
-    <select
-        class="language-select"
-        id="languageSelector"
-        aria-label="Choose website language"
-    >
-        <option value="en">🇬🇧 English</option>
-        <option value="uz">🇺🇿 O'zbek</option>
-        <option value="ru">🇷🇺 Русский</option>
+  <div id="google_language_change">
+    <select class="language-select" id="languageSelector" aria-label="Choose website language">
+      <option value="en">🇬🇧 English</option>
+      <option value="uz">🇺🇿 O'zbek</option>
+      <option value="ru">🇷🇺 Русский</option>
     </select>
-
     <span class="language-arrow">⌄</span>
-</div>
-
-<!-- GOOGLE TRANSLATE ENGINE -->
-<div id="google_translate_element" style="display:none;"></div>
-    <canvas id="code-bg"></canvas>
+  </div>
+ 
+  <!-- GOOGLE TRANSLATE ENGINE -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <canvas id="code-bg"></canvas>
+ 
   <header class="top">
     <h1>JavaScript: structure and basic code</h1>
-    <p>Each topic shows the structure first, then a simple example.</p>
+    <p>Each topic shows the structure first, then a simple example. At the end you can run your own code.</p>
   </header>
-
+ 
   <div class="layout">
-    <nav class="menu" aria-label="Topics">
+    <nav class="menu" id="menu" aria-label="Topics">
       <a href="#setup">Add JS to a page</a>
       <a href="#variables">Variables</a>
       <a href="#types">Data types</a>
+      <a href="#strings">Strings</a>
       <a href="#operators">Operators</a>
       <a href="#if">If / else</a>
       <a href="#loops">Loops</a>
@@ -43,8 +41,10 @@
       <a href="#arrays">Arrays</a>
       <a href="#objects">Objects</a>
       <a href="#dom">DOM and events</a>
+      <a href="#run">Run your code</a>
+      <a href="#quiz">Quiz</a>
     </nav>
-
+ 
     <main>
       <section id="setup">
         <h2>Add JavaScript to a page</h2>
@@ -56,11 +56,12 @@
   &lt;h1&gt;My page&lt;/h1&gt;
   &lt;script src="script.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
-
+ 
 // script.js
 console.log("Hello, world!");</code></pre>
+        <div class="tip">Open the browser console with <code>F12</code> to see what <code>console.log</code> prints.</div>
       </section>
-
+ 
       <section id="variables">
         <h2>Variables</h2>
         <p>A variable stores a value. Use <code>const</code> if it will not change, <code>let</code> if it will.</p>
@@ -71,10 +72,10 @@ let name = value;</code></pre>
         <pre><code>const city = "Tashkent";
 let age = 20;
 age = 21;
-
+ 
 console.log(city, age);</code></pre>
       </section>
-
+ 
       <section id="types">
         <h2>Data types</h2>
         <p>The main types are text, numbers, true/false, and empty values.</p>
@@ -89,7 +90,24 @@ null          // empty on purpose</code></pre>
 console.log(typeof 42);      // number
 console.log("JS".length);    // 2</code></pre>
       </section>
-
+ 
+      <section id="strings">
+        <h2>Strings</h2>
+        <p>Text has many helpful methods. Use backticks <code>`</code> to put variables inside text.</p>
+        <h3>Structure</h3>
+        <pre><code>`text ${variable}`        // template string
+text.toUpperCase()        // CAPITAL LETTERS
+text.includes("part")     // true or false
+text.slice(start, end)    // cut a piece</code></pre>
+        <h3>Example</h3>
+        <pre><code>const name = "Aziz";
+ 
+console.log(`Hello, ${name}!`);   // Hello, Aziz!
+console.log(name.toUpperCase());  // AZIZ
+console.log(name.includes("z"));  // true
+console.log(name.slice(0, 2));    // Az</code></pre>
+      </section>
+ 
       <section id="operators">
         <h2>Operators</h2>
         <p>Operators do math and compare values. Use <code>===</code> to compare.</p>
@@ -103,7 +121,7 @@ console.log(10 % 3);    // 1
 console.log(5 === "5"); // false
 console.log(true &amp;&amp; false); // false</code></pre>
       </section>
-
+ 
       <section id="if">
         <h2>If / else</h2>
         <p>Run code only when a condition is true.</p>
@@ -117,7 +135,7 @@ console.log(true &amp;&amp; false); // false</code></pre>
 }</code></pre>
         <h3>Example</h3>
         <pre><code>const score = 72;
-
+ 
 if (score &gt;= 90) {
   console.log("Excellent");
 } else if (score &gt;= 60) {
@@ -126,7 +144,7 @@ if (score &gt;= 90) {
   console.log("Keep practicing");
 }</code></pre>
       </section>
-
+ 
       <section id="loops">
         <h2>Loops</h2>
         <p>A loop repeats code.</p>
@@ -134,7 +152,7 @@ if (score &gt;= 90) {
         <pre><code>for (start; condition; step) {
   // repeated code
 }
-
+ 
 while (condition) {
   // repeated code
 }</code></pre>
@@ -142,14 +160,15 @@ while (condition) {
         <pre><code>for (let i = 1; i &lt;= 3; i++) {
   console.log("Round", i);
 }
-
+ 
 let count = 3;
 while (count &gt; 0) {
   console.log(count);
   count--;
 }</code></pre>
+        <div class="tip">If the condition never becomes false, the loop never stops. Always change something inside a <code>while</code> loop.</div>
       </section>
-
+ 
       <section id="functions">
         <h2>Functions</h2>
         <p>A function is a reusable block of code. It can take inputs and return a result.</p>
@@ -157,25 +176,25 @@ while (count &gt; 0) {
         <pre><code>function name(parameter1, parameter2) {
   return result;
 }
-
+ 
 const name = (parameter) =&gt; result; // arrow function</code></pre>
         <h3>Example</h3>
         <pre><code>function add(a, b) {
   return a + b;
 }
-
+ 
 const double = (n) =&gt; n * 2;
-
+ 
 console.log(add(2, 3));  // 5
 console.log(double(4));  // 8</code></pre>
       </section>
-
+ 
       <section id="arrays">
         <h2>Arrays</h2>
         <p>An array is an ordered list. The first position is 0.</p>
         <h3>Structure</h3>
         <pre><code>const list = [item1, item2, item3];
-
+ 
 list[0]            // read an item
 list.push(item)    // add to the end
 list.length        // how many items
@@ -183,14 +202,14 @@ list.map(fn)       // change every item
 list.filter(fn)    // keep some items</code></pre>
         <h3>Example</h3>
         <pre><code>const fruits = ["apple", "banana", "cherry"];
-
+ 
 console.log(fruits[0]);
 fruits.push("mango");
-
+ 
 const big = fruits.filter(f =&gt; f.length &gt; 5);
 console.log(big);</code></pre>
       </section>
-
+ 
       <section id="objects">
         <h2>Objects</h2>
         <p>An object groups related data as key: value pairs.</p>
@@ -202,7 +221,7 @@ console.log(big);</code></pre>
     // code
   }
 };
-
+ 
 object.key</code></pre>
         <h3>Example</h3>
         <pre><code>const student = {
@@ -212,156 +231,239 @@ object.key</code></pre>
     return "Hi, I am " + this.name;
   }
 };
-
+ 
 console.log(student.name);
 console.log(student.greet());</code></pre>
       </section>
-
+ 
       <section id="dom">
         <h2>DOM and events</h2>
         <p>JavaScript can find elements on the page, change them, and react to clicks.</p>
         <h3>Structure</h3>
         <pre><code>const element = document.getElementById("id");
-
+ 
 element.textContent = "new text";
 element.style.color = "red";
-
+ 
 element.addEventListener("click", function () {
   // runs when clicked
 });</code></pre>
         <h3>Example</h3>
         <pre><code>&lt;button id="btn"&gt;Click me&lt;/button&gt;
 &lt;p id="msg"&gt;&lt;/p&gt;
-
+ 
 // script.js
 const btn = document.getElementById("btn");
 const msg = document.getElementById("msg");
-
+ 
 btn.addEventListener("click", () =&gt; {
   msg.textContent = "Button clicked!";
 });</code></pre>
+        <h3>Live demo</h3>
+        <button class="btn-run" id="btn" type="button">Click me</button>
+        <p id="msg" aria-live="polite"></p>
+      </section>
+ 
+      <section id="run">
+        <h2>Run your code</h2>
+        <p>Write JavaScript and press Run. Everything you print with <code>console.log</code> appears in the output box.</p>
+        <textarea id="editor" spellcheck="false" aria-label="JavaScript code editor">const fruits = ["apple", "banana", "cherry"];
+ 
+for (let i = 0; i &lt; fruits.length; i++) {
+  console.log(i + 1, fruits[i].toUpperCase());
+}</textarea>
+        <div class="run-row">
+          <button class="btn-run" id="runBtn" type="button">Run</button>
+          <button class="reset" id="clearBtn" type="button">Clear output</button>
+        </div>
+        <pre id="output" aria-live="polite">Output will appear here.</pre>
+      </section>
+ 
+      <section id="quiz">
+        <h2>Quick quiz</h2>
+        <p>Test yourself. Your best score is saved in this browser.</p>
+        <div id="quizBox"></div>
+        <p id="score"></p>
+        <button class="reset" id="resetQuiz" type="button">Try again</button>
       </section>
     </main>
   </div>
+ 
+  <footer>END OF THE PAGE</footer>
+ 
   <script>
-  const canvas = document.getElementById('code-bg');
-  const ctx = canvas.getContext('2d');
-  const symbols = '{}[]()<>/\\;:=+-*&|!?#$%01'.split('');
-  const size = 16;
-  let drops = [];
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const columns = Math.floor(canvas.width / size);
-    drops = Array.from({ length: columns }, () => Math.random() * canvas.height / size);
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function draw() {
-    // Semi-transparent background creates the fading trail
-    ctx.fillStyle = 'rgba(13, 17, 23, 0.1)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = '#00ff9c';
-    ctx.font = size + 'px monospace';
-
-    drops.forEach((y, i) => {
-      const char = symbols[Math.floor(Math.random() * symbols.length)];
-      ctx.fillText(char, i * size, y * size);
-
-      if (y * size > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
+    const canvas = document.getElementById('code-bg');
+    const ctx = canvas.getContext('2d');
+    const symbols = '{}[]()<>/\\;:=+-*&|!?#$%01'.split('');
+    const size = 16;
+    let drops = [];
+ 
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const columns = Math.floor(canvas.width / size);
+      drops = Array.from({ length: columns }, () => Math.random() * canvas.height / size);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+ 
+    function draw() {
+      // Semi-transparent background creates the fading trail
+      ctx.fillStyle = 'rgba(13, 17, 23, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+ 
+      ctx.fillStyle = '#00ff9c';
+      ctx.font = size + 'px monospace';
+ 
+      drops.forEach((y, i) => {
+        const char = symbols[Math.floor(Math.random() * symbols.length)];
+        ctx.fillText(char, i * size, y * size);
+ 
+        if (y * size > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      });
+    }
+ 
+    setInterval(draw, 50);
+  </script>
+ 
+  <div class="back-wrap">
+    <a class="back-link" href="index.html">return to first page</a>
+  </div>
+ 
+  <script>
+    /* Copy buttons */
+    document.querySelectorAll('pre:not(#output)').forEach(pre => {
+      const wrap = document.createElement('div'); wrap.className = 'codebox';
+      pre.parentNode.insertBefore(wrap, pre); wrap.appendChild(pre);
+      const b = document.createElement('button'); b.className = 'copy'; b.type = 'button'; b.textContent = 'Copy';
+      b.addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(pre.innerText); b.textContent = 'Copied'; }
+        catch (e) { b.textContent = 'Press Ctrl+C'; }
+        setTimeout(() => b.textContent = 'Copy', 1500);
+      });
+      wrap.appendChild(b);
+    });
+ 
+    /* Highlight current topic in the side menu */
+    const links = [...document.querySelectorAll('#menu a')];
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('main section').forEach(s => io.observe(s));
+ 
+    /* DOM live demo (the same code shown in the lesson) */
+    document.getElementById('btn').addEventListener('click', () => {
+      document.getElementById('msg').textContent = 'Button clicked!';
+    });
+ 
+    /* Run your code: capture console.log into the output box */
+    const editor = document.getElementById('editor'), out = document.getElementById('output');
+    function show(text, isError) {
+      const line = document.createElement('div');
+      if (isError) line.className = 'err';
+      line.textContent = text;
+      out.appendChild(line);
+    }
+    function fmt(v) {
+      if (typeof v === 'string') return v;
+      try { return JSON.stringify(v); } catch (e) { return String(v); }
+    }
+    document.getElementById('runBtn').addEventListener('click', () => {
+      out.textContent = '';
+      const fakeConsole = { log: (...a) => show(a.map(fmt).join(' ')) };
+      try {
+        new Function('console', editor.value)(fakeConsole);
+        if (!out.textContent) show('(no output - use console.log to print something)');
+      } catch (err) {
+        show('Error: ' + err.message, true);
       }
-      drops[i]++;
     });
-  }
-
-  setInterval(draw, 50);
-</script>
-                <footer>END OF THE PAGE</footer>
-                <div class="back-wrap">
-  <a class="back-link" href="index.html">return to first page</a>
-</div>
-<!-- LANGUAGE TRANSLATION SYSTEM -->
-<script>
-    let googleTranslateReady = false;
-    let pendingLanguage = null;
-
-    // INITIALIZE GOOGLE TRANSLATE
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-            {
-                pageLanguage: 'en',
-                includedLanguages: 'en,uz,ru',
-                autoDisplay: false
-            },
-            'google_translate_element'
-        );
-
-        googleTranslateReady = true;
-
-        if (pendingLanguage) {
-            changeWebsiteLanguage(pendingLanguage);
-            pendingLanguage = null;
-        }
-    }
-
-    // CHANGE WEBSITE LANGUAGE
-    function changeWebsiteLanguage(language) {
-
-        const translateSelect = document.querySelector(
-            '.goog-te-combo'
-        );
-
-        if (!translateSelect) {
-            pendingLanguage = language;
-            return;
-        }
-
-        translateSelect.value = language;
-
-        translateSelect.dispatchEvent(
-            new Event('change', { bubbles: true })
-        );
-    }
-
-    // LANGUAGE SELECTOR EVENT
-    document.addEventListener('DOMContentLoaded', function() {
-
-        const selector = document.getElementById(
-            'languageSelector'
-        );
-
-        selector.addEventListener('change', function() {
-
-            const selectedLanguage = this.value;
-
-            changeWebsiteLanguage(selectedLanguage);
-
-            localStorage.setItem(
-                'azizbek_language',
-                selectedLanguage
-            );
+    document.getElementById('clearBtn').addEventListener('click', () => { out.textContent = ''; });
+ 
+    /* Quiz */
+    const QUESTIONS = [
+      { q: 'Which keyword declares a variable that will not change?', o: ['let', 'const', 'var'], a: 1 },
+      { q: 'What does 5 === "5" return?', o: ['true', 'false', 'error'], a: 1 },
+      { q: 'What is the index of the first item in an array?', o: ['0', '1', '-1'], a: 0 },
+      { q: 'Which method adds an item to the end of an array?', o: ['push()', 'filter()', 'slice()'], a: 0 },
+      { q: 'Which method runs code when a user clicks an element?', o: ['getElementById()', 'addEventListener()', 'toUpperCase()'], a: 1 }
+    ];
+    let done = 0, correct = 0;
+    const qbox = document.getElementById('quizBox'), scoreEl = document.getElementById('score');
+    function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    function renderQuiz() {
+      qbox.innerHTML = ''; done = 0; correct = 0;
+      const best = safeGet('js_best');
+      scoreEl.textContent = best ? ('Best score: ' + best + ' / ' + QUESTIONS.length) : '';
+      QUESTIONS.forEach(item => {
+        const d = document.createElement('div'); d.className = 'q';
+        const h = document.createElement('h3'); h.textContent = item.q; d.appendChild(h);
+        item.o.forEach((text, i) => {
+          const b = document.createElement('button'); b.type = 'button'; b.className = 'opt'; b.textContent = text;
+          b.addEventListener('click', () => {
+            const all = d.querySelectorAll('.opt'); all.forEach(x => x.disabled = true);
+            all[item.a].classList.add('right');
+            if (i === item.a) correct++; else b.classList.add('wrong');
+            if (++done === QUESTIONS.length) {
+              const prev = parseInt(safeGet('js_best') || '0', 10);
+              if (correct > prev) safeSet('js_best', String(correct));
+              scoreEl.textContent = 'Your score: ' + correct + ' / ' + QUESTIONS.length;
+            }
+          });
+          d.appendChild(b);
         });
-
-        // RESTORE PREVIOUS LANGUAGE
-        const savedLanguage = localStorage.getItem(
-            'azizbek_language'
-        );
-
-        if (savedLanguage && ['en', 'uz', 'ru'].includes(savedLanguage)) {
-            selector.value = savedLanguage;
-
-            pendingLanguage = savedLanguage;
-        }
+        qbox.appendChild(d);
+      });
+    }
+    document.getElementById('resetQuiz').addEventListener('click', renderQuiz);
+    renderQuiz();
+  </script>
+ 
+  <!-- LANGUAGE TRANSLATION SYSTEM -->
+  <script>
+    let pendingLanguage = null;
+ 
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', includedLanguages: 'en,uz,ru', autoDisplay: false },
+        'google_translate_element'
+      );
+      if (pendingLanguage) { setTimeout(() => changeWebsiteLanguage(pendingLanguage), 300); }
+    }
+ 
+    function changeWebsiteLanguage(language) {
+      const translateSelect = document.querySelector('.goog-te-combo');
+      if (!translateSelect) { pendingLanguage = language; return; }
+      translateSelect.value = language;
+      translateSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      pendingLanguage = null;
+    }
+ 
+    document.addEventListener('DOMContentLoaded', function () {
+      const selector = document.getElementById('languageSelector');
+      selector.addEventListener('change', function () {
+        changeWebsiteLanguage(this.value);
+        try { localStorage.setItem('azizbek_language', this.value); } catch (e) {}
+      });
+      let saved = null;
+      try { saved = localStorage.getItem('azizbek_language'); } catch (e) {}
+      if (saved && ['en', 'uz', 'ru'].includes(saved)) {
+        selector.value = saved;
+        pendingLanguage = saved;
+      }
     });
-</script>
-
-<!-- GOOGLE TRANSLATE SCRIPT -->
-<script
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
+  </script>
+ 
+  <!-- GOOGLE TRANSLATE SCRIPT -->
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+ 

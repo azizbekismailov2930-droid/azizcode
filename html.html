@@ -1,158 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet"  href="for.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn HTML</title>
-  <!-- Link the stylesheet file -->
-  <link rel="stylesheet" href="style.css">
+  <!-- One shared stylesheet: same variables as the C++ page -->
+  <link rel="stylesheet" href="for.css">
 </head>
 <body>
   <!-- MODERN LANGUAGE SELECTOR -->
-<div id="google_language_change">
-    <select
-        class="language-select"
-        id="languageSelector"
-        aria-label="Choose website language"
-    >
-        <option value="en">🇬🇧 English</option>
-        <option value="uz">🇺🇿 O'zbek</option>
-        <option value="ru">🇷🇺 Русский</option>
+  <div id="google_language_change">
+    <select class="language-select" id="languageSelector" aria-label="Choose website language">
+      <option value="en">🇬🇧 English</option>
+      <option value="uz">🇺🇿 O'zbek</option>
+      <option value="ru">🇷🇺 Русский</option>
     </select>
-
     <span class="language-arrow">⌄</span>
-</div>
-
-<!-- GOOGLE TRANSLATE ENGINE -->
-<div id="google_translate_element" style="display:none;"></div>
-<canvas id="code-bg"></canvas>
+  </div>
+ 
+  <!-- GOOGLE TRANSLATE ENGINE -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <canvas id="code-bg"></canvas>
+ 
   <header>
     <h1>Learn HTML</h1>
-    <nav>
-      <a href="#basics">Basics</a>
-      <a href="#text">Text</a>
-      <a href="#lists">Lists</a>
-      <a href="#links">Links</a>
-      <a href="#form">Form</a>
-    </nav>
+    <p>Build your first web page step by step: structure, text, lists, links, images, tables and forms.</p>
   </header>
-
+ 
+  <nav id="menu">
+    <a href="#basics">Basics</a>
+    <a href="#structure">Page structure</a>
+    <a href="#text">Text</a>
+    <a href="#lists">Lists</a>
+    <a href="#links">Links and images</a>
+    <a href="#tables">Tables</a>
+    <a href="#form">Form</a>
+    <a href="#try">Try it</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+ 
   <main>
-
+ 
     <section id="basics">
       <h2>1. Basics</h2>
       <p>HTML is a markup language. It tells the browser what on the page is a heading, what is a paragraph, and what is a link. Each element is made of tags: an opening tag <code>&lt;p&gt;</code> and a closing tag <code>&lt;/p&gt;</code>.</p>
-
-      <!-- ADDED -->
       <h3>Code:</h3>
       <pre><code>&lt;p&gt;Hello, world!&lt;/p&gt;
-
+ 
 &lt;!-- Opening and closing tags --&gt;
 &lt;p&gt;Paragraph text&lt;/p&gt;</code></pre>
+      <div class="tip">Text between <code>&lt;!--</code> and <code>--&gt;</code> is a comment. The browser ignores it.</div>
     </section>
-
+ 
+    <section id="structure">
+      <h2>2. Page structure</h2>
+      <p>Every HTML page has the same skeleton. The <code>head</code> holds settings, the <code>body</code> holds what people see.</p>
+      <h3>Code:</h3>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;&lt;h1&gt;My site&lt;/h1&gt;&lt;/header&gt;
+  &lt;main&gt;&lt;p&gt;Content here&lt;/p&gt;&lt;/main&gt;
+  &lt;footer&gt;&lt;p&gt;© 2026&lt;/p&gt;&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <div class="tip">Link <code>style.css</code> only once. Two links to the same file do nothing extra.</div>
+    </section>
+ 
     <section id="text">
-      <h2>2. Text</h2>
-      <h3>Third-level heading</h3>
-      <p>This is a regular paragraph. <strong>Bold text</strong>, <em>italic</em> and <mark>highlighted text</mark>.</p>
-      <p>A new line<br>inside one paragraph.</p>
-
-      <!-- ADDED -->
+      <h2>3. Text</h2>
+      <div class="demo">
+        <h3>Third-level heading</h3>
+        <p>This is a regular paragraph. <strong>Bold text</strong>, <em>italic</em> and <mark>highlighted text</mark>.</p>
+        <p>A new line<br>inside one paragraph.</p>
+      </div>
       <h3>Code:</h3>
       <pre><code>&lt;h3&gt;Third-level heading&lt;/h3&gt;
 &lt;p&gt;This is a regular paragraph. &lt;strong&gt;Bold text&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt; and &lt;mark&gt;highlighted text&lt;/mark&gt;.&lt;/p&gt;
 &lt;p&gt;A new line&lt;br&gt;inside one paragraph.&lt;/p&gt;</code></pre>
     </section>
-
+ 
     <section id="lists">
-      <h2>3. Lists</h2>
-      <h3>Bulleted list</h3>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-      <h3>Numbered list</h3>
-      <ol>
-        <li>Create the file index.html</li>
-        <li>Write the code</li>
-        <li>Open it in the browser</li>
-      </ol>
-
-      <!-- ADDED -->
+      <h2>4. Lists</h2>
+      <div class="demo">
+        <h3>Bulleted list</h3>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+        <h3>Numbered list</h3>
+        <ol>
+          <li>Create the file index.html</li>
+          <li>Write the code</li>
+          <li>Open it in the browser</li>
+        </ol>
+      </div>
       <h3>Code:</h3>
       <pre><code>&lt;ul&gt;
   &lt;li&gt;HTML&lt;/li&gt;
   &lt;li&gt;CSS&lt;/li&gt;
   &lt;li&gt;JavaScript&lt;/li&gt;
 &lt;/ul&gt;
-
+ 
 &lt;ol&gt;
   &lt;li&gt;Create the file index.html&lt;/li&gt;
   &lt;li&gt;Write the code&lt;/li&gt;
   &lt;li&gt;Open it in the browser&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
     </section>
-
+ 
     <section id="links">
-      <h2>4. Links and images</h2>
-      <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">HTML documentation on MDN</a></p>
-      <!-- Put the picture photo.jpg in the same folder -->
-      <!-- <img src="photo.jpg" alt="Picture description" width="300"> -->
-
-      <!-- ADDED -->
+      <h2>5. Links and images</h2>
+      <div class="demo">
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">HTML documentation on MDN</a></p>
+      </div>
       <h3>Code:</h3>
-      <pre><code>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"&gt;HTML documentation on MDN&lt;/a&gt;
-
-&lt;img src="photo.jpg" alt="Picture description" width="300"&gt;</code></pre>
+      <pre><code>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener"&gt;HTML documentation on MDN&lt;/a&gt;
+ 
+&lt;!-- Put photo.jpg in the same folder --&gt;
+&lt;img src="photo.jpg" alt="Picture description" width="300"&gt;
+ 
+&lt;!-- A link to another page of your site --&gt;
+&lt;a href="index.html"&gt;Go to the C++ lessons&lt;/a&gt;</code></pre>
+      <div class="tip">Always write <code>alt</code> text on images. It helps screen readers and shows if the picture fails to load.</div>
     </section>
-
+ 
+    <section id="tables">
+      <h2>6. Tables</h2>
+      <div class="demo">
+        <table>
+          <tr><th>Tag</th><th>Meaning</th></tr>
+          <tr><td>&lt;p&gt;</td><td>Paragraph</td></tr>
+          <tr><td>&lt;a&gt;</td><td>Link</td></tr>
+          <tr><td>&lt;ul&gt;</td><td>Bulleted list</td></tr>
+        </table>
+      </div>
+      <h3>Code:</h3>
+      <pre><code>&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Tag&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&amp;lt;p&amp;gt;&lt;/td&gt;&lt;td&gt;Paragraph&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <div class="tip">To show <code>&lt;</code> on the page, write <code>&amp;lt;</code>. For <code>&gt;</code> write <code>&amp;gt;</code>.</div>
+    </section>
+ 
     <section id="form">
-      <h2>5. Form</h2>
-      <form>
-        <label for="name">Your name:</label>
-        <input type="text" id="name" placeholder="Enter your name">
-
-        <label for="level">Level:</label>
-        <select id="level">
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
-        </select>
-
-        <button type="button">Submit</button>
-      </form>
-
-      <!-- ADDED -->
+      <h2>7. Form</h2>
+      <div class="demo">
+        <form id="demoForm">
+          <label for="name">Your name:</label>
+          <input type="text" id="name" placeholder="Enter your name">
+ 
+          <label for="level">Level:</label>
+          <select id="level" class="field">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+ 
+          <button type="button" class="btn" id="demoBtn">Submit</button>
+          <p id="formMsg" aria-live="polite"></p>
+        </form>
+      </div>
       <h3>Code:</h3>
       <pre><code>&lt;form&gt;
   &lt;label for="name"&gt;Your name:&lt;/label&gt;
   &lt;input type="text" id="name" placeholder="Enter your name"&gt;
-
+ 
   &lt;label for="level"&gt;Level:&lt;/label&gt;
   &lt;select id="level"&gt;
     &lt;option&gt;Beginner&lt;/option&gt;
     &lt;option&gt;Intermediate&lt;/option&gt;
     &lt;option&gt;Advanced&lt;/option&gt;
   &lt;/select&gt;
-
+ 
   &lt;button type="button"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+      <div class="tip">The button above shows a message with a few lines of JavaScript. A real form needs a server to save the data.</div>
     </section>
-
+ 
+    <section id="try">
+      <h2>8. Try it yourself</h2>
+      <p>Edit the code and the result updates as you type.</p>
+      <textarea id="editor" spellcheck="false" aria-label="HTML code editor">&lt;h1&gt;Hello!&lt;/h1&gt;
+&lt;p&gt;My name is &lt;strong&gt;Aziz&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;I learn HTML&lt;/li&gt;
+  &lt;li&gt;I learn C++&lt;/li&gt;
+&lt;/ul&gt;</textarea>
+      <iframe id="preview" title="Result preview" sandbox></iframe>
+    </section>
+ 
+    <section id="quiz">
+      <h2>Quick quiz</h2>
+      <p>Test yourself. Your best score is saved in this browser.</p>
+      <div id="quizBox"></div>
+      <p id="score"></p>
+      <button class="reset" id="resetQuiz" type="button">Try again</button>
+    </section>
+ 
   </main>
-
+ 
   <footer>
     <p>© 2026 My learning website</p>
   </footer>
+ 
+  <div class="back-wrap">
+    <a class="back-link" href="index.html">return to first page</a>
+  </div>
+ 
   <script>
     const canvas = document.getElementById('code-bg');
     const ctx = canvas.getContext('2d');
     const symbols = '{}[]()<>/\\;:=+-*&|!?#$%01'.split('');
     const size = 16;
     let drops = [];
-
+ 
     function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -161,113 +229,147 @@
     }
     resize();
     window.addEventListener('resize', resize);
-
+ 
     function draw() {
       // The semi-transparent background creates the "trail" effect
       ctx.fillStyle = 'rgba(13, 17, 23, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+ 
       ctx.fillStyle = '#00ff9c';
       ctx.font = size + 'px monospace';
-
+ 
       drops.forEach((y, i) => {
         const char = symbols[Math.floor(Math.random() * symbols.length)];
         ctx.fillText(char, i * size, y * size);
-
+ 
         if (y * size > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
         }
         drops[i]++;
       });
     }
-
+ 
     setInterval(draw, 50);
   </script>
-      </section>
-
-    <div class="back-wrap">
-      <a class="back-link" href="index.html">return to first page</a>
-    </div>
-
-  </main>
-<!-- LANGUAGE TRANSLATION SYSTEM -->
-<script>
-    let googleTranslateReady = false;
-    let pendingLanguage = null;
-
-    // INITIALIZE GOOGLE TRANSLATE
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-            {
-                pageLanguage: 'en',
-                includedLanguages: 'en,uz,ru',
-                autoDisplay: false
-            },
-            'google_translate_element'
-        );
-
-        googleTranslateReady = true;
-
-        if (pendingLanguage) {
-            changeWebsiteLanguage(pendingLanguage);
-            pendingLanguage = null;
-        }
-    }
-
-    // CHANGE WEBSITE LANGUAGE
-    function changeWebsiteLanguage(language) {
-
-        const translateSelect = document.querySelector(
-            '.goog-te-combo'
-        );
-
-        if (!translateSelect) {
-            pendingLanguage = language;
-            return;
-        }
-
-        translateSelect.value = language;
-
-        translateSelect.dispatchEvent(
-            new Event('change', { bubbles: true })
-        );
-    }
-
-    // LANGUAGE SELECTOR EVENT
-    document.addEventListener('DOMContentLoaded', function() {
-
-        const selector = document.getElementById(
-            'languageSelector'
-        );
-
-        selector.addEventListener('change', function() {
-
-            const selectedLanguage = this.value;
-
-            changeWebsiteLanguage(selectedLanguage);
-
-            localStorage.setItem(
-                'azizbek_language',
-                selectedLanguage
-            );
-        });
-
-        // RESTORE PREVIOUS LANGUAGE
-        const savedLanguage = localStorage.getItem(
-            'azizbek_language'
-        );
-
-        if (savedLanguage && ['en', 'uz', 'ru'].includes(savedLanguage)) {
-            selector.value = savedLanguage;
-
-            pendingLanguage = savedLanguage;
-        }
+ 
+  <script>
+    /* Copy buttons */
+    document.querySelectorAll('pre').forEach(pre => {
+      const wrap = document.createElement('div'); wrap.className = 'codebox';
+      pre.parentNode.insertBefore(wrap, pre); wrap.appendChild(pre);
+      const b = document.createElement('button'); b.className = 'copy'; b.type = 'button'; b.textContent = 'Copy';
+      b.addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(pre.innerText); b.textContent = 'Copied'; }
+        catch (e) { b.textContent = 'Press Ctrl+C'; }
+        setTimeout(() => b.textContent = 'Copy', 1500);
+      });
+      wrap.appendChild(b);
     });
-</script>
-
-<!-- GOOGLE TRANSLATE SCRIPT -->
-<script
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
+ 
+    /* Highlight current section in the menu */
+    const links = [...document.querySelectorAll('#menu a')];
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('main section').forEach(s => io.observe(s));
+ 
+    /* Form demo */
+    document.getElementById('demoBtn').addEventListener('click', () => {
+      const n = document.getElementById('name').value.trim();
+      const l = document.getElementById('level').value;
+      document.getElementById('formMsg').textContent =
+        n ? 'Hello, ' + n + '! Your level: ' + l + '.' : 'Please enter your name first.';
+    });
+ 
+    /* Live editor */
+    const editor = document.getElementById('editor'), preview = document.getElementById('preview');
+    function updatePreview() {
+      preview.srcdoc = '<body style="font-family:Arial,sans-serif;padding:8px">' + editor.value + '</body>';
+    }
+    editor.addEventListener('input', updatePreview);
+    updatePreview();
+ 
+    /* Quiz */
+    const QUESTIONS = [
+      { q: 'Which tag makes a paragraph?', o: ['<p>', '<para>', '<text>'], a: 0 },
+      { q: 'Which tag creates a link?', o: ['<link>', '<a>', '<href>'], a: 1 },
+      { q: 'Which tag makes a bulleted list?', o: ['<ol>', '<list>', '<ul>'], a: 2 },
+      { q: 'Where does the visible page content go?', o: ['<head>', '<body>', '<title>'], a: 1 },
+      { q: 'What does the alt attribute on an image describe?', o: ['Its size', 'Its file name', 'Its meaning, in words'], a: 2 }
+    ];
+    let done = 0, correct = 0;
+    const box = document.getElementById('quizBox'), scoreEl = document.getElementById('score');
+    function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    function renderQuiz() {
+      box.innerHTML = ''; done = 0; correct = 0;
+      const best = safeGet('html_best');
+      scoreEl.textContent = best ? ('Best score: ' + best + ' / ' + QUESTIONS.length) : '';
+      QUESTIONS.forEach(item => {
+        const d = document.createElement('div'); d.className = 'q';
+        const h = document.createElement('h3'); h.textContent = item.q; d.appendChild(h);
+        item.o.forEach((text, i) => {
+          const b = document.createElement('button'); b.type = 'button'; b.className = 'opt'; b.textContent = text;
+          b.addEventListener('click', () => {
+            const all = d.querySelectorAll('.opt'); all.forEach(x => x.disabled = true);
+            all[item.a].classList.add('right');
+            if (i === item.a) correct++; else b.classList.add('wrong');
+            if (++done === QUESTIONS.length) {
+              const prev = parseInt(safeGet('html_best') || '0', 10);
+              if (correct > prev) safeSet('html_best', String(correct));
+              scoreEl.textContent = 'Your score: ' + correct + ' / ' + QUESTIONS.length;
+            }
+          });
+          d.appendChild(b);
+        });
+        box.appendChild(d);
+      });
+    }
+    document.getElementById('resetQuiz').addEventListener('click', renderQuiz);
+    renderQuiz();
+  </script>
+ 
+  <!-- LANGUAGE TRANSLATION SYSTEM -->
+  <script>
+    let pendingLanguage = null;
+ 
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', includedLanguages: 'en,uz,ru', autoDisplay: false },
+        'google_translate_element'
+      );
+      if (pendingLanguage) { setTimeout(() => changeWebsiteLanguage(pendingLanguage), 300); }
+    }
+ 
+    function changeWebsiteLanguage(language) {
+      const translateSelect = document.querySelector('.goog-te-combo');
+      if (!translateSelect) { pendingLanguage = language; return; }
+      translateSelect.value = language;
+      translateSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      pendingLanguage = null;
+    }
+ 
+    document.addEventListener('DOMContentLoaded', function () {
+      const selector = document.getElementById('languageSelector');
+      selector.addEventListener('change', function () {
+        changeWebsiteLanguage(this.value);
+        try { localStorage.setItem('azizbek_language', this.value); } catch (e) {}
+      });
+      let saved = null;
+      try { saved = localStorage.getItem('azizbek_language'); } catch (e) {}
+      if (saved && ['en', 'uz', 'ru'].includes(saved)) {
+        selector.value = saved;
+        pendingLanguage = saved;
+      }
+    });
+  </script>
+ 
+  <!-- GOOGLE TRANSLATE SCRIPT -->
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+ 

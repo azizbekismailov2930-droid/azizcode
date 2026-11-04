@@ -7,7 +7,7 @@
     <meta name="author" content="azizbek ismailov kaxramanovich">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/modern-additions.css">
     <link rel="stylesheet" href="css/modern-elements.css">
 
@@ -47,29 +47,16 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .stack-card:nth-child(1) {
-            top: 100px;
-            z-index: 1;
-        }
-
-        .stack-card:nth-child(2) {
-            top: 120px;
-            z-index: 2;
-        }
-
-        .stack-card:nth-child(3) {
-            top: 140px;
-            z-index: 3;
-        }
+        .stack-card:nth-child(1) { top: 100px; z-index: 1; }
+        .stack-card:nth-child(2) { top: 120px; z-index: 2; }
+        .stack-card:nth-child(3) { top: 140px; z-index: 3; }
 
         .stack-card h2 {
             font-size: clamp(28px, 4vw, 42px);
             margin: 20px 0;
         }
 
-        .stack-card p {
-            line-height: 1.7;
-        }
+        .stack-card p { line-height: 1.7; }
 
         .stack-number {
             color: #5ddcff;
@@ -78,9 +65,7 @@
             font-weight: bold;
         }
 
-        .stack-card .skill {
-            margin-top: 22px;
-        }
+        .stack-card .skill { margin-top: 22px; }
 
         .skill-top {
             display: flex;
@@ -122,13 +107,8 @@
             letter-spacing: 2px;
         }
 
-        .timeline h3 {
-            margin: 8px 0;
-        }
-
-        .stack-card ul {
-            line-height: 2;
-        }
+        .timeline h3 { margin: 8px 0; }
+        .stack-card ul { line-height: 2; }
 
         /* COMMUNITY SECTION */
         .community-section {
@@ -184,9 +164,7 @@
             box-shadow: 0 10px 30px rgba(0, 234, 255, 0.1);
         }
 
-        .community-stat span {
-            font-size: 35px;
-        }
+        .community-stat span { font-size: 35px; }
 
         .community-stat h2 {
             font-size: 38px;
@@ -194,9 +172,7 @@
             color: #00eaff;
         }
 
-        .community-stat p {
-            color: #aaa;
-        }
+        .community-stat p { color: #aaa; }
 
         .community-table-box {
             max-width: 1100px;
@@ -215,18 +191,9 @@
             margin-bottom: 25px;
         }
 
-        .table-heading h2 {
-            margin-top: 10px;
-        }
-
-        .online-label {
-            color: #00eaff;
-            font-size: 12px;
-        }
-
-        .table-scroll {
-            overflow-x: auto;
-        }
+        .table-heading h2 { margin-top: 10px; }
+        .online-label { color: #00eaff; font-size: 12px; }
+        .table-scroll { overflow-x: auto; }
 
         .community-table {
             width: 100%;
@@ -247,9 +214,7 @@
             text-transform: uppercase;
         }
 
-        .community-table td {
-            color: #ddd;
-        }
+        .community-table td { color: #ddd; }
 
         .community-table tbody tr:hover {
             background: rgba(0, 234, 255, 0.05);
@@ -272,7 +237,7 @@
             background: linear-gradient(90deg, #00c6ff, #8b5cf6);
         }
 
-        /* REGISTRATION SCREEN */
+        /* REGISTRATION AND LOGIN SCREEN */
         .registration-section {
             min-height: 100vh;
             display: flex;
@@ -309,9 +274,7 @@
             margin: 18px 0;
         }
 
-        .registration-info h1 span {
-            color: #00d9ff;
-        }
+        .registration-info h1 span { color: #00d9ff; }
 
         .registration-info > p,
         .registration-form-box > p {
@@ -334,9 +297,7 @@
             padding: 10px 12px;
         }
 
-        .registration-feature h3 {
-            margin: 0 0 6px;
-        }
+        .registration-feature h3 { margin: 0 0 6px; }
 
         .registration-feature p {
             margin: 0;
@@ -398,10 +359,32 @@
             background: linear-gradient(90deg, #00c6ff, #8b5cf6);
         }
 
+        .register-btn:disabled {
+            opacity: .65;
+            cursor: wait;
+        }
+
         #registrationMessage {
             min-height: 20px;
             margin: 5px 0 0;
             color: #00eaff;
+            overflow-wrap: anywhere;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 12px;
+            color: #b8bdd0;
+            font-size: 14px;
+        }
+
+        .auth-switch button {
+            border: 0;
+            background: transparent;
+            color: #00eaff;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
         }
 
         #mainWebsite[hidden],
@@ -415,13 +398,8 @@
                 gap: 30px;
             }
 
-            .registration-section {
-                padding: 35px 5%;
-            }
-
-            .registration-form-box {
-                padding: 25px;
-            }
+            .registration-section { padding: 35px 5%; }
+            .registration-form-box { padding: 25px; }
         }
 
         @media (max-width: 600px) {
@@ -436,29 +414,13 @@
                 padding: 25px;
             }
 
-            .stack-card:nth-child(1) {
-                top: 80px;
-            }
+            .stack-card:nth-child(1) { top: 80px; }
+            .stack-card:nth-child(2) { top: 100px; }
+            .stack-card:nth-child(3) { top: 120px; }
 
-            .stack-card:nth-child(2) {
-                top: 100px;
-            }
-
-            .stack-card:nth-child(3) {
-                top: 120px;
-            }
-
-            .community-section {
-                padding: 70px 5%;
-            }
-
-            .community-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .community-table-box {
-                padding: 18px;
-            }
+            .community-section { padding: 70px 5%; }
+            .community-stats { grid-template-columns: 1fr; }
+            .community-table-box { padding: 18px; }
 
             .table-heading {
                 align-items: flex-start;
@@ -466,7 +428,7 @@
             }
         }
 
-        /* COMMUNITY: show only shared total */
+        /* COMMUNITY: SHOW ONLY SHARED TOTAL */
         .community-stats {
             grid-template-columns: 1fr;
             max-width: 500px;
@@ -477,10 +439,7 @@
             display: none !important;
         }
 
-        /* =====================================
-           ACCOUNT DASHBOARD
-        ===================================== */
-
+        /* ACCOUNT DASHBOARD */
         .account-page[hidden],
         .ai-window[hidden] {
             display: none !important;
@@ -493,13 +452,12 @@
             overflow-y: auto;
             padding: 40px 20px;
             box-sizing: border-box;
-
             background:
                 radial-gradient(circle at 15% 15%, rgba(0,198,255,.15), transparent 35%),
                 radial-gradient(circle at 85% 85%, rgba(139,92,246,.2), transparent 35%),
                 #09091d;
-
             color: white;
+            -webkit-overflow-scrolling: touch;
         }
 
         .account-container {
@@ -522,9 +480,7 @@
             cursor: pointer;
         }
 
-        .account-header {
-            margin-bottom: 30px;
-        }
+        .account-header { margin-bottom: 30px; }
 
         .account-label {
             color: #00eaff;
@@ -538,9 +494,7 @@
             margin: 15px 0;
         }
 
-        .account-header p {
-            color: #aeb5c9;
-        }
+        .account-header p { color: #aeb5c9; }
 
         .profile-card {
             text-align: center;
@@ -568,10 +522,12 @@
         .profile-card h2 {
             margin: 18px 0 5px;
             font-size: 27px;
+            overflow-wrap: anywhere;
         }
 
         .profile-card > p {
             color: #aaa;
+            overflow-wrap: anywhere;
         }
 
         .profile-status {
@@ -603,9 +559,7 @@
             min-width: 0;
         }
 
-        .account-detail > span {
-            font-size: 27px;
-        }
+        .account-detail > span { font-size: 27px; }
 
         .account-detail small {
             color: #00eaff;
@@ -617,11 +571,10 @@
             margin: 8px 0 0;
             font-size: 15px;
             overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
-        .account-actions {
-            margin-top: 25px;
-        }
+        .account-actions { margin-top: 25px; }
 
         .logout-btn {
             padding: 14px 25px;
@@ -639,10 +592,25 @@
             color: white;
         }
 
-        /* =====================================
-           AI ASSISTANT BUTTON
-        ===================================== */
+        /* MOBILE ACCOUNT BUTTON */
+        #mobileAccountButton {
+            display: none;
+            position: fixed;
+            top: 75px;
+            right: 12px;
+            z-index: 9997;
+            border: 1px solid rgba(0,234,255,.45);
+            border-radius: 25px;
+            padding: 11px 15px;
+            color: white;
+            background: linear-gradient(135deg, #087da9, #7046bb);
+            box-shadow: 0 5px 20px rgba(0,0,0,.3);
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
+        /* AI ASSISTANT BUTTON */
         .ai-assistant {
             position: fixed;
             right: 25px;
@@ -662,24 +630,11 @@
             transition: .3s;
         }
 
-        .ai-toggle:hover {
-            transform: scale(1.1) rotate(8deg);
-        }
+        .ai-toggle:hover { transform: scale(1.1) rotate(8deg); }
+        .ai-toggle span { display: block; font-size: 27px; }
+        .ai-toggle small { font-weight: bold; font-size: 10px; }
 
-        .ai-toggle span {
-            display: block;
-            font-size: 27px;
-        }
-
-        .ai-toggle small {
-            font-weight: bold;
-            font-size: 10px;
-        }
-
-        /* =====================================
-           AI CHAT WINDOW
-        ===================================== */
-
+        /* AI CHAT WINDOW */
         .ai-window {
             position: absolute;
             right: 0;
@@ -716,15 +671,8 @@
             font-size: 23px;
         }
 
-        .ai-header h3 {
-            margin: 0 0 5px;
-            font-size: 15px;
-        }
-
-        .ai-header span {
-            color: #00eaff;
-            font-size: 10px;
-        }
+        .ai-header h3 { margin: 0 0 5px; font-size: 15px; }
+        .ai-header span { color: #00eaff; font-size: 10px; }
 
         .ai-header #aiClose {
             margin-left: auto;
@@ -801,9 +749,7 @@
             color: white;
         }
 
-        .ai-input-area input:focus {
-            border-color: #00eaff;
-        }
+        .ai-input-area input:focus { border-color: #00eaff; }
 
         .ai-input-area button {
             width: 43px;
@@ -816,13 +762,44 @@
         }
 
         @media(max-width: 600px) {
-            .account-details {
-                grid-template-columns: 1fr;
+            .account-page {
+                padding: 20px 13px;
             }
 
             .account-container {
                 margin: 15px auto;
+                padding-top: 45px;
             }
+
+            .account-header { margin-bottom: 20px; }
+
+            .account-header h1 {
+                font-size: 34px;
+            }
+
+            .profile-card {
+                padding: 25px 15px;
+            }
+
+            .profile-avatar {
+                width: 78px;
+                height: 78px;
+                font-size: 32px;
+            }
+
+            .account-details {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .account-detail {
+                padding: 17px;
+                gap: 13px;
+            }
+
+            .account-detail h3 { font-size: 14px; }
+
+            #mobileAccountButton { display: block; }
 
             .ai-assistant {
                 right: 15px;
@@ -832,26 +809,28 @@
             .ai-window {
                 right: -5px;
                 width: calc(100vw - 30px);
+                height: min(510px, calc(100dvh - 130px));
+            }
+
+            .registration-form-box {
+                padding: 20px;
             }
         }
-
     </style>
 
     <!-- FIREBASE SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 </head>
 
 <body>
 
-    <!-- FIRST SCREEN: REGISTRATION -->
+    <!-- FIRST SCREEN: REGISTRATION / LOGIN -->
     <section class="registration-section" id="registrationSection">
-
         <div class="registration-container">
 
             <div class="registration-info">
-
                 <span class="registration-tag">WELCOME TO AZIZBEK</span>
 
                 <h1>Start Your <span>IT Journey</span></h1>
@@ -884,65 +863,91 @@
                         <p>Take your first step towards your IT future.</p>
                     </div>
                 </div>
-
             </div>
 
             <div class="registration-form-box">
+                <span class="form-small-title" id="formSmallTitle">CREATE YOUR PROFILE</span>
 
-                <span class="form-small-title">CREATE YOUR PROFILE</span>
+                <h2 id="formHeading">Registration</h2>
 
-                <h2>Registration</h2>
-
-                <p>Complete the form to continue to the main website.</p>
+                <p id="formDescription">
+                    Complete the form to continue to the main website.
+                </p>
 
                 <form id="registrationForm">
 
-                    <label for="fullName">Full Name</label>
-                    <input
-                        type="text"
-                        id="fullName"
-                        placeholder="Enter your full name"
-                        required
-                    >
+                    <div id="profileFields">
+                        <label for="fullName">Full Name</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                        <label for="gender">Gender</label>
+                        <select id="gender" required>
+                            <option value="">Select your gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+
+                        <label for="course">Choose Your Course</label>
+                        <select id="course" required>
+                            <option value="">Select a course</option>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="C++">C++</option>
+                            <option value="Full-Stack Development">Full-Stack Development</option>
+                        </select>
+                    </div>
 
                     <label for="email">Email Address</label>
                     <input
                         type="email"
                         id="email"
                         placeholder="example@gmail.com"
+                        autocomplete="email"
                         required
                     >
 
-                    <label for="gender">Gender</label>
-                    <select id="gender" required>
-                        <option value="">Select your gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Prefer not to say">Prefer not to say</option>
-                    </select>
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="At least 6 characters"
+                        minlength="6"
+                        autocomplete="new-password"
+                        required
+                    >
 
-                    <label for="course">Choose Your Course</label>
-                    <select id="course" required>
-                        <option value="">Select a course</option>
-                        <option value="HTML">HTML</option>
-                        <option value="CSS">CSS</option>
-                        <option value="JavaScript">JavaScript</option>
-                        <option value="C++">C++</option>
-                        <option value="Full-Stack Development">
-                            Full-Stack Development
-                        </option>
-                    </select>
+                    <div id="confirmPasswordGroup">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Enter your password again"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                        >
+                    </div>
 
-                    <button type="submit" class="register-btn">
+                    <button type="submit" class="register-btn" id="authSubmitButton">
                         REGISTER & ENTER WEBSITE →
                     </button>
 
-                    <p id="registrationMessage"></p>
+                    <p id="registrationMessage" role="status" aria-live="polite"></p>
 
+                    <p class="auth-switch">
+                        <span id="authSwitchText">Already have an account?</span>
+                        <button type="button" id="authSwitchButton">Log in</button>
+                    </p>
                 </form>
-
             </div>
-
         </div>
     </section>
 
@@ -964,8 +969,14 @@
                 <li><a href="#path">Path</a></li>
                 <li><a href="#community">Community</a></li>
                 <li><a href="#" id="accountButton">My Account</a></li>
+                     <!-- MOBILE ACCOUNT BUTTON -->
+        <button type="button" id="mobileAccountButton">
+            👤 MY ACCOUNT
+        </button>
             </ul>
         </nav>
+
+        
 
         <!-- HERO -->
         <header class="hero" id="top">
@@ -999,7 +1010,6 @@
         <h2 class="section-title" id="skills">What I'm learning</h2>
 
         <div class="cards">
-
             <div class="mini-card">
                 <div class="badge cpp-b">C++</div>
                 <span class="tag">LANGUAGE</span>
@@ -1031,12 +1041,10 @@
                 <p>Structure and basic code</p>
                 <a href="java.html" class="open-btn">OPEN SECTION</a>
             </div>
-
         </div>
 
         <!-- WEBSITE DEVELOPMENT INFORMATION -->
         <section class="website-section" id="projects">
-
             <h2 class="section-title">How Websites Are Created</h2>
 
             <p class="website-intro">
@@ -1045,7 +1053,6 @@
             </p>
 
             <div class="website-grid">
-
                 <div class="website-block">
                     <span class="website-number">01</span>
                     <div class="website-icon">💡</div>
@@ -1105,7 +1112,6 @@
                     </p>
                     <span class="website-tag">WEB DEVELOPMENT</span>
                 </div>
-
             </div>
         </section>
 
@@ -1115,7 +1121,6 @@
             <article class="stack-card">
                 <span class="stack-number">01 / MY SKILLS</span>
                 <h2>My Skill Levels</h2>
-
                 <p>
                     I am developing my programming skills and learning
                     how to create modern websites and applications.
@@ -1125,50 +1130,40 @@
                     <div class="skill-top">
                         <span>HTML</span><span>70%</span>
                     </div>
-                    <div class="bar">
-                        <i style="--value: 70%"></i>
-                    </div>
+                    <div class="bar"><i style="--value: 70%"></i></div>
                 </div>
 
                 <div class="skill">
                     <div class="skill-top">
                         <span>CSS</span><span>55%</span>
                     </div>
-                    <div class="bar">
-                        <i style="--value: 55%"></i>
-                    </div>
+                    <div class="bar"><i style="--value: 55%"></i></div>
                 </div>
 
                 <div class="skill">
                     <div class="skill-top">
                         <span>JavaScript</span><span>35%</span>
                     </div>
-                    <div class="bar">
-                        <i style="--value: 35%"></i>
-                    </div>
+                    <div class="bar"><i style="--value: 35%"></i></div>
                 </div>
 
                 <div class="skill">
                     <div class="skill-top">
                         <span>C++</span><span>40%</span>
                     </div>
-                    <div class="bar">
-                        <i style="--value: 40%"></i>
-                    </div>
+                    <div class="bar"><i style="--value: 40%"></i></div>
                 </div>
             </article>
 
             <article class="stack-card">
                 <span class="stack-number">02 / MY JOURNEY</span>
                 <h2>My Learning Journey</h2>
-
                 <p>
                     Every project is another step towards becoming
                     a professional developer.
                 </p>
 
                 <ul class="timeline">
-
                     <li>
                         <time>STEP 01</time>
                         <h3>Started IT Digital College</h3>
@@ -1195,21 +1190,18 @@
                             and improving programming logic.
                         </p>
                     </li>
-
                 </ul>
             </article>
 
             <article class="stack-card">
                 <span class="stack-number">03 / MY FUTURE</span>
                 <h2>My Future Goals</h2>
-
                 <p>
                     My goal is to become a skilled full-stack
                     developer and create useful digital products.
                 </p>
 
                 <h3>What I want to achieve:</h3>
-
                 <ul>
                     <li>Master HTML, CSS and JavaScript.</li>
                     <li>Become confident in C++ programming.</li>
@@ -1220,29 +1212,23 @@
 
                 <h3>Keep learning. Keep building. Keep improving.</h3>
             </article>
-
         </section>
 
         <!-- COMMUNITY SECTION -->
         <section class="community-section" id="community">
-
             <div class="community-heading">
                 <span>AZIZBEK IT COMMUNITY</span>
-
                 <h2>Our Learning Community</h2>
-
                 <p>
                     Welcome to our community! Learn programming,
                     develop your skills and connect with other students.
                 </p>
-
                 <a href="#top" class="community-register-link">
                     Explore Our Website →
                 </a>
             </div>
 
             <div class="community-stats">
-
                 <div class="community-stat">
                     <span>👥</span>
                     <h2 id="totalRegistered">0</h2>
@@ -1254,24 +1240,19 @@
                     <h2 id="differentCourses">0</h2>
                     <p>Different Courses</p>
                 </div>
-
             </div>
 
             <div class="community-table-box">
-
                 <div class="table-heading">
                     <div>
                         <span>OUR MEMBERS</span>
                         <h2>Registered Students</h2>
                     </div>
-
                     <span class="online-label">● COMMUNITY</span>
                 </div>
 
                 <div class="table-scroll">
-
                     <table class="community-table">
-
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -1280,17 +1261,13 @@
                                 <th>Registration Date</th>
                             </tr>
                         </thead>
-
                         <tbody id="registeredPeople"></tbody>
-
                     </table>
-
                 </div>
 
                 <p id="emptyCommunity">
                     No students have registered yet. Be the first!
                 </p>
-
             </div>
         </section>
 
@@ -1301,13 +1278,8 @@
 
         <a class="to-top" href="#top" aria-label="Back to top">↑</a>
 
-
-        <!-- =====================================
-             ACCOUNT DASHBOARD
-        ====================================== -->
-
+        <!-- ACCOUNT DASHBOARD -->
         <section id="accountPage" class="account-page" hidden>
-
             <div class="account-container">
 
                 <button id="closeAccount" class="account-close"
@@ -1322,22 +1294,13 @@
                 </div>
 
                 <div class="profile-card">
-
-                    <div class="profile-avatar" id="profileAvatar">
-                        A
-                    </div>
-
+                    <div class="profile-avatar" id="profileAvatar">A</div>
                     <h2 id="accountName">Your Name</h2>
                     <p id="accountEmail">your@email.com</p>
-
-                    <span class="profile-status">
-                        ● REGISTERED MEMBER
-                    </span>
-
+                    <span class="profile-status">● REGISTERED MEMBER</span>
                 </div>
 
                 <div class="account-details">
-
                     <div class="account-detail">
                         <span>👤</span>
                         <div>
@@ -1377,28 +1340,18 @@
                             <h3 id="detailDate">Not available</h3>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="account-actions">
-
                     <button id="logoutButton" class="logout-btn">
                         LOG OUT →
                     </button>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================
-             AI ASSISTANT
-        ====================================== -->
-
+        <!-- AI ASSISTANT -->
         <div class="ai-assistant">
-
             <button id="aiToggle" class="ai-toggle"
                     aria-label="Open AI assistant">
                 <span>✦</span>
@@ -1406,49 +1359,32 @@
             </button>
 
             <div class="ai-window" id="aiWindow" hidden>
-
                 <div class="ai-header">
-
                     <div class="ai-avatar">✦</div>
-
                     <div>
                         <h3>AZIZBEK AI</h3>
                         <span>● Your learning assistant</span>
                     </div>
-
-                    <button id="aiClose" aria-label="Close chat">
-                        ✕
-                    </button>
-
+                    <button id="aiClose" aria-label="Close chat">✕</button>
                 </div>
 
                 <div class="ai-messages" id="aiMessages">
-
                     <div class="ai-message bot-message">
                         Hello! 👋 Welcome to AZIZBEK website.
 
                         I'm your learning assistant. Ask me about HTML,
                         CSS, JavaScript, C++, or website development!
                     </div>
-
                 </div>
 
                 <div class="ai-suggestions">
-                    <button type="button"
-                            data-question="What is HTML?">HTML</button>
-
-                    <button type="button"
-                            data-question="What is CSS?">CSS</button>
-
-                    <button type="button"
-                            data-question="What is JavaScript?">JavaScript</button>
-
-                    <button type="button"
-                            data-question="What is C++?">C++</button>
+                    <button type="button" data-question="What is HTML?">HTML</button>
+                    <button type="button" data-question="What is CSS?">CSS</button>
+                    <button type="button" data-question="What is JavaScript?">JavaScript</button>
+                    <button type="button" data-question="What is C++?">C++</button>
                 </div>
 
                 <form id="aiForm" class="ai-input-area">
-
                     <input
                         type="text"
                         id="aiInput"
@@ -1456,94 +1392,62 @@
                         autocomplete="off"
                         required
                     >
-
-                    <button type="submit" aria-label="Send message">
-                        ➤
-                    </button>
-
+                    <button type="submit" aria-label="Send message">➤</button>
                 </form>
-
             </div>
-
         </div>
-
     </div>
     <!-- END MAIN WEBSITE -->
 
 
-    <!-- =====================================
-         3D HOVER JAVASCRIPT
-    ====================================== -->
-
+    <!-- 3D HOVER JAVASCRIPT -->
     <script>
         document.querySelectorAll('.mini-card').forEach((card) => {
-
             card.addEventListener('mousemove', (e) => {
-
                 const r = card.getBoundingClientRect();
                 const x = (e.clientX - r.left) / r.width - 0.5;
                 const y = (e.clientY - r.top) / r.height - 0.5;
 
                 card.style.setProperty('--ry', (x * 20) + 'deg');
                 card.style.setProperty('--rx', (-y * 20) + 'deg');
-
             });
 
             card.addEventListener('mouseleave', () => {
-
                 card.style.setProperty('--rx', '0deg');
                 card.style.setProperty('--ry', '0deg');
-
             });
-
         });
     </script>
 
 
-    <!-- =====================================
-         FADE-IN ANIMATION
-    ====================================== -->
-
+    <!-- FADE-IN ANIMATION -->
     <script>
         const items = document.querySelectorAll('.reveal');
 
         if ('IntersectionObserver' in window) {
-
             const io = new IntersectionObserver(function(entries) {
-
                 entries.forEach(function(entry) {
-
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         io.unobserve(entry.target);
                     }
-
                 });
-
             }, { threshold: 0.15 });
 
             items.forEach(function(item) {
                 io.observe(item);
             });
-
         } else {
-
             items.forEach(function(item) {
                 item.classList.add('visible');
             });
-
         }
     </script>
 
 
-    <!-- =====================================
-         FIREBASE + REGISTRATION SYSTEM
-    ====================================== -->
-
+    <!-- FIREBASE AUTHENTICATION AND REGISTRATION SYSTEM -->
     <script>
-
         // FIREBASE CONFIGURATION
-
         const firebaseConfig = {
             apiKey: "AIzaSyBCKvEEIQrAUQir6Rk0Y8t3vZKY0bOeYJo",
             authDomain: "azizbek-b0b5c.firebaseapp.com",
@@ -1555,637 +1459,486 @@
             measurementId: "G-SMT96LWQGE"
         };
 
-
         // INITIALIZE FIREBASE
-
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
         }
 
         const database = firebase.database();
+        const auth = firebase.auth();
 
-        const counterRef =
-            database.ref("community/totalRegistered");
+        // KEEP USERS SIGNED IN ON THE DEVICE THEY USE.
+        // They can sign in on another device with the same email/password.
+        auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+            .catch(error => console.error("Auth persistence error:", error));
 
+        const counterRef = database.ref("community/totalRegistered");
 
         // LOAD SHARED COMMUNITY COUNTER
-
         function loadCommunity() {
-
-            const totalElement =
-                document.getElementById("totalRegistered");
+            const totalElement = document.getElementById("totalRegistered");
 
             counterRef.on("value", function(snapshot) {
-
                 totalElement.textContent = snapshot.val() || 0;
-
             }, function(error) {
-
                 console.error("Firebase count error:", error);
-
                 totalElement.textContent = "—";
-
             });
-
         }
 
-
-        // REGISTRATION WORKFLOW
-
         document.addEventListener("DOMContentLoaded", function() {
+            const registrationSection = document.getElementById("registrationSection");
+            const mainWebsite = document.getElementById("mainWebsite");
+            const form = document.getElementById("registrationForm");
+            const message = document.getElementById("registrationMessage");
+            const button = document.getElementById("authSubmitButton");
 
-            const registrationSection =
-                document.getElementById("registrationSection");
+            const profileFields = document.getElementById("profileFields");
+            const confirmPasswordGroup = document.getElementById("confirmPasswordGroup");
+            const passwordInput = document.getElementById("password");
+            const confirmPasswordInput = document.getElementById("confirmPassword");
 
-            const mainWebsite =
-                document.getElementById("mainWebsite");
+            const formSmallTitle = document.getElementById("formSmallTitle");
+            const formHeading = document.getElementById("formHeading");
+            const formDescription = document.getElementById("formDescription");
+            const authSwitchText = document.getElementById("authSwitchText");
+            const authSwitchButton = document.getElementById("authSwitchButton");
 
-            const form =
-                document.getElementById("registrationForm");
+            let isLoginMode = false;
+            let currentUserProfile = null;
 
-            const message =
-                document.getElementById("registrationMessage");
+            // SWITCH BETWEEN REGISTER AND LOGIN
+            function setAuthMode(loginMode) {
+                isLoginMode = loginMode;
 
-            const button =
-                form.querySelector(".register-btn");
+                form.reset();
+                message.textContent = "";
+                message.style.color = "#00eaff";
 
+                profileFields.hidden = loginMode;
+                confirmPasswordGroup.hidden = loginMode;
 
-            // CHECK RETURNING VISITOR
+                document.getElementById("fullName").required = !loginMode;
+                document.getElementById("gender").required = !loginMode;
+                document.getElementById("course").required = !loginMode;
+                confirmPasswordInput.required = !loginMode;
 
-            if (
-                localStorage.getItem("firebaseRegistered") === "true"
-            ) {
+                passwordInput.autocomplete = loginMode
+                    ? "current-password"
+                    : "new-password";
 
+                confirmPasswordInput.autocomplete = "new-password";
+
+                if (loginMode) {
+                    formSmallTitle.textContent = "WELCOME BACK";
+                    formHeading.textContent = "Log In";
+                    formDescription.textContent =
+                        "Enter your email and password to open your account.";
+                    button.textContent = "LOG IN & ENTER WEBSITE →";
+                    authSwitchText.textContent = "Don't have an account?";
+                    authSwitchButton.textContent = "Register";
+                } else {
+                    formSmallTitle.textContent = "CREATE YOUR PROFILE";
+                    formHeading.textContent = "Registration";
+                    formDescription.textContent =
+                        "Complete the form to create your account.";
+                    button.textContent = "REGISTER & ENTER WEBSITE →";
+                    authSwitchText.textContent = "Already have an account?";
+                    authSwitchButton.textContent = "Log in";
+                }
+            }
+
+            authSwitchButton.addEventListener("click", function() {
+                setAuthMode(!isLoginMode);
+            });
+
+            // SHOW PROFILE INFORMATION FROM FIREBASE
+            async function displayAccount(user) {
+                if (!user) return;
+
+                try {
+                    const snapshot = await database.ref("users/" + user.uid).once("value");
+                    const profile = snapshot.val() || {};
+
+                    currentUserProfile = {
+                        name: profile.name || user.displayName || "Member",
+                        email: user.email || profile.email || "Not available",
+                        gender: profile.gender || "Not available",
+                        course: profile.course || "Not available",
+                        registrationDate: profile.registrationDate || "Not available"
+                    };
+
+                    document.getElementById("accountName").textContent =
+                        currentUserProfile.name;
+
+                    document.getElementById("accountEmail").textContent =
+                        currentUserProfile.email;
+
+                    document.getElementById("profileAvatar").textContent =
+                        currentUserProfile.name.charAt(0).toUpperCase();
+
+                    document.getElementById("detailName").textContent =
+                        currentUserProfile.name;
+
+                    document.getElementById("detailEmail").textContent =
+                        currentUserProfile.email;
+
+                    document.getElementById("detailGender").textContent =
+                        currentUserProfile.gender;
+
+                    document.getElementById("detailCourse").textContent =
+                        currentUserProfile.course;
+
+                    document.getElementById("detailDate").textContent =
+                        currentUserProfile.registrationDate;
+
+                } catch (error) {
+                    console.error("Profile loading error:", error);
+                    alert("Your account is signed in, but the profile could not be loaded. Check your Firebase database rules.");
+                }
+            }
+
+            // OPEN MAIN WEBSITE AFTER SUCCESSFUL AUTHENTICATION
+            async function enterWebsite(user) {
                 registrationSection.hidden = true;
                 mainWebsite.hidden = false;
 
+                await displayAccount(user);
                 loadCommunity();
 
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
             }
 
-
-            // REGISTRATION FORM SUBMISSION
-
-            form.addEventListener("submit", async function(event) {
-
-                event.preventDefault();
-
-                const name =
-                    document.getElementById("fullName").value.trim();
-
-                const email =
-                    document.getElementById("email").value.trim();
-
-                const gender =
-                    document.getElementById("gender").value;
-
-                const course =
-                    document.getElementById("course").value;
-
-
-                if (!name || !email || !gender || !course) {
-
-                    message.textContent =
-                        "Please complete every field.";
-
-                    return;
-
+            // AUTHENTICATION STATE
+            // This automatically restores a signed-in user when they reopen
+            // the website on a device where they previously logged in.
+            auth.onAuthStateChanged(async function(user) {
+                if (user) {
+                    await enterWebsite(user);
+                } else {
+                    mainWebsite.hidden = true;
+                    registrationSection.hidden = false;
+                    document.getElementById("accountPage").hidden = true;
                 }
-
-
-                // PREVENT DUPLICATE REGISTRATION
-
-                if (
-                    localStorage.getItem("firebaseRegistered") === "true"
-                ) {
-
-                    registrationSection.hidden = true;
-                    mainWebsite.hidden = false;
-
-                    loadCommunity();
-
-                    return;
-
-                }
-
-
-                button.disabled = true;
-                button.textContent = "REGISTERING...";
-
-                message.textContent =
-                    "Connecting to database...";
-
-                message.style.color = "#00eaff";
-
-
-                try {
-
-                    // UPDATE SHARED COUNTER
-
-                    const result = await counterRef.transaction(
-                        function(currentCount) {
-
-                            return (Number(currentCount) || 0) + 1;
-
-                        }
-                    );
-
-
-                    if (!result.committed) {
-
-                        throw new Error(
-                            "Registration was not committed."
-                        );
-
-                    }
-
-
-                    // SAVE USER INFORMATION LOCALLY
-
-                    const userProfile = {
-
-                        name: name,
-                        email: email,
-                        gender: gender,
-                        course: course,
-                        registrationDate:
-                            new Date().toLocaleDateString()
-
-                    };
-
-
-                    localStorage.setItem(
-                        "azizbekUser",
-                        JSON.stringify(userProfile)
-                    );
-
-
-                    // SAVE REGISTRATION STATUS
-
-                    localStorage.setItem(
-                        "firebaseRegistered",
-                        "true"
-                    );
-
-
-                    message.textContent =
-                        "Registration successful! Opening website...";
-
-
-                    // OPEN MAIN WEBSITE
-
-                    registrationSection.hidden = true;
-                    mainWebsite.hidden = false;
-
-                    loadCommunity();
-
-
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
-
-
-                } catch (error) {
-
-                    console.error("Registration error:", error);
-
-                    message.textContent =
-                        "Registration failed. Check your Firebase database rules and internet connection.";
-
-                    message.style.color = "#ff8585";
-
-                    button.disabled = false;
-
-                    button.textContent =
-                        "REGISTER & ENTER WEBSITE →";
-
-                }
-
             });
 
-        });
-
-    </script>
-
-
-    <!-- =====================================
-         ACCOUNT DASHBOARD JAVASCRIPT
-    ====================================== -->
-
-    <script>
-
-        document.addEventListener("DOMContentLoaded", function() {
-
-            const accountPage =
-                document.getElementById("accountPage");
-
-            const accountButton =
-                document.getElementById("accountButton");
-
-            const closeAccount =
-                document.getElementById("closeAccount");
-
-            const logoutButton =
-                document.getElementById("logoutButton");
-
-
-            // DISPLAY USER INFORMATION
-
-            function displayAccount() {
-
-                const savedUser =
-                    localStorage.getItem("azizbekUser");
-
-
-                if (!savedUser) {
-
-                    alert(
-                        "Your profile information is unavailable. Please register again."
-                    );
-
-                    return;
-
-                }
-
-
-                let user;
-
-                try {
-
-                    user = JSON.parse(savedUser);
-
-                } catch (error) {
-
-                    console.error("Profile loading error:", error);
-
-                    alert("Could not load your profile.");
-
-                    return;
-
-                }
-
-
-                document.getElementById("accountName").textContent =
-                    user.name || "Not available";
-
-                document.getElementById("accountEmail").textContent =
-                    user.email || "Not available";
-
-
-                document.getElementById("profileAvatar").textContent =
-                    (user.name || "A").charAt(0).toUpperCase();
-
-
-                document.getElementById("detailName").textContent =
-                    user.name || "Not available";
-
-                document.getElementById("detailEmail").textContent =
-                    user.email || "Not available";
-
-                document.getElementById("detailGender").textContent =
-                    user.gender || "Not available";
-
-                document.getElementById("detailCourse").textContent =
-                    user.course || "Not available";
-
-                document.getElementById("detailDate").textContent =
-                    user.registrationDate || "Not available";
-
-            }
-
-
-            // OPEN ACCOUNT PAGE
-
-            accountButton.addEventListener("click", function(event) {
-
+            // REGISTRATION AND LOGIN SUBMISSION
+            form.addEventListener("submit", async function(event) {
                 event.preventDefault();
 
-                displayAccount();
+                const email = document.getElementById("email").value.trim();
+                const password = passwordInput.value;
 
+                if (!email || !password) {
+                    message.textContent = "Please enter your email and password.";
+                    message.style.color = "#ff8585";
+                    return;
+                }
+
+                button.disabled = true;
+                message.style.color = "#00eaff";
+
+                try {
+                    if (isLoginMode) {
+                        // EXISTING USER LOGIN
+                        button.textContent = "LOGGING IN...";
+                        message.textContent = "Checking your account...";
+
+                        await auth.signInWithEmailAndPassword(email, password);
+
+                        message.textContent = "Login successful! Opening your website...";
+
+                    } else {
+                        // NEW USER REGISTRATION
+                        const name = document.getElementById("fullName").value.trim();
+                        const gender = document.getElementById("gender").value;
+                        const course = document.getElementById("course").value;
+                        const confirmPassword = confirmPasswordInput.value;
+
+                        if (!name || !gender || !course) {
+                            throw new Error("Please complete every profile field.");
+                        }
+
+                        if (password.length < 6) {
+                            throw new Error("Your password must contain at least 6 characters.");
+                        }
+
+                        if (password !== confirmPassword) {
+                            throw new Error("Passwords do not match. Please check them.");
+                        }
+
+                        button.textContent = "CREATING ACCOUNT...";
+                        message.textContent = "Creating your secure account...";
+
+                        // CREATE FIREBASE AUTH USER
+                        const credential = await auth.createUserWithEmailAndPassword(
+                            email,
+                            password
+                        );
+
+                        const newUser = credential.user;
+
+                        const registrationDate = new Date().toLocaleDateString();
+
+                        // SAVE PROFILE UNDER THE USER'S UNIQUE FIREBASE UID.
+                        // PASSWORDS ARE NEVER SAVED IN THE DATABASE.
+                        const userProfile = {
+                            name: name,
+                            email: email,
+                            gender: gender,
+                            course: course,
+                            registrationDate: registrationDate,
+                            createdAt: firebase.database.ServerValue.TIMESTAMP
+                        };
+
+                        await database.ref("users/" + newUser.uid).set(userProfile);
+
+                        // INCREASE THE SHARED COUNT ONLY AFTER A NEW ACCOUNT
+                        // HAS BEEN CREATED. LOGINS NEVER INCREASE THIS COUNT.
+                        const countResult = await counterRef.transaction(function(currentCount) {
+                            return (Number(currentCount) || 0) + 1;
+                        });
+
+                        if (!countResult.committed) {
+                            console.warn("The account was created, but the community counter did not update.");
+                        }
+
+                        message.textContent = "Registration successful! Opening your website...";
+                    }
+
+                    // Firebase onAuthStateChanged will also open the website.
+                    const signedInUser = auth.currentUser;
+
+                    if (signedInUser) {
+                        await enterWebsite(signedInUser);
+                    }
+
+                } catch (error) {
+                    console.error("Authentication error:", error);
+
+                    let errorMessage = error.message || "Something went wrong.";
+
+                    if (error.code === "auth/email-already-in-use") {
+                        errorMessage = "This email already has an account. Please log in instead.";
+                    } else if (error.code === "auth/invalid-email") {
+                        errorMessage = "Please enter a valid email address.";
+                    } else if (
+                        error.code === "auth/weak-password"
+                    ) {
+                        errorMessage = "Your password is too weak. Use at least 6 characters.";
+                    } else if (
+                        error.code === "auth/user-not-found" ||
+                        error.code === "auth/wrong-password" ||
+                        error.code === "auth/invalid-credential"
+                    ) {
+                        errorMessage = "Incorrect email or password. Please try again.";
+                    } else if (error.code === "auth/too-many-requests") {
+                        errorMessage = "Too many attempts. Please wait and try again later.";
+                    } else if (
+                        error.code === "PERMISSION_DENIED" ||
+                        error.code === "database/permission-denied"
+                    ) {
+                        errorMessage = "Firebase database permission denied. Please check your database rules.";
+                    }
+
+                    message.textContent = errorMessage;
+                    message.style.color = "#ff8585";
+
+                } finally {
+                    button.disabled = false;
+                    button.textContent = isLoginMode
+                        ? "LOG IN & ENTER WEBSITE →"
+                        : "REGISTER & ENTER WEBSITE →";
+                }
+            });
+
+            // ACCOUNT OPEN/CLOSE
+            const accountPage = document.getElementById("accountPage");
+            const accountButton = document.getElementById("accountButton");
+            const mobileAccountButton = document.getElementById("mobileAccountButton");
+            const closeAccount = document.getElementById("closeAccount");
+
+            async function openAccount(event) {
+                if (event) event.preventDefault();
+
+                const user = auth.currentUser;
+
+                if (!user) {
+                    alert("Please log in to view your account.");
+                    return;
+                }
+
+                await displayAccount(user);
                 accountPage.hidden = false;
 
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
                 });
+            }
 
-            });
-
-
-            // CLOSE ACCOUNT PAGE
+            accountButton.addEventListener("click", openAccount);
+            mobileAccountButton.addEventListener("click", openAccount);
 
             closeAccount.addEventListener("click", function() {
-
                 accountPage.hidden = true;
-
             });
 
-
             // LOG OUT
+            document.getElementById("logoutButton").addEventListener("click", async function() {
+                const confirmLogout = confirm("Are you sure you want to log out?");
 
-            logoutButton.addEventListener("click", function() {
+                if (!confirmLogout) return;
 
-                const confirmLogout = confirm(
-                    "Are you sure you want to log out?"
-                );
-
-
-                if (confirmLogout) {
-
-                    // Remove login status.
-                    // Keep profile information on this browser.
-
-                    localStorage.removeItem(
-                        "firebaseRegistered"
-                    );
-
-                    // Close account page.
+                try {
+                    await auth.signOut();
 
                     accountPage.hidden = true;
+                    mainWebsite.hidden = true;
+                    registrationSection.hidden = false;
 
-                    // Show registration page.
-
-                    document.getElementById(
-                        "mainWebsite"
-                    ).hidden = true;
-
-                    document.getElementById(
-                        "registrationSection"
-                    ).hidden = false;
+                    setAuthMode(true);
 
                     window.scrollTo({
                         top: 0,
                         behavior: "smooth"
                     });
 
+                } catch (error) {
+                    console.error("Logout error:", error);
+                    alert("Could not log out. Please try again.");
                 }
-
             });
-
         });
-
     </script>
 
 
-    <!-- =====================================
-         AZIZBEK AI ASSISTANT JAVASCRIPT
-    ====================================== -->
-
+    <!-- AZIZBEK AI ASSISTANT JAVASCRIPT -->
     <script>
-
         document.addEventListener("DOMContentLoaded", function() {
-
-            const aiToggle =
-                document.getElementById("aiToggle");
-
-            const aiWindow =
-                document.getElementById("aiWindow");
-
-            const aiClose =
-                document.getElementById("aiClose");
-
-            const aiForm =
-                document.getElementById("aiForm");
-
-            const aiInput =
-                document.getElementById("aiInput");
-
-            const aiMessages =
-                document.getElementById("aiMessages");
-
+            const aiToggle = document.getElementById("aiToggle");
+            const aiWindow = document.getElementById("aiWindow");
+            const aiClose = document.getElementById("aiClose");
+            const aiForm = document.getElementById("aiForm");
+            const aiInput = document.getElementById("aiInput");
+            const aiMessages = document.getElementById("aiMessages");
 
             // OPEN AND CLOSE AI CHAT
-
             aiToggle.addEventListener("click", function() {
-
                 aiWindow.hidden = !aiWindow.hidden;
 
                 if (!aiWindow.hidden) {
                     aiInput.focus();
                 }
-
             });
-
 
             aiClose.addEventListener("click", function() {
-
                 aiWindow.hidden = true;
-
             });
 
-
             // ADD CHAT MESSAGE
-
             function addMessage(text, type) {
-
-                const message =
-                    document.createElement("div");
-
-                message.className =
-                    "ai-message " + type;
-
-                // Safe text output: user messages cannot insert HTML.
-
+                const message = document.createElement("div");
+                message.className = "ai-message " + type;
                 message.textContent = text;
-
                 aiMessages.appendChild(message);
-
-                aiMessages.scrollTop =
-                    aiMessages.scrollHeight;
-
+                aiMessages.scrollTop = aiMessages.scrollHeight;
             }
 
-
             // AI ANSWER DATABASE
-
             function getAIResponse(question) {
-
                 const q = question.toLowerCase().trim();
-
-
-                // GREETINGS
 
                 if (
                     q.includes("hello") ||
                     q.includes("hi") ||
                     q.includes("hey")
                 ) {
-
                     return "Hello! 👋 Welcome to AZIZBEK IT Community. How can I help you today?";
-
                 }
-
-
-                // HTML
 
                 if (q.includes("html")) {
-
                     return "HTML stands for HyperText Markup Language.\n\nIt creates the structure of websites using headings, paragraphs, images, links, buttons and forms.\n\nExample:\n\n<h1>Hello World</h1>\n<p>My first website</p>";
-
                 }
-
-
-                // CSS
 
                 if (q.includes("css")) {
-
                     return "CSS stands for Cascading Style Sheets.\n\nIt controls the appearance of websites, including colors, layouts, fonts, backgrounds, animations and responsive design.\n\nExample:\n\nh1 {\n  color: cyan;\n  font-size: 30px;\n}";
-
                 }
-
-
-                // JAVASCRIPT
 
                 if (
                     q.includes("javascript") ||
                     q.includes("java script")
                 ) {
-
                     return "JavaScript makes websites interactive.\n\nIt is used for buttons, forms, menus, animations and dynamic content.\n\nExample:\n\nalert('Hello World!');";
-
                 }
 
-
-                // C++
-
-                if (
-                    q.includes("c++") ||
-                    q.includes("cpp")
-                ) {
-
+                if (q.includes("c++") || q.includes("cpp")) {
                     return "C++ is a powerful programming language used for software development, games, algorithms and system programming.\n\nExample:\n\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello World!\";\n    return 0;\n}";
-
                 }
-
-
-                // COURSES
 
                 if (q.includes("course")) {
-
                     return "Our website offers these learning courses:\n\n1. HTML\n2. CSS\n3. JavaScript\n4. C++\n5. Full-Stack Development\n\nVisit the Skills section to explore them.";
-
                 }
-
-
-                // WEBSITE DEVELOPMENT
 
                 if (
                     q.includes("website") ||
                     q.includes("web development")
                 ) {
-
                     return "To create a website, follow these steps:\n\n1. Plan your website.\n2. Use HTML for structure.\n3. Use CSS for design.\n4. Use JavaScript for functionality.\n5. Test your website.\n6. Publish it online.";
-
                 }
-
-
-                // ACCOUNT
 
                 if (
                     q.includes("account") ||
                     q.includes("profile")
                 ) {
-
-                    return "Click My Account in the navigation bar to view your registration information, email, gender and selected course.";
-
+                    return "Click My Account in the navigation bar or the My Account button on your phone to view your registration information.";
                 }
-
-
-                // PROJECTS
 
                 if (q.includes("project")) {
-
                     return "Here are some beginner programming projects:\n\n1. Personal portfolio website.\n2. Calculator.\n3. Registration form.\n4. To-do list.\n5. Weather application.\n6. Responsive landing page.\n\nPractice makes you a better developer!";
-
                 }
-
-
-                // HELP
 
                 if (q.includes("help")) {
-
                     return "I can help you with:\n\n• HTML structure\n• CSS styling\n• JavaScript programming\n• C++ basics\n• Website development\n• Programming projects\n• Website navigation\n\nAsk me a question!";
-
                 }
-
-
-                // WHO ARE YOU
 
                 if (
                     q.includes("who are you") ||
                     q.includes("your name")
                 ) {
-
                     return "I am AZIZBEK AI, your website learning assistant! ✦ I help visitors understand programming and web development.";
-
                 }
 
-
-                // DEFAULT RESPONSE
-
                 return "That's an interesting question! 😊\n\nI can currently answer questions about HTML, CSS, JavaScript, C++, courses, projects and website development.\n\nTry asking me about one of these topics!";
-
             }
-
 
             // SEND MESSAGE
-
             function sendAIMessage(question) {
-
                 if (!question.trim()) return;
 
-
-                addMessage(
-                    question,
-                    "user-message"
-                );
-
-
+                addMessage(question, "user-message");
                 aiInput.value = "";
 
-
-                const response =
-                    getAIResponse(question);
-
-
-                addMessage(
-                    response,
-                    "bot-message"
-                );
-
+                const response = getAIResponse(question);
+                addMessage(response, "bot-message");
             }
 
-
             // SUBMIT CHAT FORM
-
             aiForm.addEventListener("submit", function(event) {
-
                 event.preventDefault();
-
                 sendAIMessage(aiInput.value);
-
             });
-
 
             // QUICK QUESTIONS
-
-            document.querySelectorAll(
-                ".ai-suggestions button"
-            ).forEach(function(button) {
-
+            document.querySelectorAll(".ai-suggestions button").forEach(function(button) {
                 button.addEventListener("click", function() {
-
-                    sendAIMessage(
-                        button.dataset.question
-                    );
-
+                    sendAIMessage(button.dataset.question);
                 });
-
             });
-
         });
-
     </script>
 
 </body>

@@ -7,23 +7,99 @@
     <meta name="author" content="azizbek ismailov kaxramanovich">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/modern-additions.css">
     <link rel="stylesheet" href="css/modern-elements.css">
 
     <style>
+        /* =========================================
+           MODERN LANGUAGE SELECTOR
+        ========================================= */
+
         #google_language_change {
             position: fixed;
-            top: 30px;
-            right: 10px;
-            z-index: 9999;
-            background: rgb(23, 175, 236);
-            padding: 5px 8px;
-            border-radius: 16px;
-            box-shadow: 0 2px 6px rgba(232, 9, 9, 0.2);
+            top: 22px;
+            right: 25px;
+            z-index: 10001;
+            font-family: inherit;
         }
 
-        /* STACKING CARDS */
+        .language-select {
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 12px 42px 12px 16px;
+            border: 1px solid rgba(0, 234, 255, 0.4);
+            border-radius: 14px;
+            background: rgba(17, 17, 40, 0.95);
+            backdrop-filter: blur(15px);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            transition: 0.3s ease;
+        }
+
+        .language-select:hover {
+            border-color: #00eaff;
+            box-shadow: 0 0 20px rgba(0, 234, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .language-select option {
+            background: #17172f;
+            color: white;
+        }
+
+        .language-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00eaff;
+            pointer-events: none;
+        }
+
+        /* Keep Google's translation control available but off-screen */
+        #google_translate_element {
+            position: absolute;
+            left: -10000px;
+            top: 0;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
+        }
+
+        .goog-logo-link,
+        .goog-te-gadget span {
+            display: none !important;
+        }
+
+        @media(max-width: 600px) {
+            #google_language_change {
+                top: 15px;
+                right: 12px;
+            }
+
+            .language-select {
+                padding: 10px 35px 10px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* =========================================
+           STACKING CARDS
+        ========================================= */
+
         .stack-wrapper {
             position: relative;
             width: min(90%, 900px);
@@ -110,7 +186,10 @@
         .timeline h3 { margin: 8px 0; }
         .stack-card ul { line-height: 2; }
 
-        /* COMMUNITY SECTION */
+        /* =========================================
+           COMMUNITY SECTION
+        ========================================= */
+
         .community-section {
             padding: 100px 8%;
             background: linear-gradient(135deg, #09091d, #11102d);
@@ -237,7 +316,10 @@
             background: linear-gradient(90deg, #00c6ff, #8b5cf6);
         }
 
-        /* REGISTRATION AND LOGIN SCREEN */
+        /* =========================================
+           REGISTRATION AND LOGIN SCREEN
+        ========================================= */
+
         .registration-section {
             min-height: 100vh;
             display: flex;
@@ -429,6 +511,7 @@
         }
 
         /* COMMUNITY: SHOW ONLY SHARED TOTAL */
+
         .community-stats {
             grid-template-columns: 1fr;
             max-width: 500px;
@@ -439,7 +522,10 @@
             display: none !important;
         }
 
-        /* ACCOUNT DASHBOARD */
+        /* =========================================
+           ACCOUNT DASHBOARD
+        ========================================= */
+
         .account-page[hidden],
         .ai-window[hidden] {
             display: none !important;
@@ -593,6 +679,7 @@
         }
 
         /* MOBILE ACCOUNT BUTTON */
+
         #mobileAccountButton {
             display: none;
             position: fixed;
@@ -610,7 +697,10 @@
             cursor: pointer;
         }
 
-        /* AI ASSISTANT BUTTON */
+        /* =========================================
+           AI ASSISTANT BUTTON
+        ========================================= */
+
         .ai-assistant {
             position: fixed;
             right: 25px;
@@ -635,6 +725,7 @@
         .ai-toggle small { font-weight: bold; font-size: 10px; }
 
         /* AI CHAT WINDOW */
+
         .ai-window {
             position: absolute;
             right: 0;
@@ -826,6 +917,24 @@
 
 <body>
 
+    <!-- MODERN LANGUAGE SELECTOR -->
+    <div id="google_language_change">
+        <select
+            class="language-select"
+            id="languageSelector"
+            aria-label="Choose website language"
+        >
+            <option value="en">🇬🇧 English</option>
+            <option value="uz">🇺🇿 O'zbek</option>
+            <option value="ru">🇷🇺 Русский</option>
+        </select>
+
+        <span class="language-arrow">⌄</span>
+    </div>
+
+    <!-- GOOGLE TRANSLATE ENGINE -->
+    <div id="google_translate_element"></div>
+
     <!-- FIRST SCREEN: REGISTRATION / LOGIN -->
     <section class="registration-section" id="registrationSection">
         <div class="registration-container">
@@ -969,14 +1078,13 @@
                 <li><a href="#path">Path</a></li>
                 <li><a href="#community">Community</a></li>
                 <li><a href="#" id="accountButton">My Account</a></li>
-                     <!-- MOBILE ACCOUNT BUTTON -->
-        <button type="button" id="mobileAccountButton">
-            👤 MY ACCOUNT
-        </button>
+
+                <!-- MOBILE ACCOUNT BUTTON -->
+                <button type="button" id="mobileAccountButton">
+                    👤 MY ACCOUNT
+                </button>
             </ul>
         </nav>
-
-        
 
         <!-- HERO -->
         <header class="hero" id="top">
@@ -1468,7 +1576,6 @@
         const auth = firebase.auth();
 
         // KEEP USERS SIGNED IN ON THE DEVICE THEY USE.
-        // They can sign in on another device with the same email/password.
         auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
             .catch(error => console.error("Auth persistence error:", error));
 
@@ -1613,8 +1720,6 @@
             }
 
             // AUTHENTICATION STATE
-            // This automatically restores a signed-in user when they reopen
-            // the website on a device where they previously logged in.
             auth.onAuthStateChanged(async function(user) {
                 if (user) {
                     await enterWebsite(user);
@@ -1697,7 +1802,6 @@
                         await database.ref("users/" + newUser.uid).set(userProfile);
 
                         // INCREASE THE SHARED COUNT ONLY AFTER A NEW ACCOUNT
-                        // HAS BEEN CREATED. LOGINS NEVER INCREASE THIS COUNT.
                         const countResult = await counterRef.transaction(function(currentCount) {
                             return (Number(currentCount) || 0) + 1;
                         });
@@ -1709,7 +1813,6 @@
                         message.textContent = "Registration successful! Opening your website...";
                     }
 
-                    // Firebase onAuthStateChanged will also open the website.
                     const signedInUser = auth.currentUser;
 
                     if (signedInUser) {
@@ -1725,9 +1828,7 @@
                         errorMessage = "This email already has an account. Please log in instead.";
                     } else if (error.code === "auth/invalid-email") {
                         errorMessage = "Please enter a valid email address.";
-                    } else if (
-                        error.code === "auth/weak-password"
-                    ) {
+                    } else if (error.code === "auth/weak-password") {
                         errorMessage = "Your password is too weak. Use at least 6 characters.";
                     } else if (
                         error.code === "auth/user-not-found" ||
@@ -1939,6 +2040,103 @@
                 });
             });
         });
+    </script>
+
+
+    <!-- =========================================
+         LANGUAGE TRANSLATION SYSTEM
+    ========================================= -->
+
+    <script>
+        let pendingLanguage = null;
+
+        // APPLY SELECTED LANGUAGE
+        function changeWebsiteLanguage(language, attempts = 0) {
+
+            const translateSelect = document.querySelector(
+                ".goog-te-combo"
+            );
+
+            if (!translateSelect) {
+                if (attempts < 20) {
+                    setTimeout(function() {
+                        changeWebsiteLanguage(language, attempts + 1);
+                    }, 500);
+                } else {
+                    console.warn("Google Translate is not available yet.");
+                }
+
+                return;
+            }
+
+            translateSelect.value = language;
+
+            translateSelect.dispatchEvent(
+                new Event("change", { bubbles: true })
+            );
+        }
+
+        // GOOGLE TRANSLATE INITIALIZATION
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                    includedLanguages: "en,uz,ru",
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+
+            if (pendingLanguage) {
+                const language = pendingLanguage;
+                pendingLanguage = null;
+
+                setTimeout(function() {
+                    changeWebsiteLanguage(language);
+                }, 700);
+            }
+        }
+
+        // LANGUAGE SELECTOR
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const selector = document.getElementById(
+                "languageSelector"
+            );
+
+            // RESTORE SAVED LANGUAGE
+            const savedLanguage = localStorage.getItem(
+                "azizbek_language"
+            );
+
+            if (
+                savedLanguage &&
+                ["en", "uz", "ru"].includes(savedLanguage)
+            ) {
+                selector.value = savedLanguage;
+                pendingLanguage = savedLanguage;
+            }
+
+            // CHANGE LANGUAGE WHEN USER SELECTS AN OPTION
+            selector.addEventListener("change", function() {
+
+                const selectedLanguage = this.value;
+
+                localStorage.setItem(
+                    "azizbek_language",
+                    selectedLanguage
+                );
+
+                changeWebsiteLanguage(selectedLanguage);
+            });
+
+        });
+    </script>
+
+    <!-- GOOGLE TRANSLATE SCRIPT -->
+    <script
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
 
 </body>

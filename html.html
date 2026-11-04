@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet"  href="for.css">
+    <link rel="stylesheet"  href="css/for.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn HTML</title>
@@ -9,6 +9,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- MODERN LANGUAGE SELECTOR -->
+<div id="google_language_change">
+    <select
+        class="language-select"
+        id="languageSelector"
+        aria-label="Choose website language"
+    >
+        <option value="en">🇬🇧 English</option>
+        <option value="uz">🇺🇿 O'zbek</option>
+        <option value="ru">🇷🇺 Русский</option>
+    </select>
+
+    <span class="language-arrow">⌄</span>
+</div>
+
+<!-- GOOGLE TRANSLATE ENGINE -->
+<div id="google_translate_element" style="display:none;"></div>
 <canvas id="code-bg"></canvas>
   <header>
     <h1>Learn HTML</h1>
@@ -173,5 +190,84 @@
     </div>
 
   </main>
+<!-- LANGUAGE TRANSLATION SYSTEM -->
+<script>
+    let googleTranslateReady = false;
+    let pendingLanguage = null;
+
+    // INITIALIZE GOOGLE TRANSLATE
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'en,uz,ru',
+                autoDisplay: false
+            },
+            'google_translate_element'
+        );
+
+        googleTranslateReady = true;
+
+        if (pendingLanguage) {
+            changeWebsiteLanguage(pendingLanguage);
+            pendingLanguage = null;
+        }
+    }
+
+    // CHANGE WEBSITE LANGUAGE
+    function changeWebsiteLanguage(language) {
+
+        const translateSelect = document.querySelector(
+            '.goog-te-combo'
+        );
+
+        if (!translateSelect) {
+            pendingLanguage = language;
+            return;
+        }
+
+        translateSelect.value = language;
+
+        translateSelect.dispatchEvent(
+            new Event('change', { bubbles: true })
+        );
+    }
+
+    // LANGUAGE SELECTOR EVENT
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const selector = document.getElementById(
+            'languageSelector'
+        );
+
+        selector.addEventListener('change', function() {
+
+            const selectedLanguage = this.value;
+
+            changeWebsiteLanguage(selectedLanguage);
+
+            localStorage.setItem(
+                'azizbek_language',
+                selectedLanguage
+            );
+        });
+
+        // RESTORE PREVIOUS LANGUAGE
+        const savedLanguage = localStorage.getItem(
+            'azizbek_language'
+        );
+
+        if (savedLanguage && ['en', 'uz', 'ru'].includes(savedLanguage)) {
+            selector.value = savedLanguage;
+
+            pendingLanguage = savedLanguage;
+        }
+    });
+</script>
+
+<!-- GOOGLE TRANSLATE SCRIPT -->
+<script
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 </body>
 </html>

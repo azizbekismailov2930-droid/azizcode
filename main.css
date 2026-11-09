@@ -2211,3 +2211,109 @@
         min-height: 420px;
     }
 }
+/* =========================================
+   CODING TEACHER SECTION
+========================================= */
+
+.teacher-section {
+    padding: 80px 6%;
+    color: white;
+}
+
+.teacher-container {
+    width: min(1000px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 40px;
+    border: 1px solid rgba(0, 234, 255, 0.25);
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(23,21,46,.9), rgba(37,32,74,.9));
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+}
+
+.teacher-visual svg {
+    width: 100%;
+    max-width: 340px;
+    display: block;
+    margin: auto;
+    filter: drop-shadow(0 0 25px rgba(0, 198, 255, 0.25));
+    animation: teacherFloat 4s ease-in-out infinite;
+}
+
+.cursor { animation: cursorBlink 1s steps(2) infinite; }
+
+@keyframes teacherFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+
+@keyframes cursorBlink {
+    50% { opacity: 0; }
+}
+
+.teacher-tag {
+    color: #00eaff;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.teacher-info h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 15px 0;
+}
+
+.teacher-info h2 span { color: #00d9ff; }
+
+.teacher-info p {
+    color: #b8bdd0;
+    line-height: 1.7;
+}
+
+.teacher-points {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    line-height: 2;
+    color: #dfe4f5;
+}
+
+.teacher-code {
+    padding: 14px 18px;
+    border-left: 3px solid #8b5cf6;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    font-family: monospace;
+}
+
+.teacher-code span { display: block; color: #6c7a99; font-size: 12px; }
+.teacher-code code { color: #5ddcff; }
+
+.teacher-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 25px;
+    border-radius: 10px;
+    color: #07101d;
+    font-weight: 800;
+    text-decoration: none;
+    background: linear-gradient(90deg, #00c6ff, #8b5cf6);
+    transition: 0.3s;
+}
+
+.teacher-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 198, 255, 0.3);
+}
+
+@media (max-width: 760px) {
+    .teacher-container {
+        grid-template-columns: 1fr;
+        padding: 25px;
+        gap: 25px;
+    }
+}

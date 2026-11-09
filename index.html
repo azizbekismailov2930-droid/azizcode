@@ -1280,7 +1280,75 @@
                 </div>
             </div>
         </section>
+<!-- CODING TEACHER SECTION -->
+<section class="teacher-section" id="teacher">
+    <div class="teacher-container">
 
+        <!-- Teacher illustration (SVG) -->
+        <div class="teacher-visual">
+            <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coding teacher pointing at a code board">
+                <defs>
+                    <linearGradient id="tBody" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#00c6ff"/>
+                        <stop offset="1" stop-color="#8b5cf6"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- code board -->
+                <rect x="10" y="10" width="300" height="175" rx="16" fill="#0d0d26" stroke="#00eaff" stroke-opacity=".5"/>
+                <circle cx="30" cy="30" r="5" fill="#ff5f56"/>
+                <circle cx="48" cy="30" r="5" fill="#ffbd2e"/>
+                <circle cx="66" cy="30" r="5" fill="#27c93f"/>
+                <text x="28" y="75"  fill="#5ddcff" font-family="monospace" font-size="15">&lt;h1&gt;Hello World&lt;/h1&gt;</text>
+                <text x="28" y="105" fill="#8b5cf6" font-family="monospace" font-size="15">let skill = "coding";</text>
+                <text x="28" y="135" fill="#27c93f" font-family="monospace" font-size="15">if (practice) { grow(); }</text>
+                <rect x="28" y="150" width="9" height="16" fill="#00eaff" class="cursor"/>
+
+                <!-- body -->
+                <path d="M85 360 L85 290 Q85 245 130 245 L190 245 Q235 245 235 290 L235 360 Z" fill="url(#tBody)"/>
+                <!-- neck -->
+                <rect x="145" y="225" width="30" height="28" rx="8" fill="#f2c6a0"/>
+                <!-- head -->
+                <circle cx="160" cy="205" r="38" fill="#f2c6a0"/>
+                <!-- hair -->
+                <path d="M122 200 Q120 160 160 160 Q202 160 198 200 Q185 178 160 178 Q135 178 122 200 Z" fill="#2b2140"/>
+                <!-- glasses -->
+                <rect x="132" y="198" width="22" height="16" rx="5" fill="none" stroke="#0d0d26" stroke-width="3"/>
+                <rect x="166" y="198" width="22" height="16" rx="5" fill="none" stroke="#0d0d26" stroke-width="3"/>
+                <line x1="154" y1="206" x2="166" y2="206" stroke="#0d0d26" stroke-width="3"/>
+                <!-- smile -->
+                <path d="M148 225 Q160 235 172 225" fill="none" stroke="#9a5b3c" stroke-width="3" stroke-linecap="round"/>
+                <!-- pointing arm -->
+                <path d="M225 270 Q275 250 262 200" fill="none" stroke="#25204a" stroke-width="18" stroke-linecap="round"/>
+                <circle cx="262" cy="196" r="10" fill="#f2c6a0"/>
+            </svg>
+        </div>
+
+        <!-- Text -->
+        <div class="teacher-info">
+            <span class="teacher-tag">YOUR CODING MENTOR</span>
+            <h2>Learn to code <span>step by step</span></h2>
+            <p>
+                Every lesson starts simple: read the example, write your own
+                code, and break things on purpose. Mistakes are how
+                programmers grow.
+            </p>
+
+            <ul class="teacher-points">
+                <li>✔ Clear examples for HTML, CSS, JavaScript and C++</li>
+                <li>✔ Small practical projects after every topic</li>
+                <li>✔ Ask the AI assistant when you get stuck</li>
+            </ul>
+
+            <div class="teacher-code">
+                <span>// lesson 01</span>
+                <code>console.log("Let's start!");</code>
+            </div>
+
+            <a href="#skills" class="teacher-btn">Start Learning →</a>
+        </div>
+    </div>
+</section>
         <!-- STACKING CARDS -->
         <section class="stack-wrapper" id="path">
 

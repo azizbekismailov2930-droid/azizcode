@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,8 @@
     <title>AZIZBEK | Main Page</title>
     <meta name="author" content="azizbek ismailov kaxramanovich">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="main.css">
     
@@ -915,6 +918,14 @@
 
 <body>
 
+<div class="azizbek-atmosphere">
+    <div class="ambient-glow glow-blue"></div>
+    <div class="ambient-glow glow-purple"></div>
+    <div class="ambient-glow glow-cyan"></div>
+    <div class="ambient-grid"></div>
+    <div class="ambient-light"></div>
+</div>
+    
     <!-- MODERN LANGUAGE SELECTOR -->
     <div id="google_language_change">
         <select
@@ -1077,18 +1088,11 @@
                 <li><a href="#community">Community</a></li>
                 <li><a href="#" id="accountButton">My Account</a></li>
 
-                <!-- CHANGED (fix #2): the mobile button was here, directly inside <ul>.
-                     A <ul> may contain only <li>, so the button was moved below, after </ul>.
+                <!-- MOBILE ACCOUNT BUTTON -->
                 <button type="button" id="mobileAccountButton">
                     👤 MY ACCOUNT
                 </button>
-                -->
             </ul>
-
-            <!-- MOBILE ACCOUNT BUTTON (CHANGED: now outside <ul>, still inside <nav>) -->
-            <button type="button" id="mobileAccountButton">
-                👤 MY ACCOUNT
-            </button>
         </nav>
 
         <!-- HERO -->
@@ -1116,10 +1120,7 @@
         <div class="sticker html a7">HTML</div>
         <div class="sticker css a8">CSS</div>
         <div class="sticker cpp a9">C++</div>
-        <!-- CHANGED (fix #4): the text is CSS, so the class must be "css", not "cpp"
         <div class="sticker cpp a10">CSS</div>
-        -->
-        <div class="sticker css a10">CSS</div>
         <div class="sticker html a11">HTML</div>
 
         <!-- SKILLS -->
@@ -1282,12 +1283,8 @@
 
 </div>
                     <span class="website-tag">WEB DEVELOPMENT</span>
-                <!-- CHANGED (fix #1): these two </div> had no opening tag.
-                     The first one closed #mainWebsite too early, so the sections below
-                     were visible without login. They are commented out, not deleted.
                 </div>
             </div>
-                -->
         </section>
 <!-- CODING TEACHER SECTION -->
 <section class="teacher-section" id="teacher">
@@ -1355,7 +1352,11 @@
             </div>
 
             <a href="#skills" class="teacher-btn">Start Learning →</a>
+            
         </div>
+        
+
+
     </div>
 </section>
         <!-- STACKING CARDS -->
@@ -1513,7 +1514,31 @@
                 </p>
             </div>
         </section>
+        <div class="instagram-wrapper">
+<div class="instagram-contact">
+    <div class="instagram-info">
+        <span class="instagram-icon">
+            <i class="fa-brands fa-instagram"></i>
+        </span>
 
+        <div>
+            <h3>Found a mistake or have advice?</h3>
+            <p>Help me improve! Send me your ideas on Instagram.</p>
+        </div>
+    </div>
+
+    <a
+        href="https://www.instagram.com/kaxramonovich__001/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="instagram-button"
+    >
+        <i class="fa-brands fa-instagram"></i>
+        Visit My Instagram
+        <span>↗</span>
+    </a>
+</div>
+        </div>
         <!-- FOOTER -->
         <footer class="footer">
             <p>© 2026 Azizbek Ismailov</p>
@@ -1636,9 +1661,13 @@
                         required
                     >
                     <button type="submit" aria-label="Send message">➤</button>
+                    
                 </form>
+                
             </div>
+            
         </div>
+        
     </div>
     <!-- END MAIN WEBSITE -->
 
@@ -2088,14 +2117,11 @@
             function getAIResponse(question) {
                 const q = question.toLowerCase().trim();
 
-                // CHANGED (fix #3): old code matched "hi" inside words like "this", "which", "think".
-                // The old check is kept here as a comment, the new one uses whole words only (\b).
-                // if (
-                //     q.includes("hello") ||
-                //     q.includes("hi") ||
-                //     q.includes("hey")
-                // ) {
-                if (/\b(hello|hi|hey)\b/.test(q)) {
+                if (
+                    q.includes("hello") ||
+                    q.includes("hi") ||
+                    q.includes("hey")
+                ) {
                     return "Hello! 👋 Welcome to AZIZBEK IT Community. How can I help you today?";
                 }
 

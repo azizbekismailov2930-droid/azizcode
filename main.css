@@ -2317,3 +2317,384 @@
         gap: 25px;
     }
 }
+/* =========================================
+   CYBER ENERGY - INSTAGRAM CONTACT
+========================================= */
+
+.instagram-contact {
+    position: relative;
+    width: 100%;
+    max-width: 470px;
+    margin-top: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        rgba(15, 20, 48, 0.98),
+        rgba(30, 24, 65, 0.95)
+    );
+
+    border: 1px solid rgba(0, 220, 255, 0.45);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 15px rgba(0, 220, 255, 0.08),
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    transition: 0.35s ease;
+}
+
+/* Glowing hover effect */
+
+.instagram-contact:hover {
+    transform: translateY(-5px);
+    border-color: #00eaff;
+
+    box-shadow:
+        0 0 12px rgba(0, 234, 255, 0.25),
+        0 0 30px rgba(139, 92, 255, 0.2);
+}
+
+/* TOP INFORMATION */
+
+.instagram-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 15px;
+}
+
+.instagram-icon {
+    min-width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    color: white;
+    font-size: 23px;
+
+    background: linear-gradient(
+        135deg,
+        #00d9ff,
+        #7657ff
+    );
+
+    box-shadow: 0 0 18px rgba(0, 217, 255, 0.3);
+}
+
+.instagram-info h3 {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0 0 5px;
+    text-align: center;}
+    /* CENTER INSTAGRAM CARD */
+.instagram-card {
+    display: block;
+    width: min(450px, 100%);
+    margin: 40px auto 0;
+    position: relative;
+
+}
+.instagram-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.instagram-info p {
+    color: #aeb8d5;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ENERGETIC INSTAGRAM BUTTON */
+
+.instagram-button {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 13px 18px;
+    box-sizing: border-box;
+
+    overflow: hidden;
+    border-radius: 11px;
+
+    background: linear-gradient(
+        100deg,
+        #00cfff,
+        #536dff,
+        #9457ff
+    );
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 207, 255, 0.2);
+
+    transition: all 0.3s ease;
+}
+
+/* Moving light */
+
+.instagram-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+    transition: 0.6s;
+}
+
+.instagram-button:hover::before {
+    left: 150%;
+}
+
+.instagram-button:hover {
+    transform: translateY(-3px) scale(1.015);
+
+    box-shadow:
+        0 0 18px rgba(0, 217, 255, 0.4),
+        0 0 30px rgba(139, 92, 255, 0.3);
+}
+
+.instagram-button span {
+    font-size: 19px;
+    transition: 0.3s;
+}
+
+.instagram-button:hover span {
+    transform: translate(4px, -4px);
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+    .instagram-contact {
+        max-width: 100%;
+        padding: 14px;
+        margin-top: 18px;
+    }
+
+    .instagram-info h3 {
+        font-size: 14px;
+    }
+
+    .instagram-info p {
+        font-size: 11px;
+    }
+
+    .instagram-button {
+        padding: 13px;
+        font-size: 13px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .instagram-contact,
+    .instagram-button,
+    .instagram-button::before,
+    .instagram-button span {
+        transition: none;
+    }
+}
+
+/* ==========================================
+   AZIZBEK — SUPREME DARK CYBER BACKGROUND
+   Inspired by SuperEx.com
+========================================== */
+
+html {
+    background: #050711;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% -15%,
+            rgba(20, 65, 150, 0.22),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #050711 0%,
+            #080d1c 45%,
+            #050817 100%
+        ) !important;
+
+    color: #f4f7ff;
+}
+
+/* REMOVE OLD BACKGROUND ELEMENT */
+
+.azizbek-atmosphere {
+    display: none !important;
+}
+
+/* MAIN ANIMATED LIGHT */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 20% 25%,
+            rgba(0, 105, 255, 0.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 35%,
+            rgba(105, 45, 255, 0.17),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 50% 85%,
+            rgba(0, 195, 255, 0.12),
+            transparent 35%
+        );
+
+    filter: blur(65px);
+
+    animation: superExAtmosphere 18s ease-in-out infinite alternate;
+}
+
+@keyframes superExAtmosphere {
+    0% {
+        transform: translate3d(-2%, -1%, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(2%, 2%, 0) scale(1.08);
+    }
+
+    100% {
+        transform: translate3d(-1%, 3%, 0) scale(1.03);
+    }
+}
+
+/* SUBTLE FUTURISTIC GRID */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(100, 145, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(100, 145, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+}
+
+/* PREMIUM GLASS SECTIONS */
+
+.hero,
+.stack-card,
+.mini-card,
+.community-section,
+.teacher-container,
+.instagram-contact {
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-color: rgba(100, 155, 255, 0.16);
+}
+
+/* SOFT BLUE LIGHT ON HOVER */
+
+.mini-card:hover,
+.stack-card:hover,
+.website-block.interactive-card:hover {
+    border-color: rgba(0, 195, 255, 0.55);
+
+    box-shadow:
+        0 0 25px rgba(0, 125, 255, 0.12),
+        0 20px 60px rgba(0, 0, 0, 0.30);
+}
+
+/* MOBILE OPTIMIZATION */
+
+@media (max-width: 768px) {
+    body::before {
+        filter: blur(45px);
+        animation-duration: 24s;
+    }
+
+    body::after {
+        background-size: 42px 42px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    body::before {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
